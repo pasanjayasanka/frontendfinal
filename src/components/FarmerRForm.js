@@ -144,3 +144,5 @@ handleSubmit = (e) => {
       }
  
 export default FarmerRForm
+
+/*Farmer Register Form */
