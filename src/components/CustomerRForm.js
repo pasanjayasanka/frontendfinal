@@ -135,3 +135,5 @@ handleSubmit = (e) => {
         }
       }
         export default CustomerRForm
+
+        /* Cutomer Register form */
