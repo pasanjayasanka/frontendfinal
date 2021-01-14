@@ -47,7 +47,7 @@ validate = () => {
   if (data.address === '') errors.address = 'Address can not be blank.';
   if (data.ascrNo === '') errors.ascrNo = 'AscrNo can not be blank.';
   if (data.agriBranch === '') errors.agriBranch = 'AgriBranch can not be blank.';
-  if (data.nic === '') errors.nic = 'nic can not be blank.';
+  if (data.nic === '') errors.nic = 'NIC can not be blank.';
   if (data.phone === '') errors.phone = 'phone can not be blank.';
   if (data.password === '') errors.password = 'Password must be valid.';
   if (data.confirmPassword !== data.password) errors.confirmPassword = 'Passwords must match.';
