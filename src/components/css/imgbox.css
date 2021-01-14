@@ -1,5 +1,5 @@
 #imagebox{
-    margin: 50px 0px;
+    margin: 25px 0px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -84,6 +84,8 @@
 }
 
 #Footerbox{
+    position: fixed;
+    bottom: 0;
     margin: 0px 0px;
     width: 100%;
     display: flex;
@@ -107,4 +109,37 @@
         color: rgb(255, 254, 254);
         justify-content: center;
         margin: 0px 200px;
+    }
+
+    .minicard
+    {
+        min-width: 100px;
+        min-height: 200px;
+        border: 2px solid rgba(40, 32, 32, 0.5);
+        overflow: hidden;
+        padding: 10px;
+        box-shadow: 2px 8px 20px rgba(212, 206, 206, 0.801);
+        margin: 20px 10px;
+        transition: 0.5s linear;
+    }
+    .minicard img{
+        max-width: 150px;
+        width: 100%;
+        height: 75%;
+        max-height: 200px;
+        display: block;
+        object-fit: cover;
+    }
+    .minicard button{
+        border: none;
+        outline: none;
+        background: rgb(46, 182, 13);
+        color: rgb(252, 250, 250);
+        width: 100%;
+        height: 30px;
+        display: block;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 15px 0;
     }

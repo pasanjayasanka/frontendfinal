@@ -1,10 +1,11 @@
 import React from 'react'
+import './css/Fontstyle.css'
 import {  Row } from 'reactstrap';
 const About = () => {
   return (
     <div>
       <div className="container">
-        <h4 className="center">ABOUT</h4>
+        <h4 className="title">ABOUT</h4>
         <div id="Registerbox">
              <div className="box">
       <Row>

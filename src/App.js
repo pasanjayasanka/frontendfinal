@@ -11,6 +11,10 @@ import FarmerRForm from './components/FarmerRForm'
 import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
 import Search from './components/Search'
+import Vegetable from './components/Vegetable'
+import Fruit from "./components/Fruit";
+import Dairy from "./components/Dairy";
+import Grain from "./components/Grains";
 
 class App extends Component {
   render() {
@@ -26,7 +30,11 @@ class App extends Component {
           <Route path='/CustomerRForm' component={CustomerRForm} /> 
           <Route path='/FarmerRForm' component={FarmerRForm} />  
           <Route path='/AdminPanel' component={AdminPanel} />  
-          <Route path='/Search' component={Search} /> 
+          <Route path='/Search' component={Search} />
+          <Route path='/Vegetable' component={Vegetable}/>
+          <Route path='/Fruit' component={Fruit}/>
+          <Route path='/Dairy' component={Dairy}/>
+          <Route path='/Grain' component={Grain}/>
           <Footer />      
         </div>
        
