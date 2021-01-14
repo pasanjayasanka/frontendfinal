@@ -11,6 +11,7 @@ import FarmerRForm from './components/FarmerRForm'
 import AdminPanel from './components/AdminPanel'
 import Footer from './components/Footer'
 import Search from './components/Search'
+import AddProduct from './components/AddProduct'
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path='/FarmerRForm' component={FarmerRForm} />  
           <Route path='/AdminPanel' component={AdminPanel} />  
           <Route path='/Search' component={Search} /> 
+          <Route path='/AddProduct' component={AddProduct} /> 
           <Footer />      
         </div>
        
