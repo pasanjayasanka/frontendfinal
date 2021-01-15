@@ -16,7 +16,7 @@ const LoginForm = () => {
                    </div>
                     <div class="row">
                         <label class="datalabel"> PASSWORD </label>
-                        <input type="text" placeholder="Enter password " name="password" required/>
+                        <input class="datainput" type="password" placeholder="Enter password " name="password" required/>
                     </div>
 
                     <button class="loginbutton"> Login</button>
