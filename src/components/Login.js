@@ -9,7 +9,6 @@ import farmericon from './../img/farmer-icon.JPG'
 
 
 
-
 const Login = () => {
   return (
     <div className="Container">
@@ -20,7 +19,7 @@ const Login = () => {
       <img src={farmericon} alt="" />
       <div className="content">
       <span>Log in as a farmer to add product</span>
-      <Link to="./About">
+      <Link to="./LoginForm">
      <button type="button">log in</button>
       </Link>
       </div>
@@ -31,7 +30,7 @@ const Login = () => {
       <img src={customericon} alt="" />
       <div className="content">
       <span>Log in as a customer to buy product</span>
-      <Link to="./About">
+      <Link to="./LoginForm">
      <button type="button">log in</button>
       </Link>
       </div>
@@ -42,7 +41,7 @@ const Login = () => {
       <img src={adminicon} alt="" />
       <div className="content">
       <span>Log in as a admin for checking </span>
-      <Link to="./About">
+      <Link to="./LoginForm">
      <button type="button">log in</button>
       </Link>
       </div>
