@@ -1,29 +1,29 @@
 import React from 'react'
 import './css/Fontstyle.css'
-import {  Row } from 'reactstrap';
+import { Row } from 'reactstrap'
+
+import about_background from './../img/about_background.jpg'
+
 const About = () => {
   return (
     <div>
-      <div className="container">
+      <div className="container" >
         <h4 className="title">ABOUT</h4>
         <div id="Registerbox">
-             <div className="box">
+             <div style={{ backgroundImage: `url(${about_background})`,backgroundSize: 'cover'}}>
       <Row>
-        <p>This project is aimed at how the farmers can improve the efficiency of 
+        <p class = "para">This project is aimed at how the farmers can improve the efficiency of 
           transaction between buyers so that the quality and the freshness of the product will be 
           saved until it reaches to the consumers. Not only for whole sellers, it also facilitate ordinary people to 
           buy from farmer directly as convenience.  </p>
-          </Row>
-          <Row>
-          <p>The outcome consists of web application and mobile app. Each transaction is done 
+
+          <p class = "para">The outcome consists of web application and mobile app. Each transaction is done 
             through the website so that 1% of commission will be charged per transaction.  </p>
-            </Row>
-            <Row>
-            <p>Buyer should pay 10% of the order bill through online.Balance can be paid to the farmer 
+          
+            <p class = "para">Buyer should pay 10% of the order bill through online.Balance can be paid to the farmer 
               directly when buying the.</p>
-              </Row>
-              <Row>
-              <p>Farmers can collect other 9%  from the agricultural center in their area directly. </p>
+              
+              <p class = "para">Farmers can collect other 9%  from the agricultural center in their area directly. </p>
               </Row>
               </div>
               </div>
