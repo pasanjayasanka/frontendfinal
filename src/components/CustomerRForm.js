@@ -14,7 +14,6 @@ class CustomerRForm extends Component  {
   getInitialState = () => ({
       data: {
         
-        
             
             "firstName": '',
             "lastName": '',
@@ -136,4 +135,4 @@ handleSubmit = (e) => {
       }
         export default CustomerRForm
 
-        /* Cutomer Register form */
+        /* Customer Register form */

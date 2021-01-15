@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 
 import './css/imgbox.css'
+
 import carrot from'./../vegetable/carrot.jpg'
 import potato from './../vegetable/potato.jpg'
 
@@ -18,6 +19,7 @@ const Vegetable = () => {
                         </Link>
                     </div>
                 }
+
                 {
                     <div className="minicard">
                         <img src={potato} alt=""/>

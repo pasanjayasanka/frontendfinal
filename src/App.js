@@ -15,8 +15,16 @@ import Vegetable from './components/Vegetable'
 import Fruit from "./components/Fruit";
 import Dairy from "./components/Dairy";
 import Grain from "./components/Grains";
+import LoginForm from "./components/LoginForm";
+
+
+
+
 
 class App extends Component {
+
+
+
   render() {
     return (
       <BrowserRouter>
@@ -35,6 +43,7 @@ class App extends Component {
           <Route path='/Fruit' component={Fruit}/>
           <Route path='/Dairy' component={Dairy}/>
           <Route path='/Grain' component={Grain}/>
+          <Route path='/LoginForm' component={LoginForm}/>
           <Footer />      
         </div>
        
