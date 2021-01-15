@@ -15,6 +15,7 @@ import cucumber from './../vegetable/cucumber.jpg'
 import cabbage from './../vegetable/cabbage.jpg'
 import mushroom from './../vegetable/mushroom.jpg'
 import tomato from './../vegetable/tomato.jpeg'
+import lady from './../vegetable/lady.jpg'
 
 const Vegetable = () => {
     return(
@@ -125,6 +126,15 @@ const Vegetable = () => {
                             <img src={tomato} alt=""/>
                             <Link to="./About">
                                 <button type="button">tomato</button>
+                            </Link>
+                        </div>
+                    }
+
+                    {
+                        <div className="minicard">
+                            <img src={lady} alt=""/>
+                            <Link to="./About">
+                                <button type="button">lady finger</button>
                             </Link>
                         </div>
                     }
