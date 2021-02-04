@@ -16,7 +16,8 @@ import Fruit from "./components/Fruit";
 import Dairy from "./components/Dairy";
 import Grain from "./components/Grains";
 import LoginForm from "./components/LoginForm";
-
+import AddProduct from './components/AddProduct'
+import MyProduct from './components/MyProduct'
 
 
 
@@ -44,6 +45,8 @@ class App extends Component {
           <Route path='/Dairy' component={Dairy}/>
           <Route path='/Grain' component={Grain}/>
           <Route path='/LoginForm' component={LoginForm}/>
+          <Route path='/AddProduct' component={AddProduct} />  
+          <Route path='/MyProduct' component={MyProduct} /> 
           <Footer />      
         </div>
        
