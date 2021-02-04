@@ -15,7 +15,7 @@ const Navbar = () => {
           <li><a href='/About'>About</a></li>
           <li><a href='/Search'>Search</a></li>
           <li><a href='/MyProduct'>MyProduct</a></li>
-          <li><a href='/AdminPanel'>AdminPanel</a></li>
+          <li><a href='/Admin/AdminPanel'>AdminPanel</a></li>
         </ul>
       </div>
     </nav> 
