@@ -11,15 +11,19 @@ this.state = {
     categoryName: '',  
     addresse: '',
     //unitPrice: '',
-    //unitWeight: '' 
+    //unitWeight: ''
      
 }
 
 }   
 Addproduct=()=>{  
-  axios.post('https://localhost:44374/api/Product', {productName:this.state.productName,quantity:this.state.quantity,  
-  categoryName:this.state.categoryName, addresse:this.state.addresse
-  //, unitPrice:this.state.unitPrice,  unitWeight:this.state.unitWeight
+  axios.post(
+      'https://localhost:44374/api/Product',
+      {productName:this.state.productName,
+            quantity:this.state.quantity,
+            categoryName:this.state.categoryName,
+            addresse:this.state.addresse
+            //, unitPrice:this.state.unitPrice,  unitWeight:this.state.unitWeight
 })  
 .then(json => {  
 if(json.data.Status==='Success'){  
@@ -70,17 +74,17 @@ return (
           </Col>  
         </FormGroup> 
         {/*
-        <FormGroup row>  
-          <Label for="unitPrice" sm={2}>unitPrice</Label>  
-          <Col sm={10}>  
-            <Input type="number" name="unitPrice" onChange={this.handleChange} value={this.state.unitPrice} placeholder="Enter unitPrice" />  
-          </Col>  
+        <FormGroup row>
+          <Label for="unitPrice" sm={2}>unitPrice</Label>
+          <Col sm={10}>
+            <Input type="number" name="unitPrice" onChange={this.handleChange} value={this.state.unitPrice} placeholder="Enter unitPrice" />
+          </Col>
         </FormGroup>
-        <FormGroup row>  
-          <Label for="unitWeight" sm={2}>unitPrice</Label>  
-          <Col sm={10}>  
-            <Input type="number" name="unitWeight" onChange={this.handleChange} value={this.state.unitWeight} placeholder="Enter unitWeight" />  
-          </Col>  
+        <FormGroup row>
+          <Label for="unitWeight" sm={2}>unitPrice</Label>
+          <Col sm={10}>
+            <Input type="number" name="unitWeight" onChange={this.handleChange} value={this.state.unitWeight} placeholder="Enter unitWeight" />
+          </Col>
         </FormGroup>*/}
       </Col>  
       <Col>  
