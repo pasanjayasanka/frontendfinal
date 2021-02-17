@@ -1,58 +1,121 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './css/Fontstyle.css'
 import './css/Button.css'
+import axios from 'axios';
+import {Link} from 'react-router-dom'
 //import Table from "react-bootstrap/Table";
 import {Button,Table} from "reactstrap";
 
-const Cart = () => {
-  return (
-    <div>
-      <div className="container">
-        <h4 className="title">CART</h4>
-          <Table>
-              <thead>
-              <tr>
-                  <th>No</th>
-                  <th>Product</th>
-                  <th>Amount</th>
-                  <th>Price(Rs)</th>
-                  <th></th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                  <td>1</td>
-                  <td>Carrot</td>
-                  <td>5</td>
-                  <td>500</td>
-                  <td><button class='cartdeletebutton'>Delete</button></td>
-              </tr>
-              <tr>
-                  <td>2</td>
-                  <td>Milk</td>
-                  <td>3</td>
-                  <td>350</td>
-                  <td><button class='cartdeletebutton'>Delete</button></td>
-              </tr>
-              <tr>
-                  <td></td>
-                  <td>Total</td>
-                  <td>8</td>
-                  <td>850</td>
-                  <td></td>
-              </tr>
-              </tbody>
+const apiUrl = 'https://localhost:44374/api/Carts/';
 
-          </Table>
-          <div class='center'>
-              <button className='cartBuy'>Buy</button>
-          </div>
+var total = 0;
 
-      </div>
-    </div>
+class GetCarts extends React.Component{
 
 
-  )
+    constructor(props){
+        super(props);
+        this.state = {
+            error:null,
+            carts:[],
+            response: {},
+            show: 1
+        }
+    }
+
+    componentDidMount(){
+        axios.get(apiUrl ).then(response => response.data).then(
+            (result)=>{
+                this.setState({
+                    carts:result
+                });
+            },
+            (error)=>{
+                this.setState({error});
+            }
+        )
+    }
+
+    deleteRow(productID, e){
+        axios.delete(`https://localhost:44374/api/Carts/${productID}`)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+
+                const carts = this.state.carts.filter(item => item.productID !== productID);
+                this.setState({ carts });
+            })
+        window.location.reload(false);
+
+    }
+
+
+    render(){
+        const{error,carts}=this.state;
+
+        if(error){
+            return(
+                <div className="center"><h4>Error : {error.message}!!!</h4></div>
+            )
+        }
+        else
+        {
+            return(
+                <div >
+
+                    <div style={{ margin: '10px 50px'}} >
+
+                        <Table className='carttable'>
+                            <thead className="btn-primary">
+                            <tr className='carthead'>
+                                <th>Cart Id</th>
+                                <th>Product</th>
+                                <th>Num Of Products</th>
+                                <th>Total Price</th>
+                                <th></th>
+                                <th>Option</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {carts.map(cart => (
+                                <tr key={cart.productID}>
+                                    <td>{cart.productID}</td>
+                                    <td>{cart.productName}</td>
+                                    <td>{cart.numOfProducts}</td>
+                                    <td>{cart.totalPrice}</td>
+                                    <td className='cartdata'>{total = total + cart.totalPrice}</td>
+                                    <td>
+                                        <Link to={{pathname:'./EditCart', state:{cartid:cart.productID,productname:cart.productName,quantity:cart.numOfProducts,total:cart.totalPrice} }}>
+                                            <button className='carteditbutton'>Edit</button>
+                                        </Link>
+                                        <button className='cartdeletebutton' onClick={(e) => this.deleteRow(cart.productID, e)}>Delete</button>
+                                    </td>
+                                </tr>
+
+                            ))}
+                            <tr>
+                                <td></td>
+                                <td>Total</td>
+                                <td></td>
+                                <td>{total}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </Table>
+
+                        <div className='center'>
+                            <button className='cartBuy'>Buy</button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            )
+        }
+    }
 }
 
-export default Cart
+export default GetCarts

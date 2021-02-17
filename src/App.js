@@ -27,7 +27,7 @@ import GetOrders from './components/Admin/GetOrders'
 import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
-
+import EditCart from "./components/EditCart";
 
 
 
@@ -64,6 +64,7 @@ class App extends Component {
           <Route path='/Admin/GetOrderDetails' component={GetOrderDetails} /> 
           <Route path='/Admin/GetCategories' component={GetCategories} />
           <Route path='/SearchResult' component={SearchResult} />
+          <Route path='/EditCart' component={EditCart}/>
           <Footer />
         </div>
        
