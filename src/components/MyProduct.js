@@ -54,7 +54,7 @@ class ProductList extends React.Component{
         {  
             return(  
          <div >  
-           <h4 className="center">My Products</h4>
+           <h4 className="title">My Products</h4>
            <Link to="./AddProduct">
            <Button  style={{ backgroundColor: 'FireBrick' ,margin: '0px 30px' }} >+Add Product</Button>
            </Link>

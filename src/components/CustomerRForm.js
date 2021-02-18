@@ -19,6 +19,7 @@ class CustomerRForm extends Component  {
             "lastName": '',
             "email": '',
             "password": '',
+            "confirmPassword": '',
             "address": '',
             "phone": ''
         

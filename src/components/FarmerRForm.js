@@ -21,6 +21,7 @@ class FarmerRForm extends Component  {
         "agriBranch": '',
         "nic": '',
         "password": '',
+        "confirmPassword": '',
         "phone":''
         
     },
