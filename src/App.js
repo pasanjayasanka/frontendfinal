@@ -17,6 +17,7 @@ import Grain from "./components/Grains";
 import LoginForm from "./components/LoginForm";
 import AddProduct from './components/AddProduct'
 import MyProduct from './components/MyProduct'
+import SearchResult from './components/SearchResult';
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -26,7 +27,7 @@ import GetOrders from './components/Admin/GetOrders'
 import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
-
+import EditCart from "./components/EditCart";
 
 
 
@@ -61,8 +62,10 @@ class App extends Component {
           <Route path='/Admin/GetOrders' component={GetOrders} /> 
           <Route path='/Admin/GetCarts' component={GetCarts} /> 
           <Route path='/Admin/GetOrderDetails' component={GetOrderDetails} /> 
-          <Route path='/Admin/GetCategories' component={GetCategories} /> 
-          <Footer />      
+          <Route path='/Admin/GetCategories' component={GetCategories} />
+          <Route path='/SearchResult' component={SearchResult} />
+          <Route path='/EditCart' component={EditCart}/>
+          <Footer />
         </div>
        
       </BrowserRouter>
