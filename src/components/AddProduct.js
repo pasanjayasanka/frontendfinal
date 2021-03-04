@@ -11,31 +11,16 @@ this.state = {
     quantity: 0,  
     categoryName: '',  
     addresse: '',
-<<<<<<< HEAD
     unitPrice: 0,
     unitWeight: 0 
-=======
-    //unitPrice: '',
-    //unitWeight: ''
->>>>>>> d4b8ad11ddba04dbfffe534bf34cb33163c09c3e
      
 }
 
 }   
 Addproduct=()=>{  
-<<<<<<< HEAD
   axios.post('https://localhost:44374/api/Product', {productName:this.state.productName,quantity:parseFloat(this.state.quantity),  
   categoryName:this.state.categoryName, addresse:this.state.addresse
   , unitPrice:parseFloat(this.state.unitPrice),  unitWeight:parseFloat(this.state.unitWeight)
-=======
-  axios.post(
-      'https://localhost:44374/api/Product',
-      {productName:this.state.productName,
-            quantity:this.state.quantity,
-            categoryName:this.state.categoryName,
-            addresse:this.state.addresse
-            //, unitPrice:this.state.unitPrice,  unitWeight:this.state.unitWeight
->>>>>>> d4b8ad11ddba04dbfffe534bf34cb33163c09c3e
 })  
 .then(json => {  
  
@@ -80,7 +65,6 @@ return (
             <Input type="text" name="addresse" onChange={this.handleChange} value={this.state.addresse} placeholder="Enter Address" />  
           </Col>  
         </FormGroup> 
-<<<<<<< HEAD
         
         <FormGroup row>  
           <Label for="unitPrice" sm={2}>Unit Price</Label>  
@@ -88,27 +72,9 @@ return (
             <Input type="number" name="unitPrice" onChange={this.handleChange} value={this.state.unitPrice} placeholder="Enter unitPrice" />  
           </Col>  
         </FormGroup>
-        <FormGroup row>  
-          <Label for="unitWeight" sm={2}>Unit Weigh</Label>  
-          <Col sm={10}>  
+        
             <Input type="number" name="unitWeight" onChange={this.handleChange} value={this.state.unitWeight} placeholder="Enter unitWeight" />  
-          </Col>  
-        </FormGroup>
-=======
-        {/*
-        <FormGroup row>
-          <Label for="unitPrice" sm={2}>unitPrice</Label>
-          <Col sm={10}>
-            <Input type="number" name="unitPrice" onChange={this.handleChange} value={this.state.unitPrice} placeholder="Enter unitPrice" />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="unitWeight" sm={2}>unitPrice</Label>
-          <Col sm={10}>
-            <Input type="number" name="unitWeight" onChange={this.handleChange} value={this.state.unitWeight} placeholder="Enter unitWeight" />
-          </Col>
-        </FormGroup>*/}
->>>>>>> d4b8ad11ddba04dbfffe534bf34cb33163c09c3e
+          
       </Col>  
       <Col>  
         <FormGroup row>  
