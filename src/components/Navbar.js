@@ -16,9 +16,10 @@ const Navbar = () => {
           <li><a href='/Search'>Search</a></li>
           <li><a href='/MyProduct'>MyProduct</a></li>
           <li><a href='/Admin/AdminPanel'>AdminPanel</a></li>
+
         </ul>
       </div>
-    </nav> 
+    </nav>
   )
 }
 
