@@ -18,6 +18,8 @@ import LoginForm from "./components/LoginForm";
 import AddProduct from './components/AddProduct'
 import MyProduct from './components/MyProduct'
 import SearchResult from './components/SearchResult';
+import Checkout from './components/Checkout';
+import Receipt from './components/Receipt';
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -66,7 +68,9 @@ class App extends Component {
           <Route path='/Admin/GetCategories' component={GetCategories} />
           <Route path='/SearchResult' component={SearchResult} />
           <Route path='/EditCart' component={EditCart}/>
-          <Route path='/Setting' component={Setting} />
+          
+          <Route path='/Checkout' component={Checkout}/>
+          <Route path='/Receipt' component={Receipt}/>
           <Footer />
         </div>
        
