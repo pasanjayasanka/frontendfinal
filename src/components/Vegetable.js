@@ -25,7 +25,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={carrot} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Carrot'}  }} >
                                 <button type="button">Carrot</button>
                             </Link>
                         </div>
@@ -34,7 +34,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={potato} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Potato'}  }} >
                                 <button type="button">potato</button>
                             </Link>
                         </div>
@@ -43,7 +43,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={leeks} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Leeks'}  }} >
                                 <button type="button">leeks</button>
                             </Link>
                         </div>
@@ -52,7 +52,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={beetroot} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Beetroot'}  }} >
                                 <button type="button">beetroot</button>
                             </Link>
                         </div>
@@ -61,7 +61,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={bringle} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Bringle'}  }} >
                                 <button type="button">bringle</button>
                             </Link>
                         </div>
@@ -70,7 +70,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={pumkin} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Pumkin'}  }} >
                                 <button type="button">pumkin</button>
                             </Link>
                         </div>
@@ -79,7 +79,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={union} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Union'}  }} >
                                 <button type="button">union</button>
                             </Link>
                         </div>
@@ -88,7 +88,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={bell} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Bell pepper'}  }} >
                                 <button type="button">bell pepper</button>
                             </Link>
                         </div>
@@ -97,7 +97,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={cucumber} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Cucumber'}  }} >
                                 <button type="button">cucumber</button>
                             </Link>
                         </div>
@@ -106,7 +106,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={cabbage} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Cabbage'}  }} >
                                 <button type="button">cabbage</button>
                             </Link>
                         </div>
@@ -115,7 +115,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={mushroom} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Mushroom'}  }} >
                                 <button type="button">mushroom</button>
                             </Link>
                         </div>
@@ -124,7 +124,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={tomato} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'Tomato'}  }} >
                                 <button type="button">tomato</button>
                             </Link>
                         </div>
@@ -133,7 +133,7 @@ const Vegetable = () => {
                     {
                         <div className="minicard">
                             <img src={lady} alt=""/>
-                            <Link to="./About">
+                            <Link to={{pathname:'./SearchResult', state:{name:'lady Finger'}  }} >
                                 <button type="button">lady finger</button>
                             </Link>
                         </div>
