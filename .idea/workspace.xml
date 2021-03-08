@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Fruit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Fruit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,17 @@
       <workItem from="1612538343925" duration="6044000" />
       <workItem from="1612548033611" duration="890000" />
       <workItem from="1612550339593" duration="2689000" />
-      <workItem from="1612584883696" duration="9716000" />
+      <workItem from="1612584883696" duration="10426000" />
+      <workItem from="1612790960555" duration="2017000" />
+      <workItem from="1613101458518" duration="3070000" />
+      <workItem from="1613121167455" duration="4975000" />
+      <workItem from="1613502207201" duration="3664000" />
+      <workItem from="1613536182367" duration="8997000" />
+      <workItem from="1613728687100" duration="3456000" />
+      <workItem from="1614914635303" duration="2976000" />
+      <workItem from="1614926525558" duration="2109000" />
+      <workItem from="1614938260953" duration="1918000" />
+      <workItem from="1615180260317" duration="2808000" />
     </task>
     <servers />
   </component>
@@ -116,10 +125,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="638" y="304" key="#ESLint" timestamp="1612590482835">
+    <state x="638" y="304" key="#ESLint" timestamp="1613504401071">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="638" y="304" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1612590482835" />
+    <state x="638" y="304" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1613504401071" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606071656141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

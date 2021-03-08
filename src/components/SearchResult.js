@@ -15,8 +15,8 @@ class SearchResult extends React.Component{
             response: {},
 
             //this is for data in the cart
-            numOfProducts:'1',
-            totalPrice:'220'
+            numOfProducts:1,
+            totalPrice:220
         }
     }
 
@@ -28,14 +28,14 @@ class SearchResult extends React.Component{
 
     componentDidMount(){
          const {name}=this.props.location.state.name;
-       // // console.log(name);
+
 
         axios.get(Url ).then(response => response.data).then(
             (result)=>{
-                if(name==""){
+                if(name===""){
                     this.setState({products:result });
                 }else {
-                    console.log('goes');
+                    //console.log('inside filter');
                     this.setState({products:result.filter((result)=> result.productName.toLowerCase() === this.props.location.state.name.toLowerCase()) });
                     // filtering option
                 }
@@ -47,52 +47,43 @@ class SearchResult extends React.Component{
     }
 
 
-    // DeleteProduct(productId) {
-    //     const { products } = this.state;
-    //     axios.delete(Url   + productId).then(result=>{
-    //         alert('Product deleted successfully!!!');
-    //         this.setState({
-    //             response:result,
-    //             products:products.filter(product=>product.productId !== productId)
-    //         });
-    //     });
-    // }
-
-    AddToCart(ProductId) {
-        console.log(ProductId);
+    AddToCart(Product) {
+        console.log("the total price is");
+        console.log(Product.unitPrice * this.state.numOfProducts);
         console.log( this.state.numOfProducts);
-        console.log( this.state.totalPrice);
 
-        const numOfProducts= this.state.numOfProducts;
-        const    totalPrice = this.state.totalPrice;
-        const data = {numOfProducts,totalPrice};
+
+        //const Total = Product.productID;
+
+        // const numOfProducts= parseInt(this.state.numOfProducts);
+        // const totalPrice = parseInt(this.state.totalPrice);
+        // const data = {numOfProducts,totalPrice};
+        // console.log(data);
 
        // posting cart
         axios.post(
             'https://localhost:44374/api/Cart',
-            {data
-            })
-            .then(json => {
-                if(json.data.status==='success'){
-                    console.log(json.data.status);
+            {numOfProducts: parseInt(this.state.numOfProducts),totalPrice : parseInt(this.state.numOfProducts )* Product.unitPrice}
+            )
+            .then(response=> {
+                //console.log(response.status)
+               // console.log(response)
+                if(response.status === 201){
                     alert("Data Save Successfully");
-                   // this.props.history.push('/Home')
-                }
-                else{
-                    console.log(json.data.status);
-                    alert('Data not Saved');
-                    debugger;
-                   // this.props.history.push('/Home')
                 }
             })
+            .catch(error => {
+                console.log(error);
+            })
+
     }
 
     render(){
 
 
-        console.log("this");
-        console.log(this.props.location.state);
-        console.log("this");
+       // console.log("this");
+       // console.log(this.props.location.state);
+      //  console.log("this");
 
 
         const{error,products}=this.state;
@@ -139,7 +130,7 @@ class SearchResult extends React.Component{
                                         <td>{product.unitWeight}</td>
                                         <td>
                                             <Input
-                                                type="text"
+                                                type="number"
                                                 required
                                                 name="numOfProducts" onChange={this.handleChange}
                                                 value={this.state.numOfProducts} placeholder="Enter Quantity"/>
@@ -147,7 +138,7 @@ class SearchResult extends React.Component{
 
 
                                         <td><Button style={{backgroundColor: '0000CD', margin: '0px 30px'}}
-                                                    onClick={() => this.AddToCart(product.productId)}>Add to
+                                                    onClick={() => this.AddToCart(product)}>Add to
                                             cart</Button>
 
                                         </td>
