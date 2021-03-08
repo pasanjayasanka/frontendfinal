@@ -69,7 +69,7 @@ class GetProducts extends React.Component{
                         <th>Address</th>  
                         <th>Unit Price</th>  
                         <th>Unit Weight</th> 
-                        
+                        <th>Action</th> 
                       </tr>  
                     </thead>  
                     <tbody>  

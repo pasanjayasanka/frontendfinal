@@ -15,8 +15,7 @@ import Fruit from "./components/Fruit";
 import Dairy from "./components/Dairy";
 import Grain from "./components/Grains";
 import LoginForm from "./components/LoginForm";
-import AddProduct from './components/AddProduct'
-import MyProduct from './components/MyProduct'
+import ProductList from './components/MyProducts/ProductList'
 import SearchResult from './components/SearchResult';
 
 import AdminPanel from './components/Admin/AdminPanel'
@@ -53,8 +52,7 @@ class App extends Component {
           <Route path='/Dairy' component={Dairy}/>
           <Route path='/Grain' component={Grain}/>
           <Route path='/LoginForm' component={LoginForm}/>
-          <Route path='/AddProduct' component={AddProduct} />  
-          <Route path='/MyProduct' component={MyProduct} /> 
+          <Route path='/MyProducts/ProductList' component={ProductList} /> 
           <Route path='/Admin/AdminPanel' component={AdminPanel} /> 
           <Route path='/Admin/GetCustomers' component={GetCustomers} /> 
           <Route path='/Admin/GetFarmers' component={GetFarmers} /> 

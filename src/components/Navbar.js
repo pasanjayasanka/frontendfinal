@@ -14,7 +14,7 @@ const Navbar = () => {
           <li><a href='/Cart'>Cart</a></li>
           <li><a href='/About'>About</a></li>
           <li><a href='/Search'>Search</a></li>
-          <li><a href='/MyProduct'>MyProduct</a></li>
+          <li><a href='/MyProducts/ProductList'>My Products</a></li>
           <li><a href='/Admin/AdminPanel'>AdminPanel</a></li>
         </ul>
       </div>

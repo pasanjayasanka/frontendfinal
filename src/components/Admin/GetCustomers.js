@@ -66,7 +66,7 @@ class GetCustomers extends React.Component{
                         <th>Email</th>  
                         <th>Address</th>  
                         <th>Phone</th>  
-                       
+                        <th>Action</th> 
                         
                       </tr>  
                     </thead>  

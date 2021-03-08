@@ -68,7 +68,7 @@ class GetFarmers extends React.Component{
                         <th>AgriBranch</th> 
                         <th>NIC</th> 
                         <th>Phone</th> 
-                        
+                        <th>Action</th> 
                       </tr>  
                     </thead>  
                     <tbody>  
