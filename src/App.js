@@ -28,6 +28,7 @@ import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
 import EditCart from "./components/EditCart";
+import Setting from "./components/Setting"
 
 
 
@@ -65,6 +66,7 @@ class App extends Component {
           <Route path='/Admin/GetCategories' component={GetCategories} />
           <Route path='/SearchResult' component={SearchResult} />
           <Route path='/EditCart' component={EditCart}/>
+          <Route path='/Setting' component={Setting} />
           <Footer />
         </div>
        
