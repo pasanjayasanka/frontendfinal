@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 //import Table from "react-bootstrap/Table";
 import {Button,Table} from "reactstrap";
 
-const apiUrl = 'https://localhost:44374/api/Carts/';
+const apiUrl = 'https://localhost:44374/api/Cart/';
 
 var total = 0;
 
@@ -37,7 +37,7 @@ class GetCarts extends React.Component{
     }
 
     deleteRow(productID, e){
-        axios.delete(`https://localhost:44374/api/Carts/${productID}`)
+        axios.delete(`https://localhost:44374/api/Cart/${productID}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
@@ -105,7 +105,9 @@ class GetCarts extends React.Component{
                         </Table>
 
                         <div className='center'>
+                        <Link to= './Checkout'>
                             <button className='cartBuy'>Buy</button>
+                         </Link>
                         </div>
 
 

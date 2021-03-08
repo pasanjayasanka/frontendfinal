@@ -17,6 +17,8 @@ import Grain from "./components/Grains";
 import LoginForm from "./components/LoginForm";
 import ProductList from './components/MyProducts/ProductList'
 import SearchResult from './components/SearchResult';
+import Checkout from './components/Checkout';
+import Receipt from './components/Receipt';
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -27,6 +29,7 @@ import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
 import EditCart from "./components/EditCart";
+import Setting from "./components/Setting"
 
 
 
@@ -63,6 +66,9 @@ class App extends Component {
           <Route path='/Admin/GetCategories' component={GetCategories} />
           <Route path='/SearchResult' component={SearchResult} />
           <Route path='/EditCart' component={EditCart}/>
+          
+          <Route path='/Checkout' component={Checkout}/>
+          <Route path='/Receipt' component={Receipt}/>
           <Footer />
         </div>
        

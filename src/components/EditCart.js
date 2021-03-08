@@ -72,10 +72,13 @@ class EditCart extends Component{
             console.log(data);
             console.log(this.price);
             console.log(this.props.location.state.cartid);
+
             //this.setState(this.getInitialState());
         } else {
             this.setState({ errors });
         }
+
+        this.props.history.push('/Cart');
     }
 
 
