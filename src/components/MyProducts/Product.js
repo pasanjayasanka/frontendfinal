@@ -64,6 +64,8 @@ export default function Product(props) {
     const validate = () => {
         let temp = {}
         temp.productName = values.productName === "" ? false : true;
+        temp.addresse = values.addresse === "" ? false : true;
+        temp.categoryName = values.categoryName === "" ? false : true;
         temp.imageSrc = values.imageSrc === defaultImageSrc ? false : true;
         setErrors(temp)
         return Object.values(temp).every(x => x === true)
@@ -99,7 +101,7 @@ export default function Product(props) {
         <>
             
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
-                <div className="card">
+                <div className="productcard">
                     <img src={values.imageSrc} className="card-img-top" alt ="product" />
                     <div className="card-body">
                         <div className="form-group">
@@ -113,12 +115,12 @@ export default function Product(props) {
                         </div>
                         
                         <div className="form-group">
-                            <input className="form-control" placeholder="Category Name" name="categoryName"
+                            <input className={"form-control" +applyErrorClass('categoryName')} placeholder="Category Name" name="categoryName"
                                 value={values.categoryName}
                                 onChange={handleInputChange} />
                         </div>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Addresse" name="addresse"
+                            <input className={"form-control"+applyErrorClass('addresse')} placeholder="Address" name="addresse"
                                 value={values.addresse}
                                 onChange={handleInputChange} />
                         </div>

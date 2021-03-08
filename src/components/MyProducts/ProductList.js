@@ -9,7 +9,8 @@ export default function ProductList() {
 
     useEffect(() => {
         refreshProductList();
-    }, [])
+    },
+    {})
 
     const productAPI = (url = 'https://localhost:44374/api/Product/') => {
         return {
@@ -52,23 +53,23 @@ export default function ProductList() {
 
     const onDelete = (e, id) => {
         e.stopPropagation();
-        if (window.confirm('Are you sure to delete this record?'))
+        if (window.confirm('Are you sure to delete this product?'))
         productAPI().delete(id)
                 .then(res => refreshProductList())
                 .catch(err => console.log(err))
     }
 
     const imageCard = data => (
-        <div className="minicard" style={{ backgroundColor: 'white'  }} onClick={() => { showRecordDetails(data) }}>
-            <img src={data.imageSrc} style={{  margin: '0px 30px' }} className="card-img-top thumbnail" alt ="product" />
+        <div className="productminicard" style={{ backgroundColor: 'white'  }} onClick={() => { showRecordDetails(data) }}>
+            <img src={data.imageSrc} style={{  margin: '0px 30px' }} className="productcard-img-top thumbnail" alt ="Add_produt_image" />
             <div  >
-                <h6>Product - {data.productName}</h6>
-                <span>Quantity- {data.quantity}</span> <br />
+                <b><h6>Product - {data.productName}</h6></b>
                 <span>Category - {data.categoryName}</span> <br />
                 <span>Addresse - {data.addresse}</span> <br />
+                <span>Quantity- {data.quantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br />
-                <span>Price - {data.unitPrice}</span> <br />
-                <span>Weight - {data.unitWeight}</span> <br />
+                <span>Price(LKR) - {data.unitPrice}</span> <br />
+                <span>Weight(kg/l) - {data.unitWeight}</span> <br />
                 <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.productId))}>
                     <i className="far fa-trash-alt"></i>
                 </button>
@@ -82,7 +83,7 @@ export default function ProductList() {
             <div className="col-md-12">
                 <div >
                     <div className="container text-center">
-                        <h4 className="title" >Add Products</h4>
+                        <h4 className="title" >ADD PRODUCTS</h4>
                     </div>
                 </div>
             </div>

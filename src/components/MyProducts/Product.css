@@ -55,25 +55,49 @@ body {
   table tr:not(:last-child) td{
     border-bottom: 1px solid #00000020;
   }
-  .minicard
-    {
-        min-width: 100px;
-        min-height: 200px;
-        max-height: 355px;
-        max-width: 200px;
-        
-        box-shadow: 2px 8px 20px rgba(212, 206, 206, 0.801);
-        
-    }
-    .minicard img{
-        max-width: 120px;
-        min-height: 120px;
-        max-height: 130px;
-        width: 100%;
-        height: 75%;
-        max-height: 200px;
-        display: block;
-        object-fit: cover;
-    }
+  .productminicard
+  {
+      min-width: 100px;
+      min-height: 200px;
+      max-height: 355px;
+      max-width: 200px;
+      display: grid;
+   font-family: 'Poppins', sans-serif;
+   text-align: center;
+   border-radius: 20px;
+   border: 10px solid #6d6969;
+      box-shadow: 2px 8px 20px rgba(212, 206, 206, 0.801);
+      
+  }
+  .productminicard img{
+      max-width: 120px;
+      min-height: 120px;
+      max-height: 130px;
+      width: 100%;
+      height: 75%;
+      max-height: 200px;
+      display: block;
+      object-fit: cover;
+  }
 
-    
+  
+.productcard{
+  display: grid;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  border: 10px solid #3b413b;
+}
+.productcard button{
+  border: none;
+  outline: none;
+  background: rgb(46, 182, 13);
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: 30px;
+  display: block;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
