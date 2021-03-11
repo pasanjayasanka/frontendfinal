@@ -11,11 +11,23 @@ import ProductList from './components/MyProducts/ProductList'
 import About from './components/About'
 import Footer from './components/Footer'
 
+
+import Vegetable from './components/Vegetable'
+import Fruit from "./components/Fruit";
+import Dairy from "./components/Dairy";
+import Grain from "./components/Grains";
+
+
+import Description from './components/Description'
+
+
+
 import Fruitvegitables from './components/Categories/Fruitvegitables'
 import Fruits from './components/Categories/Fruits'
 import Vegitables from './components/Categories/Vegitables'
 import Foodgrains from './components/Categories/Foodgrains'
 import DairyProducts from './components/Categories/DairyProducts'
+
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -28,10 +40,10 @@ import GetCategories from './components/Admin/GetCategories'
 
 import Login from './components/Login'
 import Cart from './components/Cart'
-import Vegetable from './components/Vegetable'
-import Fruit from "./components/Fruit";
-import Dairy from "./components/Dairy";
-import Grain from "./components/Grains";
+
+
+
+
 import LoginForm from "./components/LoginForm";
 import SearchResult from './components/SearchResult';
 import Checkout from './components/Checkout';
@@ -39,7 +51,7 @@ import Receipt from './components/Receipt';
 
 
 import EditCart from "./components/EditCart";
-import Setting from "./components/Setting"
+
 
 
 
@@ -85,9 +97,17 @@ class App extends Component {
           
           <Route path='/SearchResult' component={SearchResult} />
           <Route path='/EditCart' component={EditCart}/>
+
           
           <Route path='/Checkout' component={Checkout}/>
           <Route path='/Receipt' component={Receipt}/>
+
+          <Route path='/Description' component={Description}/>
+
+
+          <Route path='/Checkout' component={Checkout}/>
+          <Route path='/Receipt' component={Receipt}/>
+
           <Footer />
         </div>
        
