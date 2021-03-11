@@ -1,7 +1,7 @@
 import React from 'react';  
 import { Table,Button } from 'react-bootstrap';  
 import axios from 'axios';  
-
+import './AdminPanel.css';  
   
 const apiUrl = 'https://localhost:44374/api/Product/';  
   
@@ -11,8 +11,8 @@ class GetProducts extends React.Component{
         this.state = {  
            error:null,  
            products:[],  
-           response: {}  
-              
+           response: {},  
+           
         }  
     }  
 
@@ -42,6 +42,7 @@ class GetProducts extends React.Component{
     }  
    
  
+
       
     render(){         
         const{error,products}=this.state;  
@@ -54,29 +55,29 @@ class GetProducts extends React.Component{
         {  
             return(  
          <div >  
-           
-                <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
+              
+                <div style={{ backgroundColor: 'white', margin: '5px 5px'}} >  
                 
-                  <Table>  
+                  <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
-                        <th>Product ID</th> 
+                        <th>Image</th> 
                         <th>Supplyer ID</th> 
                         <th>Product Name</th>  
-                        <th>Quantity</th>  
-                         
+                        <th>Quantity</th>    
                         <th>Category Name</th>  
                         <th>Address</th>  
                         <th>Unit Price</th>  
                         <th>Unit Weight</th> 
+                        <th>Action</th>
                         
                       </tr>  
                     </thead>  
-                    <tbody>  
+                    <tbody >  
                       {products.map(product => (  
-                        <tr key={product.productId}> 
-                          <td>{product.productId}</td>  
-                          <td>{product.supplierId}</td>   
+                        <tr key={product.productId} style={{   border: '2px solid DimGrey'}}>  
+                          <td><img src ={product.imageSrc} className="imgcard"/></td>  
+                          <td>{product.supplierId}</td>  
                           <td>{product.productName}</td>  
                           <td>{product.quantity}</td>  
                           <td>{product.categoryName}</td>  
@@ -84,7 +85,8 @@ class GetProducts extends React.Component{
                           <td>{product.unitPrice}</td>  
                           <td>{product.unitWeight}</td>  
                               
-                          <td><Button style={{ backgroundColor: 'DarkOliveGreen'}} onClick={() => this.DeleteProduct(product.productId)}>Delete</Button>  
+                          <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
+                           onClick={() => this.DeleteProduct(product.productId)}>Delete</Button>  
                           
                           </td>  
                         </tr>  
