@@ -62,7 +62,7 @@ export default function Search() {
             <div  >
                 <b><h6>Product - {data.productName}</h6></b>
                 <span> Rs.{data.unitPrice}</span> <br />
-                <span>Weight(kg/l)-{data.unit}</span> <br />
+                <span>Weight(kg/l)-{data.unitWeight}</span> <br />
                 <span>Category - {data.categoryName}</span> <br />
                 <span>Address - {data.addresse}</span> <br />
                 <span>Quantity - {data.quantity}</span> <br />

@@ -44,7 +44,7 @@ const Home = () => {
       <div className="card">
       <img src={fruitvegitables} alt="" />
       <div className="content">
-      <span>Tomatoes, Pumpkins, Cucumbers etc.</span>
+      <span>Tomatoes, Pumpkins, Cucumbers etc</span>
       <Link to="./Categories/Fruitvegitables">
      <button type="button">fruitvegitables</button>
       </Link>

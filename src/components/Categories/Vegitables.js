@@ -58,7 +58,7 @@ export default function Vegitables() {
             <div  >
                 <b><h6> {data.productName}</h6></b>
                 <span> Rs.{data.unitPrice}</span> <br />
-                <span>Weight(kg)-{data.unit}</span> <br />
+                <span>Weight(kg)-{data.unitWeight}</span> <br />
                 <span>Address - {data.addresse}</span> <br />
                 <span>Quantity - {data.quantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br /> 

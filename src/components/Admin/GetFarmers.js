@@ -57,7 +57,7 @@ class GetFarmers extends React.Component{
            
                 <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
                 
-                  <Table>  
+                  <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
                         <th>Farmer ID</th> 
