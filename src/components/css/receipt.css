@@ -1,0 +1,41 @@
+.Rec-box{
+    width: 400px;
+    min-height: 5px;
+    background: #C3D2E4;
+    border: 2px solid rgba(155, 143, 143, 0.5);
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 2px 8px 20px rgba(190, 181, 181, 0.801);
+    margin: auto;
+    transition: 0.5s linear;
+}
+
+#mid, #bot{
+    border-bottom: 1px solid #EEE;
+}
+
+#mid{min-height: 80px;} 
+#bot{ min-height: 50px;}
+
+.info{
+    display: block;
+    margin-left: 0;
+  }
+
+  .tabletitle{
+    font-size: 1.5em;
+    background: #EEE;
+  }
+
+  .service{border-bottom: 1px solid #EEE;}
+  .item{
+      width: auto;
+    }
+  .itemtext{font-size: 1em;}
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  

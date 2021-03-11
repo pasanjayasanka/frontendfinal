@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './css/imgbox.css'
-import './css/Fontstyle.css'
+import './../css/imgbox.css'
+import './../css/Fontstyle.css'
 
-import customericon from './../img/customer-icon.jpg'
-import farmericon from './../img/farmer-icon.JPG'
+import customericon from './../../img/customer-icon.jpg'
+import farmericon from './../../img/farmer-icon.JPG'
 
 
 
