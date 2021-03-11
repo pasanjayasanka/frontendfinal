@@ -60,11 +60,11 @@ class App extends Component {
           <Route path='/MyProducts/ProductList' component={ProductList} /> 
           <Route path='/About' component={About} />
 
-          <Route path='./Categories/Fruitvegitables' component={Fruitvegitables} />
-          <Route path='./Categories/Fruits' component={Fruits} /> 
-          <Route path='./Categories/Vegitables' component={Vegitables} /> 
-          <Route path='./Categories/Foodgrains' component={Foodgrains} /> 
-          <Route path='./Categories/DairyProducts' component={DairyProducts} />  
+          <Route path='/Categories/Fruitvegitables' component={Fruitvegitables} />
+          <Route path='/Categories/Fruits' component={Fruits} /> 
+          <Route path='/Categories/Vegitables' component={Vegitables} /> 
+          <Route path='/Categories/Foodgrains' component={Foodgrains} /> 
+          <Route path='/Categories/DairyProducts' component={DairyProducts} />  
 
           <Route path='/Admin/AdminPanel' component={AdminPanel} /> 
           <Route path='/Admin/GetCustomers' component={GetCustomers} /> 

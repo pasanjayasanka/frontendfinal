@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap';
-
+import './../css/imgbox.css'
 class CustomerRForm extends Component  {
   
 
@@ -124,7 +124,7 @@ handleSubmit = (e) => {
                     <FormFeedback>{errors.confirmPassword}</FormFeedback>
                 </FormGroup>
                 
-          <Button color="primary" >Register</Button>
+          <Button  color="success">Register</Button>
       </Form>
       </div>
       </div>
