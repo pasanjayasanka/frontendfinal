@@ -79,9 +79,9 @@ class Description extends React.Component{
             if(data != null){
                 return(
 
-                    <div>
-                        <div className="row"  style={{backgroundColor: '#008000', width:'100%', height:'50px'}}>
-                            <h4 className="title" style={{color:'white'}}>  {data.productName}</h4>
+                    <div >
+                        <div  >
+                            <h4 style={{textAlign:'center', backgroundColor:'green',color:'white' }} >  {data.productName}</h4>
                         </div>
 
 

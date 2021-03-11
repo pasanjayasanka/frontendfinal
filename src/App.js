@@ -18,7 +18,7 @@ import Dairy from "./components/Dairy";
 import Grain from "./components/Grains";
 
 
-import Description from './components/Description'
+import Description from "./components/Description";
 
 
 
@@ -102,7 +102,7 @@ class App extends Component {
           <Route path='/Checkout' component={Checkout}/>
           <Route path='/Receipt' component={Receipt}/>
 
-          <Route path='/Description' component={Description}/>
+          <Route path='/Description' component={Description} />
 
 
           <Route path='/Checkout' component={Checkout}/>

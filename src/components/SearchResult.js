@@ -69,7 +69,7 @@ class SearchResult extends React.Component{
                         <div style={{backgroundColor:'darkgrey', margin:'20px 30px', padding:'10px'}}>
 
                                 <Table >
-                                <thead className="btn-primary">
+                                <thead style={{backgroundColor:'darkgray'}}>
                                 <tr>
                                     <th>Product Name</th>
                                     {/*<th>Category Name</th>*/}

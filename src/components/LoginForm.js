@@ -2,12 +2,6 @@ import React, {useState} from "react";
 import './css/login.css'
 import {Link, useHistory} from "react-router-dom";
 import axios from 'axios';
-import  jwtDecode from "jwt-decode";
-
-
-
-
-
 
 
 
@@ -34,9 +28,7 @@ const LoginForm = () => {
                 console.log(response)
                 if(response.status === 200){ // check if the response is success
                     console.log("inside redirect")
-
-
-                    // Store the token in a local storage
+                                                                      // Store the token in a local storage
                     localStorage.setItem('token', response.data.token)
                     const token=response.data.token;
                                                            //send token to decode
@@ -45,7 +37,7 @@ const LoginForm = () => {
                     const role = findRole(payload);
                    // console.log(role);
                     if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); history.push('/');   }
-                    if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   history.push('/MyProduct');   }
+                    if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   history.push('/');   }
                     if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    history.push('/Admin/AdminPanel');   }
 
                 }
@@ -94,24 +86,24 @@ const LoginForm = () => {
     return(
         <div >
             <form onSubmit={e=> onSubmit(e)}>
-                <h3 className="title">  USER LOGIN </h3>
+                <h3 style={{textAlign:'center' ,height:'10px'}}>  USER LOGIN </h3>
                 <div className="div_back">
-                   <div className="row">
+                   <div >
                        <label className="datalabel"> USER NAME</label>
                        <input
+                           className="datainput"
                            type="text"
-                          // class="datainput"
                            placeholder="Enter email"
                            name="email"
                            required
                            value={email}
-                          onChange={(e)=> onChange(e)}
+                           onChange={(e)=> onChange(e)}
                        />
                    </div>
-                    <div className="row">
+                    <div >
                         <label className="datalabel"> PASSWORD </label>
                         <input
-                          //  class="datainput"
+
                             type="password"
                             placeholder="Enter password "
                             name="password"
