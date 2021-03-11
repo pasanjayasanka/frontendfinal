@@ -88,7 +88,7 @@ class EditCart extends Component{
 
         return(
             <div className="Container">
-                <h4 className="center">CART EDIT</h4>
+
                 <div id="Registerbox">
                     <div className="box">
                         <Form onSubmit={this.handleSubmit}>
