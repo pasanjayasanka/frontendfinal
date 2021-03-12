@@ -57,7 +57,7 @@ body {
   }
   .productminicard
   {
-      min-width: 100px;
+      min-width: 195px;
       min-height: 200px;
       max-height: 355px;
       max-width: 200px;
@@ -83,6 +83,7 @@ body {
   
 .productcard{
   display: grid;
+  min-width: 320px;
   background-color: #fff;
   text-align: center;
   border-radius: 20px;
@@ -100,4 +101,31 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 15px 0;
+}
+
+
+
+.cartcard{
+  max-width: 89px;
+  margin-right: 40px;
+  margin-top: 3px;
+  height: 37px;
+  background: rgb(7, 161, 15);
+  display: block;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgb(231, 226, 226);
+}
+
+.cart-icon{ 
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.cart-icon span{
+  background: rgb(88, 89, 90);
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
 }

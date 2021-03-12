@@ -1,10 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import './Product.css';  
-
+import './../MyProducts/Product.css';  
+import './Search.css';  
+import Cartsvg from './../../img/shoppingcart.svg'
 
 export default function Search() {
     const [product, setProductList] = useState([])
+    const [cart, setCart] = useState([])
+  
+   const addCart = (id) =>{
+        const check = cart.every(item =>{
+            return item.productId !== id
+        })
+        if(check){
+            const data = product.filter(product =>{
+                return product.productId=== id
+            })
+            setCart([...cart, ...data])
+            
+        }else{
+            alert("The product has been added to cart.")
+            
+        }
+    } 
+    
+
+
+    useEffect(() =>{
+       const dataCart =  JSON.parse(localStorage.getItem('dataCart'))
+       if(dataCart) setCart(dataCart)
+    },[])
+
+    useEffect(() =>{
+        localStorage.setItem('dataCart', JSON.stringify(cart))
+    },[cart])
+
 
     useEffect(() => {
         refreshProductList();
@@ -30,15 +60,15 @@ export default function Search() {
         <div className="productminicard" style={{ backgroundColor: 'white'  }} >
             <img src={data.imageSrc} style={{  margin: '0px 30px' }} className="productcard-img-top thumbnail" alt ="Add_produt_image" />
             <div  >
-                <h6>Product - {data.productName}</h6>
-                <span>Quantity- {data.quantity}</span> <br />
+                <b><h6>Product - {data.productName}</h6></b>
+                <span> Rs.{data.unitPrice}</span> <br />
+                <span>Weight(kg/l)-{data.unitWeight}</span> <br />
                 <span>Category - {data.categoryName}</span> <br />
-                <span>Addresse - {data.addresse}</span> <br />
+                <span>Address - {data.addresse}</span> <br />
+                <span>Quantity - {data.quantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br />
-                <span>Price - {data.unitPrice}</span> <br />
-                <span>Weight - {data.unitWeight}</span> <br />
-                <button className="btn btn-light delete-button" >
-                    <i className="far fa-trash-alt"></i>
+                <button className="btn btn-light delete-button" onClick={() => addCart(data.productId)}>
+                <i class="fas fa-cart-arrow-down"></i>
                 </button>
             </div>
         </div>
@@ -52,12 +82,15 @@ export default function Search() {
 
     return (
         <div className="row">
-            <div className="col-md-12">
-                
-                    <div className="container text-center">
+                    <div className="container text-center col-md-11 ">
                         <h4 className="title" >SEARCH</h4>
                     </div>
-                </div> 
+                    <div className=" col-md-1  cartcard  right">
+                    <div   className="cart-icon ">      
+                    <img src={Cartsvg} alt="" width="40" /> 
+                     <span >{cart.length}</span>   
+                     </div>
+        </div> 
                 <div className="col-md-3"></div>      
                     <div className="col-md-2 searchcard">
                     <input type="search"

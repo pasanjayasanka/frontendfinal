@@ -23,7 +23,7 @@ const Home = () => {
       <img src={vegitables} alt="" />
       <div className="content">
       <span>Potatoes, Onions, Carrots etc</span>
-      <Link to="./Vegetable">
+      <Link to="./Categories/Vegitables">
      <button type="button">vegitables</button>
       </Link>
       </div>
@@ -34,7 +34,7 @@ const Home = () => {
       <img src={fruits} alt="" />
       <div className="content">
       <span>Banana, Lemons, Pineapple etc</span>
-      <Link to="./Fruit">
+      <Link to="./Categories/Fruits">
      <button type="button">fruits</button>
       </Link>
       </div>
@@ -44,8 +44,8 @@ const Home = () => {
       <div className="card">
       <img src={fruitvegitables} alt="" />
       <div className="content">
-      <span>Tomatoes, Pumpkins, Cucumbers etc.</span>
-      <Link to="./About">
+      <span>Tomatoes, Pumpkins, Cucumbers etc</span>
+      <Link to="./Categories/Fruitvegitables">
      <button type="button">fruitvegitables</button>
       </Link>
       </div>
@@ -56,7 +56,7 @@ const Home = () => {
       <img src={foodgrains} alt="" />
       <div className="content">
       <span>Rice, Dal, Corn etc</span>
-      <Link to="./Grain">
+      <Link to="./Categories/Foodgrains">
      <button type="button">foodgrains</button>
       </Link>
       </div>
@@ -67,7 +67,7 @@ const Home = () => {
           <img src={dairy} alt="" />
           <div className="content">
             <span>Milk, Butter, Cheese etc</span>
-            <Link to="./Dairy">
+            <Link to="./Categories/DairyProducts">
               <button type="button">Dairy Product</button>
             </Link>
           </div>

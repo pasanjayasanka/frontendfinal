@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import './../MyProducts/Product.css';    
-
+import Cartsvg from './../../img/shoppingcart.svg'
 
 export default function DairyProducts() {
     const [product, setProductList] = useState([])
+    const [cart, setCart] = useState([])
+  
+   const addCart = (id) =>{
+        const check = cart.every(item =>{
+            return item.productId !== id
+        })
+        if(check){
+            const data = product.filter(product =>{
+                return product.productId=== id
+            })
+            setCart([...cart, ...data])
+            
+        }else{
+            alert("The product has been added to cart.")
+            
+        }
+    } 
+    
+    useEffect(() =>{
+       const dataCart =  JSON.parse(localStorage.getItem('dataCart'))
+       if(dataCart) setCart(dataCart)
+    },[])
+
+    useEffect(() =>{
+        localStorage.setItem('dataCart', JSON.stringify(cart))
+    },[cart])
 
     useEffect(() => {
         refreshProductList();
@@ -32,12 +58,12 @@ export default function DairyProducts() {
             <div  >
                 <b><h6> {data.productName}</h6></b>
                 <span> Rs.{data.unitPrice}</span> <br />
-                <span>Weight(kg)-{data.unit}</span> <br />
+                <span>Weight(kg)-{data.unitWeight}</span> <br />
                 <span>Address - {data.addresse}</span> <br />
                 <span>Quantity - {data.quantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br /> 
-                <button className="btn btn-light delete-button">
-                    <i className="far fa-trash-alt"></i>
+                <button className="btn btn-light delete-button" onClick={() => addCart(data.productId)}>
+                <i class="fas fa-cart-arrow-down"></i>
                 </button>
             </div>
         </div>
@@ -46,12 +72,15 @@ export default function DairyProducts() {
 
     return (
         <div className="row">
-            <div className="col-md-12">
-                
-                    <div className="container text-center">
-                        <h4 className="title" >Add Products</h4>
+                    <div className="container text-center col-md-11 ">
+                        <h4 className="title" >DAIRY PRODUCTS</h4>
                     </div>
-                </div> 
+                    <div className=" col-md-1  cartcard  right">
+                    <div   className="cart-icon ">      
+                    <img src={Cartsvg} alt="" width="40" /> 
+                       <span >{cart.length}</span>   
+                    </div>
+            </div> 
             
             <div className="col-md-12" style={{  margin: '0px 30px' }}>
                 <table >
