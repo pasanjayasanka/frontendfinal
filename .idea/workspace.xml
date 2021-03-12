@@ -21,12 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Description.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Description.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/splitScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/css/splitScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Register/FarmerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/FarmerRForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +107,8 @@
       <workItem from="1614938260953" duration="1918000" />
       <workItem from="1615180260317" duration="2808000" />
       <workItem from="1615189148104" duration="1295000" />
-      <workItem from="1615462671018" duration="2725000" />
+      <workItem from="1615462671018" duration="3193000" />
+      <workItem from="1615526834405" duration="11594000" />
     </task>
     <servers />
   </component>
