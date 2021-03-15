@@ -57,7 +57,7 @@ class GetCustomers extends React.Component{
            
                 <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
                 
-                  <Table>  
+                  <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
                         <th>Customer ID </th> 
@@ -66,7 +66,7 @@ class GetCustomers extends React.Component{
                         <th>Email</th>  
                         <th>Address</th>  
                         <th>Phone</th>  
-                       
+                        <th>Action</th> 
                         
                       </tr>  
                     </thead>  

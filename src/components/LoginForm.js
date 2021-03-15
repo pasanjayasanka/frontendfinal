@@ -5,10 +5,6 @@ import axios from 'axios';
 
 
 
-
-
-
-
 const LoginForm = () => {
     const history = useHistory();
     const [loginData, setLoginData] =useState ({
@@ -32,8 +28,18 @@ const LoginForm = () => {
                 console.log(response)
                 if(response.status === 200){ // check if the response is success
                     console.log("inside redirect")
-                    alert("YOU ARE WELCOME TO GOVIMITHURO !")
-                    history.push('/');
+                                                                      // Store the token in a local storage
+                    localStorage.setItem('token', response.data.token)
+                    const token=response.data.token;
+                                                           //send token to decode
+                    const payload =  parseJwt(token);
+                                                           // send payload to find role
+                    const role = findRole(payload);
+                   // console.log(role);
+                    if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); history.push('/');   }
+                    if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   history.push('/');   }
+                    if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    history.push('/Admin/AdminPanel');   }
+
                 }
             })
             .catch(error => {
@@ -42,32 +48,62 @@ const LoginForm = () => {
                 {
                     alert("User name or password invalid ! try again")
                 }
-
-
             })
+
+    }
+
+    // this function decodes the JWT token
+    function parseJwt(token){
+        var base64Url = token.split('.')[1];
+        var base64    = base64Url.replace(/-/g,'+').replace(/_/g,'/');
+        var jsonPayload =decodeURIComponent(atob(base64).split('').map(function (c){
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    }
+
+
+    // this function finds the role from the JWT token
+    function findRole(payload){
+        for(var propName in payload){
+            if(payload.hasOwnProperty(propName)){
+                var propValue = payload[propName];
+                //console.log(propValue);
+                if(propValue === "Buyer"){
+                    return "Buyer"
+                }
+                if(propValue === "Administrator"){
+                    return "Administrator"
+                }
+                if(propValue === "Seller"){
+                    return "Seller"
+                }
+
+            }
+        }
     }
 
     return(
         <div >
             <form onSubmit={e=> onSubmit(e)}>
-                <h3 className="title">  USER LOGIN </h3>
+                <h3 style={{textAlign:'center' ,height:'10px'}}>  USER LOGIN </h3>
                 <div className="div_back">
-                   <div className="row">
+                   <div >
                        <label className="datalabel"> USER NAME</label>
                        <input
+                           className="datainput"
                            type="text"
-                          // class="datainput"
                            placeholder="Enter email"
                            name="email"
                            required
                            value={email}
-                          onChange={(e)=> onChange(e)}
+                           onChange={(e)=> onChange(e)}
                        />
                    </div>
-                    <div className="row">
+                    <div >
                         <label className="datalabel"> PASSWORD </label>
                         <input
-                          //  class="datainput"
+
                             type="password"
                             placeholder="Enter password "
                             name="password"
@@ -81,7 +117,7 @@ const LoginForm = () => {
                 </div>
             </form>
                <div>
-                   <p className="my-1">
+                   <p style={{backgroundColor: "lightgray", textAlign: "center"}}>
                        Don't have an account? <Link to="./Register">Sign Up</Link>
                    </p>
                </div>

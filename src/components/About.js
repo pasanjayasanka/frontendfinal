@@ -10,7 +10,7 @@ const About = () => {
       <div className="container" >
         <h4 className="title">ABOUT</h4>
         <div id="Registerbox">
-             <div style={{ backgroundImage: `url(${about_background})`,backgroundSize: 'cover'}}>
+             <div className="box" style={{ backgroundImage: `url(${about_background})`,backgroundSize: 'cover'}}>
       <Row>
         <p class = "para">This project is aimed at how the farmers can improve the efficiency of 
           transaction between buyers so that the quality and the freshness of the product will be 

@@ -14,8 +14,8 @@ function AdminPanel() {
     <Router>  
       <div className="container">  
         <nav className="navbar  navheader" >  
-          <div className="collapse navbar-collapse" >  
-            <ul className="navbar-nav mr-auto" >  
+          <div  >  
+            <ul  >  
               <li className="nav-item" >  
                 <Link to={'/GetCustomers'} className="nav-link">Customers</Link>  
               </li>  

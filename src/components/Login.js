@@ -20,7 +20,7 @@ const Login = () => {
       <div className="content">
       <span>Log in as a farmer to add product</span>
       <Link to="./LoginForm">
-     <button type="button">log in</button>
+     <button type="button">Log in</button>
       </Link>
       </div>
       </div> 

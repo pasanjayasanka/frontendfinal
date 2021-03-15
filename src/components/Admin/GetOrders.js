@@ -1,5 +1,5 @@
 import React from 'react';  
-import { Table,Button } from 'react-bootstrap';  
+import { Table} from 'react-bootstrap';  
 import axios from 'axios';  
 
   
@@ -48,7 +48,7 @@ class GetOrders extends React.Component{
            
                 <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
                 
-                  <Table>  
+                  <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
                         <th>Order Id</th> 

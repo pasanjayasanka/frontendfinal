@@ -14,6 +14,7 @@
     box-shadow: 2px 8px 20px rgba(212, 206, 206, 0.801);
     margin: 20px 10px;
     transition: 0.5s linear;
+    border-radius: 10px;
 }
 .card:hover{
     box-shadow: none;
@@ -63,17 +64,40 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    
 }
 .box{
-    min-width: 300px;
-    min-height: 5px;
+    min-width: 400px;
+    min-height: 50px;
     background: rgb(219, 211, 211);
-    border: 2px solid rgba(155, 143, 143, 0.5);
     overflow: hidden;
     padding: 10px;
     box-shadow: 2px 8px 20px rgba(190, 181, 181, 0.801);
     margin: 20px 10px;
     transition: 0.5s linear;
+    border-radius: 20px;
+    border: 10px solid #535151;
+
+}
+
+.box Button{
+    border: none;
+    outline: none;
+    background: rgb(46, 182, 13);
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 30px;
+    display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 15px 0;
+}
+
+.center
+{
+    align-items: center;
+    justify-content: center;
 }
 
 .color1
@@ -86,7 +110,7 @@
 #Footerbox{
     position: fixed;
     bottom: 0;
-    margin: 0px 0px;
+    margin: 5px 0px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -100,15 +124,16 @@
         overflow: hidden;
         padding: 10px;
         box-shadow: 2px 8px 20px rgba(190, 181, 181, 0.801);
-        margin: 0px 10px;
+        margin: 1px 10px;
         transition: 0.5s linear;
+        
     }
     
     .color2
     {
         color: rgb(255, 254, 254);
         justify-content: center;
-        margin: 0px 200px;
+        margin: 1px 200px;
     }
 
     .minicard

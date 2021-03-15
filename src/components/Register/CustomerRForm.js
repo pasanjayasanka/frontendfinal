@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap';
+import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap'
+import {Link, Redirect} from 'react-router-dom';
+import '.../css/imgbox.css'
 
 class CustomerRForm extends Component  {
-  
+
 
     constructor(props) {
+
       super(props);
 
-      this.state = this.getInitialState();
+        this.state = this.getInitialState();
   }
 
+
+
   getInitialState = () => ({
+
       data: {
-        
             
             "firstName": '',
             "lastName": '',
@@ -39,6 +44,7 @@ class CustomerRForm extends Component  {
         }
     });
 }
+
 validate = () => {
   const { data } = this.state;
   let errors = {};
@@ -65,9 +71,20 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/Customer',data)
+      axios.post('https://localhost:44374/api/Accounts/Customer',data)
       //Resetting the form
-      this.setState(this.getInitialState());
+          .then(response => {
+              if(response.status === 201) {
+                  alert("You have registered successfully")
+                  this.setState(this.getInitialState());  // clean the form
+
+              }
+              else {
+                  alert(" Error occured! please try again ");
+                  console.log(response);
+              }
+          })
+
   } else {
       this.setState({ errors });
   }
@@ -79,7 +96,7 @@ handleSubmit = (e) => {
     const { data, errors } = this.state; 
         return(
             <div className="Container">
-        <h4 className="center">CUSTOMER REGISTER</h4>
+        <h4 className="title">CUSTOMER REGISTER</h4>
             <div id="Registerbox">
              <div className="box">
           <Form onSubmit={this.handleSubmit}>
@@ -124,7 +141,7 @@ handleSubmit = (e) => {
                     <FormFeedback>{errors.confirmPassword}</FormFeedback>
                 </FormGroup>
                 
-          <Button color="primary" >Register</Button>
+          <Button  color="success">Register</Button>
       </Form>
       </div>
       </div>
