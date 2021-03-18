@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import './../MyProducts/Product.css';  
 import Cartsvg from './../../img/shoppingcart.svg'
+import {Link} from 'react-router-dom'
 
 export default function Fruits() {
     const [product, setProductList] = useState([])
     const [cart, setCart] = useState([])
+    const [visible, setVisible] = useState(6)
   
    const addCart = (id) =>{
         const check = cart.every(item =>{
@@ -18,7 +20,7 @@ export default function Fruits() {
             setCart([...cart, ...data])
             
         }else{
-            alert("The product has been added to cart.")
+            alert("This product has been already added to cart.")
             
         }
     } 
@@ -70,6 +72,8 @@ export default function Fruits() {
         </div>
     )
 
+    const showmoreProducts =()=>{
+        setVisible ((prevValue)=>prevValue + 6)}
 
     return (
         <div className="row">
@@ -77,10 +81,11 @@ export default function Fruits() {
                         <h4 className="title" >FRUITS</h4>
                     </div>
                     <div className=" col-md-1  cartcard  right">
+                    <Link to='./../MyCart/MyCart'>
                     <div   className="cart-icon ">      
                     <img src={Cartsvg} alt="" width="40" /> 
-                       <span >{cart.length}</span>   
-                    </div>
+                     <span >{cart.length}</span>   
+                     </div></Link>
             </div> 
             
             <div className="col-md-12" style={{  margin: '0px 30px' }}>
@@ -90,7 +95,7 @@ export default function Fruits() {
                            
                             
                             product.filter((productList)=>((productList.categoryName.toLowerCase()==='fruits')||(productList.categoryName.toLowerCase()==='fruit')))
-                            .map((productList) =>
+                            .slice(0,visible).map((productList) =>
                                 <tc>
                                     <td >{imageCard(productList)}</td>   
                                 </tc>
@@ -99,6 +104,7 @@ export default function Fruits() {
                     </tbody>
                 </table>
             </div>
+            <button className="container btnloadmore  hover" onClick={showmoreProducts}><b>Load more. . . . . .</b></button>
         </div>
     )
 }

@@ -38,6 +38,8 @@ import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
 
+import MyCart from './components/MyCart/MyCart'
+
 import Login from './components/Login'
 import Cart from './components/Cart'
 
@@ -71,6 +73,7 @@ class App extends Component {
           <Route path='/Search/Search' component={Search} />
           <Route path='/MyProducts/ProductList' component={ProductList} /> 
           <Route path='/About' component={About} />
+          <Route path='/MyCart/MyCart' component={MyCart} /> 
 
           <Route path='/Categories/Fruitvegitables' component={Fruitvegitables} />
           <Route path='/Categories/Fruits' component={Fruits} /> 

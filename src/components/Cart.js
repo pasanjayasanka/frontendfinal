@@ -88,7 +88,7 @@ class GetCarts extends React.Component{
                                         <Link to={{pathname:'./EditCart', state:{cartid:cart.productID,productname:cart.productName,quantity:cart.numOfProducts,total:cart.totalPrice} }}>
                                             <button className='carteditbutton'>Edit</button>
                                         </Link>
-                                        <button className='cartdeletebutton' onClick={(e) => this.deleteRow(cart.productID, e)}>Delete</button>
+                                        <Button className='cartdeletebutton' onClick={(e) => this.deleteRow(cart.productID, e)}>Delete</Button>
                                     </td>
                                 </tr>
 
@@ -106,7 +106,7 @@ class GetCarts extends React.Component{
 
                         <div className='center'>
                         <Link to= './Checkout'>
-                            <button className='cartBuy'>Buy</button>
+                            <Button className='cartBuy'>Buy</Button>
                          </Link>
                         </div>
 
