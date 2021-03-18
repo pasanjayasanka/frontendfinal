@@ -53,7 +53,7 @@ import Receipt from './components/Receipt';
 
 
 import EditCart from "./components/EditCart";
-
+import Setting from "./components/Setting"
 
 
 
@@ -106,7 +106,7 @@ class App extends Component {
           <Route path='/Receipt' component={Receipt}/>
 
           <Route path='/Description' component={Description} />
-
+          <Route path='/Setting' component={Setting}/>
 
           <Route path='/Checkout' component={Checkout}/>
           <Route path='/Receipt' component={Receipt}/>

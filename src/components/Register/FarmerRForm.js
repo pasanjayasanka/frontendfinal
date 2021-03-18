@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap';
+import {Redirect} from 'react-router-dom';
+
 
 class FarmerRForm extends Component  {
   
@@ -12,10 +14,12 @@ class FarmerRForm extends Component  {
   }
 
   getInitialState = () => ({
+
       data: {
         
-        "farmerFName": '',
-        "farmerLName": '',
+        "firstName": '',
+        "lastName": '',
+          "email":''  ,
         "address": '',
         "ascrNo": '',
         "agriBranch": '',
@@ -43,8 +47,9 @@ validate = () => {
   const { data } = this.state;
   let errors = {};
 
-  if (data.farmerFName === '') errors.farmerFName = 'First Name can not be blank.';
-  if (data.farmerLName === '') errors.farmerLName = 'Last Name can not be blank.';
+  if (data.firstName === '') errors.firstName = 'First Name can not be blank.';
+  if (data.lastName === '') errors.lastName = 'Last Name can not be blank.';
+  if (data.email === '') errors.email = 'Address can not be blank.';
   if (data.address === '') errors.address = 'Address can not be blank.';
   if (data.ascrNo === '') errors.ascrNo = 'AscrNo can not be blank.';
   if (data.agriBranch === '') errors.agriBranch = 'AgriBranch can not be blank.';
@@ -60,15 +65,25 @@ handleSubmit = (e) => {
   e.preventDefault();
 
   const { data } = this.state;
-
+    //const history = useHistory;
   const errors = this.validate();
 
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/Farmer',data)
-      //Resetting the form
-      this.setState(this.getInitialState());
+      axios.post('https://localhost:44374/api/Accounts/Farmer',data)
+          .then(response => {
+              if(response.status === 201) {
+                  alert("You have registered successfully")
+                  this.setState(this.getInitialState());  // clean the form
+                  // redirect to homepage
+
+              }
+              else {
+                  alert(" Error occured! please try again ");
+                  console.log(response);
+              }
+          })
   } else {
       this.setState({ errors });
   }
@@ -86,16 +101,21 @@ handleSubmit = (e) => {
           <Form onSubmit={this.handleSubmit}>
           
           <FormGroup>
-              <Label for="farmerFName">First Name</Label>
-              <Input  value={data.farmerFName} invalid={errors.farmerFName ? true : false} name="farmerFName" onChange={this.handleChange} />
-              <FormFeedback>{errors.farmerFName}</FormFeedback>
+              <Label for="firstName">First Name</Label>
+              <Input  value={data.firstName} invalid={errors.firstName ? true : false} name="firstName" onChange={this.handleChange} />
+              <FormFeedback>{errors.firstName}</FormFeedback>
           </FormGroup>
 
           <FormGroup>
-              <Label for="farmerLName">Last Name</Label>
-              <Input  value={data.farmerLName} invalid={errors.farmerLName? true : false} name="farmerLName" onChange={this.handleChange} />
-              <FormFeedback>{errors.farmerLName}</FormFeedback>
+              <Label for="lastName">Last Name</Label>
+              <Input  value={data.lastName} invalid={errors.lastName? true : false} name="lastName" onChange={this.handleChange} />
+              <FormFeedback>{errors.lastName}</FormFeedback>
           </FormGroup>
+              <FormGroup>
+                  <Label for="email">Email</Label>
+                  <Input  value={data.email} invalid={errors.email? true : false} name="email" onChange={this.handleChange} />
+                  <FormFeedback>{errors.email}</FormFeedback>
+              </FormGroup>
           <FormGroup>
               <Label for="address">Address</Label>
               <Input  value={data.address} invalid={errors.address? true : false} name="address" onChange={this.handleChange} />

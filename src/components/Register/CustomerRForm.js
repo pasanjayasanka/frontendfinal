@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap';
-import './../css/imgbox.css'
+import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap'
+import {Link, Redirect} from 'react-router-dom';
+import '.../css/imgbox.css'
+
 class CustomerRForm extends Component  {
-  
+
 
     constructor(props) {
+
       super(props);
 
-      this.state = this.getInitialState();
+        this.state = this.getInitialState();
   }
 
+
+
   getInitialState = () => ({
+
       data: {
-        
             
             "firstName": '',
             "lastName": '',
@@ -39,6 +44,7 @@ class CustomerRForm extends Component  {
         }
     });
 }
+
 validate = () => {
   const { data } = this.state;
   let errors = {};
@@ -65,9 +71,20 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/Customer',data)
+      axios.post('https://localhost:44374/api/Accounts/Customer',data)
       //Resetting the form
-      this.setState(this.getInitialState());
+          .then(response => {
+              if(response.status === 201) {
+                  alert("You have registered successfully")
+                  this.setState(this.getInitialState());  // clean the form
+
+              }
+              else {
+                  alert(" Error occured! please try again ");
+                  console.log(response);
+              }
+          })
+
   } else {
       this.setState({ errors });
   }

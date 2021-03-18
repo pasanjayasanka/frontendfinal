@@ -21,12 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Description.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Description.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/splitScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/css/splitScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/css/Button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/css/Button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +107,14 @@
       <workItem from="1614926525558" duration="2109000" />
       <workItem from="1614938260953" duration="1918000" />
       <workItem from="1615180260317" duration="2808000" />
-      <workItem from="1615189148104" duration="1295000" />
-      <workItem from="1615462671018" duration="2725000" />
+      <workItem from="1615189148104" duration="1715000" />
+      <workItem from="1615193936140" duration="9818000" />
+      <workItem from="1615276044465" duration="6133000" />
+      <workItem from="1615303179181" duration="1738000" />
+      <workItem from="1615347040671" duration="5359000" />
+      <workItem from="1615379827366" duration="9659000" />
+      <workItem from="1615540535246" duration="648000" />
+      <workItem from="1615780624130" duration="472000" />
     </task>
     <servers />
   </component>
