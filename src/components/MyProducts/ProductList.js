@@ -82,7 +82,7 @@ export default function ProductList() {
         <div className="row">
             <div className="col-md-12">
                 <div >
-                    <div className="container text-center">
+                    <div className="container ">
                         <h4 className="title" >ADD PRODUCTS</h4>
                     </div>
                 </div>

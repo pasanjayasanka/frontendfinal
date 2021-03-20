@@ -3,7 +3,7 @@ import './../MyProducts/Product.css';
 import { Table,Button } from 'react-bootstrap'; 
 import {Link} from 'react-router-dom'
 import Cartsvg from './../../img/shoppingcart.svg'
-  
+import ReactExport from 'react-data-export'; 
 
 export default function MyCart() {
    
@@ -19,10 +19,10 @@ export default function MyCart() {
             })
             setCart([...cart])
         }
-    }
+    } 
 
 
-
+ 
     const reduction = id => {
         cart.forEach(item =>{
             if(item.productId === id){
@@ -38,6 +38,7 @@ export default function MyCart() {
             }
         })
         setCart([...cart])
+        
     }
     
     useEffect(() =>{
@@ -66,6 +67,39 @@ export default function MyCart() {
 
     if(cart.length === 0)
     return <h3 style={{textAlign: "center", fontSize: "4rem"}}>Cart is Empty!!!</h3>
+
+
+
+    const ExcelFile = ReactExport.ExcelFile;
+    const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+    
+    const DataSet = [
+        {
+  
+          xSteps: 1, // Will start putting cell with 1 empty cell on left most
+          ySteps: 2, //will put space of 2 rows,
+  
+            columns: [
+                {title: "Product Id", style: {font: {sz: "15", bold: true}}, width: {wpx: 100}}, // width in pixels
+                {title: "Product Name", style: {font: {sz: "15", bold: true}}, width: {wch: 20}}, // width in characters
+                {title: "Unit Price", style: {font: {sz: "15", bold: true}}, width: {wpx: 100}}, // width in pixels
+                {title: "Unit Weight(kg/l)", style: {font: {sz: "15", bold: true}}, width: {wpx: 125}}, // width in pixels
+                {title: "Quantity", style: {font: {sz: "15", bold: true}}, width: {wpx: 110}}, // width in pixels
+                {title: "Address", style: {font: {sz: "15", bold: true}}, width: {wch: 20}}, // width in characters
+              
+                
+            ],
+            data: cart.map((data) => [
+                {value: data.productId, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "3461eb"}}}},
+                {value: data.productName, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "ed14f5"}}}},
+                {value: data.unitPrice, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "3461eb"}}}},
+                {value: data.unitWeight, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "ed14f5"}}}},
+                {value: data.quantity, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "3461eb"}}}},
+                {value: data.addresse, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "ed14f5"}}}}, ],)
+        },     
+    ]
+
+
 
     return (
     <div className="row">
@@ -111,8 +145,13 @@ export default function MyCart() {
                   </Table> 
                   
                   <div style={{  margin: '0px 240px' }}>
-           <div className="searchcard  col-md-3 right" >
-               <Link to='./../Checkout'><h6>Payment</h6></Link>              
+                  <div className="searchcard col-md-3 right" >
+           <ExcelFile 
+                         filename="Govimuturo CartList" 
+                         element={<Link to='./../Checkout' ><h6>Payment</h6></Link>}>
+                             <ExcelSheet dataSet={DataSet} name="My CartList"/>
+                             
+                         </ExcelFile>         
            </div>
                   <div className="searchcard col-md-4 "  >               
                <h6>Total : Rs.{total}</h6>

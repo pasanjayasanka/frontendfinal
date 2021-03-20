@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap'
 import {Link, Redirect} from 'react-router-dom';
-import '.../css/imgbox.css'
+import './../css/imgbox.css'
 
 class CustomerRForm extends Component  {
 
