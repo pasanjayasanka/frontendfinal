@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import './css/imgbox.css'
 import './css/Fontstyle.css'
@@ -12,73 +12,83 @@ import dairy from './../img/dairy.jpg'
 
 
 
-const Home = () => {
-  return (
-    <div className="Container">
-        <h4 className="title">HOME</h4>
-    <div id="imagebox">
-      
-      {
-      <div className="card">
-      <img src={vegitables} alt="" />
-      <div className="content">
-      <span>Potatoes, Onions, Carrots etc</span>
-      <Link to="./Categories/Vegitables">
-     <button type="button">vegitables</button>
-      </Link>
-      </div>
-      </div> 
-      }
-      {
-      <div className="card">
-      <img src={fruits} alt="" />
-      <div className="content">
-      <span>Banana, Lemons, Pineapple etc</span>
-      <Link to="./Categories/Fruits">
-     <button type="button">fruits</button>
-      </Link>
-      </div>
-      </div> 
-      }
-      {
-      <div className="card">
-      <img src={fruitvegitables} alt="" />
-      <div className="content">
-      <span>Tomatoes, Pumpkins, Cucumbers etc</span>
-      <Link to="./Categories/Fruitvegitables">
-     <button type="button">fruitvegitables</button>
-      </Link>
-      </div>
-      </div> 
-      }
-      {
-      <div className="card">
-      <img src={foodgrains} alt="" />
-      <div className="content">
-      <span>Rice, Dal, Corn etc</span>
-      <Link to="./Categories/Foodgrains">
-     <button type="button">foodgrains</button>
-      </Link>
-      </div>
-      </div> 
-      }
-      {
-        <div className="card">
-          <img src={dairy} alt="" />
-          <div className="content">
-            <span>Milk, Butter, Cheese etc</span>
-            <Link to="./Categories/DairyProducts">
-              <button type="button">Dairy Product</button>
-            </Link>
+class Home extends Component  {
+
+
+  componentDidMount() {
+
+  }
+
+    render() {
+       // const isAuth= this.props.isAuth;
+       // console.log("this is in home  :"+ isAuth);
+    return (
+        <div className="Container">
+          <h4 className="title">HOME</h4>
+          <div id="imagebox">
+
+            {
+              <div className="card">
+                <img src={vegitables} alt="" />
+                <div className="content">
+                  <span>Potatoes, Onions, Carrots etc</span>
+                  <Link to="./Categories/Vegitables">
+                    <button type="button">vegitables</button>
+                  </Link>
+                </div>
+              </div>
+            }
+            {
+              <div className="card">
+                <img src={fruits} alt="" />
+                <div className="content">
+                  <span>Banana, Lemons, Pineapple etc</span>
+                  <Link to="./Categories/Fruits">
+                    <button type="button">fruits</button>
+                  </Link>
+                </div>
+              </div>
+            }
+            {
+              <div className="card">
+                <img src={fruitvegitables} alt="" />
+                <div className="content">
+                  <span>Tomatoes, Pumpkins, Cucumbers etc</span>
+                  <Link to="./Categories/Fruitvegitables">
+                    <button type="button">fruitvegitables</button>
+                  </Link>
+                </div>
+              </div>
+            }
+            {
+              <div className="card">
+                <img src={foodgrains} alt="" />
+                <div className="content">
+                  <span>Rice, Dal, Corn etc</span>
+                  <Link to="./Categories/Foodgrains">
+                    <button type="button">foodgrains</button>
+                  </Link>
+                </div>
+              </div>
+            }
+            {
+              <div className="card">
+                <img src={dairy} alt="" />
+                <div className="content">
+                  <span>Milk, Butter, Cheese etc</span>
+                  <Link to="./Categories/DairyProducts">
+                    <button type="button">Dairy Product</button>
+                  </Link>
+                </div>
+              </div>
+            }
+
           </div>
         </div>
-      }
-      
-      </div>
-      </div>
-     
-  )
-  
+
+    )
+
+  }
 }
 
 

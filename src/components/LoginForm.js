@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import './css/login.css'
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from 'axios';
 
 
 
 const LoginForm = () => {
-    const history = useHistory();
+
     const [loginData, setLoginData] =useState ({
         //role:'',
         email: '',
@@ -17,36 +17,46 @@ const LoginForm = () => {
     const onChange = e => setLoginData({...loginData,[e.target.name]:e.target.value})
     const onSubmit =async e=> {
         e.preventDefault();
-        console.log("this is login data");
-        console.log(loginData);
+        //console.log("this is login data");
+       // console.log(loginData);
+
         axios.post(
             'https://localhost:44374/api/Accounts/Login',
             {Email: loginData.email, Password: loginData.password}
         )
             .then(response=> {
-                console.log("this is response")
-                console.log(response)
+                console.log("this is user details from login page");
+                console.log(response.data);
                 if(response.status === 200){ // check if the response is success
                     console.log("inside redirect")
-                                                                      // Store the token in a local storage
-                    localStorage.setItem('token', response.data.token)
-                    const token=response.data.token;
+                                                                      // Store the token and other details in a local storage
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('userFirstName', response.data.userFirstName);
+                    localStorage.setItem('userLastName', response.data.userLastName);
+                    localStorage.setItem('userEmail', response.data.userEmail);
+                    localStorage.setItem('userAddress', response.data.userAddress);
+
+                    const token = response.data.token;
                                                            //send token to decode
                     const payload =  parseJwt(token);
                                                            // send payload to find role
                     const role = findRole(payload);
+                    localStorage.setItem('role', role);
                    // console.log(role);
-                    if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); history.push('/');   }
-                    if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   history.push('/');   }
-                    if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    history.push('/Admin/AdminPanel');   }
+                    if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); window.location.replace('/') }
+                    if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   window.location.replace('/')  }
+                    if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    window.location.replace('/') }
 
                 }
             })
             .catch(error => {
                 console.log(error);
-                if(error.response.data === "Invalid Authentication" );
+                if(error === "Invalid Authentication" )
                 {
-                    alert("User name or password invalid ! try again")
+                    alert("User name or password invalid ! try again");
+                }
+                else {
+                    console.log(" this is loggin error :" + error );
                 }
             })
 
@@ -54,9 +64,9 @@ const LoginForm = () => {
 
     // this function decodes the JWT token
     function parseJwt(token){
-        var base64Url = token.split('.')[1];
-        var base64    = base64Url.replace(/-/g,'+').replace(/_/g,'/');
-        var jsonPayload =decodeURIComponent(atob(base64).split('').map(function (c){
+        const base64Url = token.split('.')[1];
+        const base64    = base64Url.replace(/-/g,'+').replace(/_/g,'/');
+        const jsonPayload =decodeURIComponent(atob(base64).split('').map(function (c){
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
         return JSON.parse(jsonPayload);

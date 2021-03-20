@@ -1,8 +1,7 @@
 import React from 'react';
-import {Table, Button, Card} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-import {Input} from "reactstrap";
 import './css/login.css';
 
 const Url = 'https://localhost:44374/api/Product/';
@@ -77,7 +76,7 @@ class SearchResult extends React.Component{
                                     <th>Address</th>
                                     <th>Unit Price (Rs)</th>
                                     {/*<th>Unit Weight</th>*/}
-                                    <td></td>
+
                                     <th>More Details</th>
                                 </tr>
                                 </thead>
@@ -93,7 +92,7 @@ class SearchResult extends React.Component{
                                         <td>{product.unitPrice}</td>
                                         {/*<td>{product.unitWeight}</td>*/}
 
-                                        <td></td>
+
                                         <td>
                                             {/*this sends the product detail to the description component once the view button is clicked*/}
                                             <Link to={{pathname:'./Description', state:{

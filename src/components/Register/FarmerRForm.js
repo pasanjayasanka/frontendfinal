@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap';
-import {Redirect} from 'react-router-dom';
+
 
 
 class FarmerRForm extends Component  {
