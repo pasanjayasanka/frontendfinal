@@ -20,29 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Search/Search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/shoppingcart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/trash-alt-solid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NotLoggedIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetCarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetCarts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetCategories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetCustomers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetCustomers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetFarmers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetFarmers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetOrderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetOrderDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/DairyProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/DairyProducts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/Foodgrains.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/Foodgrains.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/Fruits.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/Fruits.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/Fruitvegitables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/Fruitvegitables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/Vegitables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/Vegitables.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProducts/Product.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProducts/Product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search/Product.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/imgbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/css/imgbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/shopping-cart-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Register/FarmerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/FarmerRForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +56,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Desktop/SEMESTER 06 - Shortcut.lnk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -128,7 +115,11 @@
       <workItem from="1615180260317" duration="2808000" />
       <workItem from="1615189148104" duration="1295000" />
       <workItem from="1615462671018" duration="3193000" />
-      <workItem from="1615526834405" duration="12273000" />
+      <workItem from="1615526834405" duration="16124000" />
+      <workItem from="1615565965103" duration="18127000" />
+      <workItem from="1616034873010" duration="12359000" />
+      <workItem from="1616124431110" duration="2998000" />
+      <workItem from="1616210415703" duration="7689000" />
     </task>
     <servers />
   </component>
