@@ -6,8 +6,8 @@ const defaultImageSrc = '/img/image_placeholder.png'
 const initialFieldValues = {
     productId: 0,
     productName: '',  
-    quantity: 0,  
-
+    quantity: 1,  
+    email:'',
     categoryName: '',  
     addresse: '',
     productDescription:null,
@@ -83,6 +83,7 @@ export default function Product(props) {
             const formData = new FormData()
             formData.append('productId', values.productId)
             formData.append('productName', values.productName)
+            formData.append('email', localStorage.getItem('userEmail'))
             formData.append('quantity', values.quantity)
             formData.append('categoryName', values.categoryName)
             formData.append('addresse', values.addresse)
@@ -129,20 +130,15 @@ export default function Product(props) {
                                 value={values.productDescription}
                                 onChange={handleInputChange} />
                         </div>
+                        
                         <div className="form-group">
-                        <label>Quantity</label>
-                            <input className="form-control" placeholder="Quantity" name="quantity"
-                                value={values.quantity}
-                                onChange={handleInputChange} />
-                        </div>
-                        <div className="form-group">
-                        <label>Unit Price</label>
+                        <label>Unit Price(LKR)</label>
                             <input className="form-control" placeholder="Unit Price" name="unitPrice"
                                 value={values.unitPrice}
                                 onChange={handleInputChange} />
                         </div>
                         <div className="form-group">
-                            <label>Unit Weight</label>
+                            <label>Unit Weight(kg/l)</label>
                             <input className="form-control" placeholder="Unit Weight" name="unitWeight"
                                 value={values.unitWeight}
                                 onChange={handleInputChange} ></input>

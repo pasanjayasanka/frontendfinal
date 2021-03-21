@@ -6,8 +6,10 @@ import Home from './components/Home'
 import Register from './components/Register/Register'
 import CustomerRForm from './components/Register/CustomerRForm'
 import FarmerRForm from './components/Register/FarmerRForm'
+import NotLoggedIn from "./components/NotLoggedIn";
 import Search from './components/Search/Search'
 import ProductList from './components/MyProducts/ProductList'
+import Orders from './components/MyProducts/Orders'
 import About from './components/About'
 import Footer from './components/Footer'
 
@@ -38,6 +40,8 @@ import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
 
+import MyCart from './components/MyCart/MyCart'
+
 import Login from './components/Login'
 import Cart from './components/Cart'
 
@@ -51,26 +55,60 @@ import Receipt from './components/Receipt';
 
 
 import EditCart from "./components/EditCart";
+
+import axios from "axios";
+
+
 import Setting from "./components/Setting"
+
 
 
 
 class App extends Component {
 
+  state = {
+    isAuth:'Unauthorized'
+  };
 
+  componentDidMount=()=> {
+    console.log(localStorage.getItem('token'));
+
+    const config = {
+      headers: {
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      }
+    }
+    axios.get('https://localhost:44374/api/Accounts/User' ,config).then(
+        res=> {
+          console.log(res);
+          this.setState({
+            isAuth: res.data
+          })
+        },
+        err => {
+          console.log(err);
+          this.setState({
+            isAuth: 'Unauthorized'
+          })
+        }
+    )
+
+  }
 
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-          <Navbar />
-          <Route exact path='/' component={Home}/>
+          <Navbar isAuth={this.state.isAuth}/>
+          <Route exact path='/' render ={(props) => <Home{...props} isAuth={this.state.isAuth} />}/>
           <Route path='/Register/Register' component={Register} />
           <Route path='/Register/CustomerRForm' component={CustomerRForm} /> 
           <Route path='/Register/FarmerRForm' component={FarmerRForm} />   
           <Route path='/Search/Search' component={Search} />
           <Route path='/MyProducts/ProductList' component={ProductList} /> 
+          <Route path='/MyProducts/Orders' component={Orders} /> 
           <Route path='/About' component={About} />
+          <Route path='/MyCart/MyCart' component={MyCart} /> 
 
           <Route path='/Categories/Fruitvegitables' component={Fruitvegitables} />
           <Route path='/Categories/Fruits' component={Fruits} /> 
@@ -87,6 +125,7 @@ class App extends Component {
           <Route path='/Admin/GetOrderDetails' component={GetOrderDetails} /> 
           <Route path='/Admin/GetCategories' component={GetCategories} />
 
+          <Route path='/NotLoggedIn' component={NotLoggedIn}/>
           <Route path='/Login' component={Login} />  
           <Route path='/Cart' component={Cart} />
           <Route path='/Vegetable' component={Vegetable}/>
