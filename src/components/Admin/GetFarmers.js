@@ -3,7 +3,7 @@ import { Table,Button } from 'react-bootstrap';
 import axios from 'axios';  
 
   
-const apiUrl = 'https://localhost:44374/api/Farmer/';  
+const apiUrl = 'https://localhost:44374/api/User/';  
   
 class GetFarmers extends React.Component{  
     constructor(props){  
@@ -60,9 +60,10 @@ class GetFarmers extends React.Component{
                   <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
-                        <th>Farmer ID</th> 
+                   
                         <th>First Name</th>  
-                        <th>Last Name</th>    
+                        <th>Last Name</th>
+                        <th>Email</th>   
                         <th>Address</th>  
                         <th>ASCRNo</th>  
                         <th>AgriBranch</th> 
@@ -72,11 +73,12 @@ class GetFarmers extends React.Component{
                       </tr>  
                     </thead>  
                     <tbody>  
-                      {farmers.map(farmer => (  
-                        <tr key={farmer.farmerID  }>  
-                          <td>{farmer.farmerID }</td>   
-                          <td>{farmer.farmerFName}</td>  
-                          <td>{farmer.farmerLName}</td>  
+                      {farmers.filter((product)=>(product.agriBranch != null)).map(farmer => (  
+                        <tr key={farmer.id }>  
+                           
+                          <td>{farmer.firstName}</td>  
+                          <td>{farmer.lastName}</td>  
+                          <td>{farmer.email}</td>
                           <td>{farmer.address}</td>  
                           <td>{farmer.ascrNo}</td>  
                           <td>{farmer.agriBranch}</td> 
@@ -84,7 +86,7 @@ class GetFarmers extends React.Component{
                           <td>{farmer.phone}</td>  
                           
                               
-                          <td><Button style={{ backgroundColor: 'Gray'}} onClick={() => this.DeleteFarmer(farmer.farmerID)}>Delete</Button>  
+                          <td><Button style={{ backgroundColor: 'Gray'}} onClick={() => this.DeleteFarmer(farmer.id)}>Delete</Button>  
                           
                           </td>  
                         </tr>  

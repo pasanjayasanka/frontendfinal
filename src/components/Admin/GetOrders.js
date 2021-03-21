@@ -1,18 +1,18 @@
 import React from 'react';  
-import { Table} from 'react-bootstrap';  
+import { Table,Button } from 'react-bootstrap';  
 import axios from 'axios';  
-
+//import './AdminPanel.css';  
   
 const apiUrl = 'https://localhost:44374/api/Order/';  
   
-class GetOrders extends React.Component{  
+class Orders extends React.Component{  
     constructor(props){  
         super(props);  
         this.state = {  
            error:null,  
-           orders:[],  
-           response: {}  
-              
+           products:[],  
+           response: {},  
+           
         }  
     }  
 
@@ -20,7 +20,7 @@ class GetOrders extends React.Component{
        axios.get(apiUrl ).then(response => response.data).then(  
             (result)=>{  
                 this.setState({  
-                    orders:result  
+                    products:result  
                 });  
             },  
             (error)=>{  
@@ -30,12 +30,22 @@ class GetOrders extends React.Component{
     }  
   
       
-     
+    DeleteProduct(productId) {  
+      const { products } = this.state;     
+     axios.delete(apiUrl   + productId).then(result=>{  
+       alert('Product deleted successfully!!!');   
+        this.setState({  
+          response:result,  
+          products:products.filter(product=>product.productId !== productId)  
+        });  
+      });  
+    }  
    
  
+
       
     render(){         
-        const{error,orders}=this.state;  
+        const{error,products}=this.state;  
         if(error){  
             return(  
                 <div className="center"><h4>Error : {error.message}!!!</h4></div>  
@@ -45,34 +55,37 @@ class GetOrders extends React.Component{
         {  
             return(  
          <div >  
-           
-                <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
+              
+                <div style={{ backgroundColor: 'white', margin: '5px 5px'}} >  
                 
                   <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
                         <th>Order Id</th> 
-                        <th>Customer Id</th>  
-                        <th>Quantity</th>    
-                        <th>Required Date</th>  
-                        <th>Orderd Date</th>  
-                        <th>Order Number</th>  
-                       
+                        <th>Product Name</th>  
+                        <th>Quantity</th>     
+                        <th>Unit Price</th> 
+                        <th>Customer Name</th>  
+                        <th>Customer Email</th> 
+                        <th>Action</th>
                         
                       </tr>  
                     </thead>  
-                    <tbody>  
-                      {orders.map(order => (  
-                        <tr key={order.orderId}>  
-                          <td>{order.orderId}</td>   
-                          <td>{order.customerId}</td>  
-                          <td>{order.quantity}</td>  
-                          <td>{order.requiredDate}</td>  
-                          <td>{order.orderdDate}</td>  
-                          <td>{order.orderNumber}</td>  
-                          
+                    <tbody >  
+                      {products.map(product => (  
+                        <tr key={product.orderId} style={{   border: '2px solid DimGrey'}}>  
+
+                          <td>{product.orderId}</td>  
+                          <td>{product.productName}</td>  
+                          <td>{product.quantity}</td>  
+                          <td>{product.unitPrice}</td> 
+                          <td>{product.customerName}</td>
+                          <td>{product.customerEmail}</td> 
                               
-                           
+                          <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
+                           onClick={() => this.DeleteProduct(product.orderId)}>Delete</Button>  
+                          
+                          </td>  
                         </tr>  
                       ))}  
                     </tbody>  
@@ -84,4 +97,4 @@ class GetOrders extends React.Component{
     }  
 }  
   
-export default GetOrders
+export default Orders;  

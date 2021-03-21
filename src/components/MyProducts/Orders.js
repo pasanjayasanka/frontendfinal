@@ -5,7 +5,7 @@ import axios from 'axios';
   
 const apiUrl = 'https://localhost:44374/api/Order/';  
   
-class GetProducts extends React.Component{  
+class Orders extends React.Component{  
     constructor(props){  
         super(props);  
         this.state = {  
@@ -68,7 +68,7 @@ class GetProducts extends React.Component{
                         <th>Unit Price</th> 
                         <th>Customer Name</th>  
                         <th>Customer Email</th> 
-                        <th>Action</th>
+                        
                         
                       </tr>  
                     </thead>  
@@ -83,10 +83,7 @@ class GetProducts extends React.Component{
                           <td>{product.customerName}</td>
                           <td>{product.customerEmail}</td> 
                               
-                          <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
-                           onClick={() => this.DeleteProduct(product.productId)}>Delete</Button>  
-                          
-                          </td>  
+                           
                         </tr>  
                       ))}  
                     </tbody>  
@@ -98,4 +95,4 @@ class GetProducts extends React.Component{
     }  
 }  
   
-export default GetProducts;  
+export default Orders;  

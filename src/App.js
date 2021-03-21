@@ -11,6 +11,7 @@ import Search from './components/Search/Search'
 import ProductList from './components/MyProducts/ProductList'
 import Orders from './components/MyProducts/Orders'
 import About from './components/About'
+import Feedback from './components/Feedback'
 import Footer from './components/Footer'
 
 
@@ -108,6 +109,7 @@ class App extends Component {
           <Route path='/MyProducts/ProductList' component={ProductList} /> 
           <Route path='/MyProducts/Orders' component={Orders} /> 
           <Route path='/About' component={About} />
+          <Route path='/Feedback' component={Feedback} />
           <Route path='/MyCart/MyCart' component={MyCart} /> 
 
           <Route path='/Categories/Fruitvegitables' component={Fruitvegitables} />

@@ -1,6 +1,7 @@
 import React from 'react'
 import './css/Fontstyle.css'
 import { Row } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 import about_background from './../img/about_background.jpg'
 
@@ -27,6 +28,9 @@ const About = () => {
               </Row>
               </div>
               </div>
+              <Link to="./Feedback">
+                    <button type="button">Feedbacks/Complaints</button>
+                  </Link>
       </div>
     </div>
   )

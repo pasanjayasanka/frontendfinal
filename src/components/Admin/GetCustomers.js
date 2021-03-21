@@ -3,7 +3,7 @@ import { Table,Button } from 'react-bootstrap';
 import axios from 'axios';  
 
   
-const apiUrl = 'https://localhost:44374/api/Customer/';  
+const apiUrl = 'https://localhost:44374/api/User/';  
   
 class GetCustomers extends React.Component{  
     constructor(props){  
@@ -60,7 +60,7 @@ class GetCustomers extends React.Component{
                   <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
-                        <th>Customer ID </th> 
+                        
                         <th>First Name</th>  
                         <th>Last Name</th>    
                         <th>Email</th>  
@@ -71,9 +71,9 @@ class GetCustomers extends React.Component{
                       </tr>  
                     </thead>  
                     <tbody>  
-                      {customers.map(customer => (  
-                        <tr key={customer.customerID }>  
-                          <td>{customer.customerID }</td>   
+                      {customers.filter((product)=>(product.agriBranch === null)).map(customer => (  
+                        <tr key={customer.id }>  
+                            
                           <td>{customer.firstName}</td>  
                           <td>{customer.lastName}</td>  
                           <td>{customer.email}</td>  
@@ -81,7 +81,7 @@ class GetCustomers extends React.Component{
                           <td>{customer.phone}</td>  
                           
                               
-                          <td><Button style={{ backgroundColor: 'DarkSlateGray'}} onClick={() => this.DeleteCustomer(customer.customerID)}>Delete</Button>  
+                          <td><Button style={{ backgroundColor: 'DarkSlateGray'}} onClick={() => this.DeleteCustomer(customer.id)}>Delete</Button>  
                           
                           </td>  
                         </tr>  
