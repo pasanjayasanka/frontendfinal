@@ -2,12 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap'
 import {Link, Redirect} from 'react-router-dom';
-<<<<<<< HEAD
-import './../css/imgbox.css'
-=======
-//import './css/imgbox.css'
->>>>>>> 2a067e0ba28ffdac3861784f8bd18bfb4eb56e66
 
+import './../css/imgbox.css'
 class CustomerRForm extends Component  {
 
 
@@ -20,12 +16,12 @@ class CustomerRForm extends Component  {
 
 
 
-  getInitialState = () => ({
+  getInitialState = () => ({ 
 
       data: {
             
             "firstName": '',
-            "lastName": '',
+            "lastName": '', 
             "email": '',
             "password": '',
             "confirmPassword": '',

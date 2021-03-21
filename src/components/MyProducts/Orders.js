@@ -1,9 +1,9 @@
 import React from 'react';  
 import { Table,Button } from 'react-bootstrap';  
 import axios from 'axios';  
-import './AdminPanel.css';  
+//import './AdminPanel.css';  
   
-const apiUrl = 'https://localhost:44374/api/Product/';  
+const apiUrl = 'https://localhost:44374/api/Order/';  
   
 class GetProducts extends React.Component{  
     constructor(props){  
@@ -54,36 +54,34 @@ class GetProducts extends React.Component{
         else  
         {  
             return(  
-         <div >  
-              
+         <div className="container ">  
+              <h4 className="title">ORDERS</h4><br/>
+              <div></div>
                 <div style={{ backgroundColor: 'white', margin: '5px 5px'}} >  
                 
                   <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
-                        <th>Image</th> 
-                        <th>Email</th> 
+                        <th>Order Id</th> 
                         <th>Product Name</th>  
-                        <th>Quantity</th>    
-                        <th>Category Name</th>  
-                        <th>Address</th>  
-                        <th>Unit Price</th>  
-                        <th>Unit Weight</th> 
+                        <th>Quantity</th>     
+                        <th>Unit Price</th> 
+                        <th>Customer Name</th>  
+                        <th>Customer Email</th> 
                         <th>Action</th>
                         
                       </tr>  
                     </thead>  
                     <tbody >  
-                      {products.map(product => (  
-                        <tr key={product.productId} style={{   border: '2px solid DimGrey'}}>  
-                          <td><img src ={product.imageSrc} className="imgcard"/></td>  
-                          <td>{product.email}</td>  
+                      {products.filter((product)=>(product.email===localStorage.getItem('userEmail'))).map(product => (  
+                        <tr key={product.orderId} style={{   border: '2px solid DimGrey'}}>  
+
+                          <td>{product.orderId}</td>  
                           <td>{product.productName}</td>  
                           <td>{product.quantity}</td>  
-                          <td>{product.categoryName}</td>  
-                          <td>{product.addresse}</td>  
-                          <td>{product.unitPrice}</td>  
-                          <td>{product.unitWeight}</td>  
+                          <td>{product.unitPrice}</td> 
+                          <td>{product.customerName}</td>
+                          <td>{product.customerEmail}</td> 
                               
                           <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
                            onClick={() => this.DeleteProduct(product.productId)}>Delete</Button>  

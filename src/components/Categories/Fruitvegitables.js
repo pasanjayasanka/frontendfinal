@@ -76,17 +76,26 @@ export default function Fruitvegitables() {
 
 
     return (
-             <div className="row">
-                    <div className="container text-center col-md-11 ">
+             
+            <div className="row">
+            <div className="col-md-11">
+                <div >
+                    <div className="container ">
                         <h4 className="title" >FRUITVEGITABLES</h4>
                     </div>
-                    <div className=" col-md-1  cartcard  right">
+                </div>
+            </div>
+            <div className="col-md-1">
+                <div >
+                    <div className="container cartcard  right">
                     <Link to='./../MyCart/MyCart'>
                     <div   className="cart-icon ">      
                     <img src={Cartsvg} alt="" width="40" /> 
                      <span >{cart.length}</span>   
                      </div></Link>
-            </div> 
+                    </div>
+                </div>
+            </div>   
             
             <div className="col-md-12" style={{  margin: '0px 30px' }}>
                 <table >

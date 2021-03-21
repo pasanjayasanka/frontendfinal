@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Product from './Product'
 import axios from "axios";
 import './Product.css';  
+import {Link} from 'react-router-dom'
 
 export default function ProductList() {
     const [productList, setProductList] = useState([])
@@ -63,10 +64,9 @@ export default function ProductList() {
         <div className="productminicard" style={{ backgroundColor: 'white'  }} onClick={() => { showRecordDetails(data) }}>
             <img src={data.imageSrc} style={{  margin: '0px 30px' }} className="productcard-img-top thumbnail" alt ="Add_produt_image" />
             <div  >
-                <b><h6>Product - {data.productName}</h6></b>
+                <strong><h6>Product - {data.productName}</h6></strong>
                 <span>Category - {data.categoryName}</span> <br />
                 <span>Addresse - {data.addresse}</span> <br />
-                <span>Quantity- {data.quantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br />
                 <span>Price(LKR) - {data.unitPrice}</span> <br />
                 <span>Weight(kg/l) - {data.unitWeight}</span> <br />
@@ -80,13 +80,22 @@ export default function ProductList() {
 
     return (
         <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-11">
                 <div >
                     <div className="container ">
                         <h4 className="title" >ADD PRODUCTS</h4>
                     </div>
                 </div>
             </div>
+            <div className="col-md-1">
+                <div >
+                    <div className="container ">
+                    <Link to='./Orders'>
+                    Orders</Link>
+                    </div>
+                </div>
+            </div>
+            
             <div className="col-md-3">
                 <Product
                     addOrEdit={addOrEdit}
@@ -98,13 +107,11 @@ export default function ProductList() {
                     <tbody>
                         {
                             //tr > 3 td
-                            [...Array(Math.ceil(productList.length / 4))].map((e, i) =>
-                                <tr key={i}>
-                                    <td>{imageCard(productList[4 * i])}</td>
-                                    <td>{productList[4 * i + 1] ? imageCard(productList[4 * i + 1]) : null}</td>
-                                    <td>{productList[4 * i + 2] ? imageCard(productList[4 * i + 2]) : null}</td>
-                                    <td>{productList[4 * i + 3] ? imageCard(productList[4 * i + 3]) : null}</td>
-                                </tr>
+                            productList.filter((product)=>(product.email===localStorage.getItem('userEmail')))
+                            .map((product) =>
+                                <tc>
+                                    <td >{imageCard(product)}</td>   
+                                </tc>
                             )
                         }
                     </tbody>

@@ -89,16 +89,24 @@ export default function Search() {
 
     return (
         <div className="row">
-                    <div className="container col-md-11 ">
+            <div className="col-md-11">
+                <div >
+                    <div className="container ">
                         <h4 className="title" >SEARCH</h4>
                     </div>
-                    <div className=" col-md-1  cartcard  right">
+                </div>
+            </div>
+            <div className="col-md-1">
+                <div >
+                    <div className="container cartcard  right">
                     <Link to='./../MyCart/MyCart'>
                     <div   className="cart-icon ">      
                     <img src={Cartsvg} alt="" width="40" /> 
                      <span >{cart.length}</span>   
                      </div></Link>
-                </div> 
+                    </div>
+                </div>
+            </div>  
                 <div className="col-md-2"></div>      
                     <div className="col-md-2 searchcard">
                     <input type="search"

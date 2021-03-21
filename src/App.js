@@ -9,6 +9,7 @@ import FarmerRForm from './components/Register/FarmerRForm'
 import NotLoggedIn from "./components/NotLoggedIn";
 import Search from './components/Search/Search'
 import ProductList from './components/MyProducts/ProductList'
+import Orders from './components/MyProducts/Orders'
 import About from './components/About'
 import Footer from './components/Footer'
 
@@ -105,6 +106,7 @@ class App extends Component {
           <Route path='/Register/FarmerRForm' component={FarmerRForm} />   
           <Route path='/Search/Search' component={Search} />
           <Route path='/MyProducts/ProductList' component={ProductList} /> 
+          <Route path='/MyProducts/Orders' component={Orders} /> 
           <Route path='/About' component={About} />
           <Route path='/MyCart/MyCart' component={MyCart} /> 
 

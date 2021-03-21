@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './../MyProducts/Product.css';  
 import { Table,Button } from 'react-bootstrap'; 
 import {Link} from 'react-router-dom'
-import Cartsvg from './../../img/shoppingcart.svg'
 import ReactExport from 'react-data-export'; 
+import axios from "axios";
 
 export default function MyCart() {
    
@@ -86,6 +86,7 @@ export default function MyCart() {
                 {title: "Unit Weight(kg/l)", style: {font: {sz: "15", bold: true}}, width: {wpx: 125}}, // width in pixels
                 {title: "Quantity", style: {font: {sz: "15", bold: true}}, width: {wpx: 110}}, // width in pixels
                 {title: "Address", style: {font: {sz: "15", bold: true}}, width: {wch: 20}}, // width in characters
+                {title: "Email", style: {font: {sz: "15", bold: true}}, width: {wch: 20}}, // width in characters
               
                 
             ],
@@ -95,10 +96,16 @@ export default function MyCart() {
                 {value: data.unitPrice, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "3461eb"}}}},
                 {value: data.unitWeight, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "ed14f5"}}}},
                 {value: data.quantity, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "3461eb"}}}},
-                {value: data.addresse, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "ed14f5"}}}}, ],)
+                {value: data.addresse, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "ed14f5"}}}}, 
+                {value: data.email, style: {font: {sz: "14"}, fill: {patternType: "solid", fgColor: {rgb: "3461eb"}}}},],)
         },     
     ]
-
+    const Addproduct=(product)=>{  
+        axios.post('https://localhost:44374/api/Order',{productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice ,customerEmail:localStorage.getItem('userEmail'),customerName:localStorage.getItem('userFirstName')})  
+      .then(json => {  
+        alert("Product is selected successfully");  
+      })  
+      } 
 
 
     return (
@@ -123,7 +130,8 @@ export default function MyCart() {
                         <th className="text-center">Unit Price</th>  
                         <th className="text-center">Unit Weight(kg/l)</th> 
                         <th className="text-center">Quantity</th> 
-                        <th className="text-center">Remove</th>  
+                        <th className="text-center">Remove</th>
+                        <th className="text-center">Buy</th>   
                       </tr>  
                     </thead>  
                     <tbody >  
@@ -139,6 +147,8 @@ export default function MyCart() {
                             </td>
                           <td className="text-center"><Button style={{ backgroundColor: 'DarkOliveGreen'}} onClick={() => removeProduct(product.productId)}>
                           <i className="far fa-trash-alt"></i></Button></td> 
+                          <td className="text-center "><Button style={{ backgroundColor: 'DarkSlateGray'}} onClick={() => Addproduct(
+                          {productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice })}>Buy</Button></td> 
                         </tr>  
                       ))}  
                     </tbody>  
