@@ -3,7 +3,7 @@ import {Tab,Tabs,Button,Nav,Row,Col,Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/Button.css';
 import axios from 'axios';
-import {Input} from "reactstrap";
+import {Input,Table} from "reactstrap";
 
 const customerUrl = 'https://localhost:44374/api/Customer'
 
@@ -16,6 +16,18 @@ class Setting extends Component {
         this.state = {
             error:null,
             users:[],
+            data: {
+
+                "firstName": '',
+                "lastName": '',
+                "email": '',
+                "password": '',
+                "confirmPassword": '',
+                "address": '',
+                "phone": ''
+
+
+            },
 
         }
     }
@@ -114,33 +126,33 @@ class Setting extends Component {
 
     render() {
 
-        const{error,users}=this.state;
+        const{error,users,data}=this.state;
+
+        data.firstName = localStorage.getItem('userFirstName');
+        data.lastName = localStorage.getItem('userLastName');
+        data.address = localStorage.getItem('userAddress');
+        data.phone = localStorage.getItem('userPhone');
+
+        const isAuth = this.props.isAuth;
+        const useRole = localStorage.getItem('role');
+
 
         return(
             <div className="tab">
                 <h4 className="title">Profile Settings</h4>
                 <div>
-                    <Form>
+                    <Table>
+                        <thead>
                         {users.map(user => (
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="formGridEmail">
-                                <Form.Label>Role</Form.Label>
-                                <Input value="Customer" name="fname" />
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="formGridPassword">
-                                <Form.Label>Name</Form.Label>
-                                <Input value={user.firstName} name="lname" />
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="formGridid">
-                                <Form.Label>ID</Form.Label>
-                                <Input value={user.customerID} name="id" />
-                            </Form.Group>
-
-                        </Form.Row>
+                            <tr className='carthead'>
+                                <th>Role  :</th>
+                                <th>{useRole}</th>
+                                <th>Name  :</th>
+                                <th>{data.firstName}</th>
+                            </tr>
                         ))}
-                    </Form>
+                    </thead>
+                </Table>
                 </div>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
@@ -155,6 +167,9 @@ class Setting extends Component {
                                 <Nav.Item>
                                     <Nav.Link eventKey="third">Delete Account</Nav.Link>
                                 </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="four">Order Details</Nav.Link>
+                                </Nav.Item>
                             </Nav>
                         </Col>
                         <Col sm={10}>
@@ -165,23 +180,23 @@ class Setting extends Component {
                                         <Form onSubmit={this.handleSubmit}>
                                             <Form.Group controlId="formBasicFName">
                                                 <Form.Label>First Name</Form.Label>
-                                                <Input value={user.firstName} name="genfname" onChange={this.handleChange}/>
+                                                <Input value={data.firstName} name="genfname" onChange={this.handleChange}/>
 
                                             </Form.Group>
 
                                             <Form.Group controlId="formBasicLName">
                                                 <Form.Label>Last Name</Form.Label>
-                                                <Input value={user.lastName} name="genlname" onChange={this.handleChange}/>
+                                                <Input value={data.lastName} name="genlname" onChange={this.handleChange}/>
                                             </Form.Group>
 
                                             <Form.Group controlId="formBasicAddress">
                                                 <Form.Label>Address</Form.Label>
-                                                <Input value={user.address} name="genaddress" onChange={this.handleChange}/>
+                                                <Input value={data.address} name="genaddress" onChange={this.handleChange}/>
                                             </Form.Group>
 
                                             <Form.Group controlId="formBasicPhone">
                                                 <Form.Label>Telephone Number</Form.Label>
-                                                <Input value={user.phone} name="genphone" onChange={this.handleChange}/>
+                                                <Input value={data.phone} name="genphone" onChange={this.handleChange}/>
                                             </Form.Group>
 
                                             <Button variant="primary" type="submit">
@@ -220,6 +235,22 @@ class Setting extends Component {
                                             Delete Account
                                         </Button>
                                             ))}
+                                    </div>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="four">
+                                    <div>
+
+                                        <h3>Order details</h3>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                                <th>Option</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+
                                     </div>
                                 </Tab.Pane>
                             </Tab.Content>
