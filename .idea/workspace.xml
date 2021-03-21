@@ -20,16 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/NotLoggedIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register/FarmerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/FarmerRForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Setting.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +48,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Desktop/SEMESTER 06 - Shortcut.lnk" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -113,13 +105,20 @@
       <workItem from="1614926525558" duration="2109000" />
       <workItem from="1614938260953" duration="1918000" />
       <workItem from="1615180260317" duration="2808000" />
-      <workItem from="1615189148104" duration="1295000" />
-      <workItem from="1615462671018" duration="3193000" />
-      <workItem from="1615526834405" duration="16124000" />
-      <workItem from="1615565965103" duration="18127000" />
-      <workItem from="1616034873010" duration="12359000" />
-      <workItem from="1616124431110" duration="2998000" />
-      <workItem from="1616210415703" duration="7689000" />
+      <workItem from="1615189148104" duration="1715000" />
+      <workItem from="1615193936140" duration="9818000" />
+      <workItem from="1615276044465" duration="6133000" />
+      <workItem from="1615303179181" duration="1738000" />
+      <workItem from="1615347040671" duration="5359000" />
+      <workItem from="1615379827366" duration="9659000" />
+      <workItem from="1615540535246" duration="648000" />
+      <workItem from="1615780624130" duration="5361000" />
+      <workItem from="1615955672188" duration="2260000" />
+      <workItem from="1615986367442" duration="6912000" />
+      <workItem from="1616040924369" duration="13043000" />
+      <workItem from="1616126517519" duration="2617000" />
+      <workItem from="1616214535008" duration="1221000" />
+      <workItem from="1616300089126" duration="422000" />
     </task>
     <servers />
   </component>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link ,Redirect} from 'react-router-dom'
 import {FormFeedback, FormGroup, Input, Label,Form,Button} from "reactstrap";
 
-const apiUrl = 'https://localhost:44374/api/Carts';
+const apiUrl = 'https://localhost:44374/api/Cart';
 
 class EditCart extends Component{
 
