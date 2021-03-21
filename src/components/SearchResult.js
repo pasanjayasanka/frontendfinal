@@ -13,6 +13,13 @@ class SearchResult extends React.Component{
             error:null,
             products:[],
             response: {},
+<<<<<<< Updated upstream
+=======
+
+            //this is for data in the cart
+            numOfProducts:1,
+            totalPrice:220
+>>>>>>> Stashed changes
         }
     }
 
@@ -37,7 +44,40 @@ class SearchResult extends React.Component{
     }
 
 
+<<<<<<< Updated upstream
 
+=======
+    AddToCart(Product) {
+        console.log("the total price is");
+        console.log(Product.unitPrice * this.state.numOfProducts);
+        console.log( this.state.numOfProducts);
+
+
+        //const Total = Product.productID;
+
+        // const numOfProducts= parseInt(this.state.numOfProducts);
+        // const totalPrice = parseInt(this.state.totalPrice);
+        // const data = {numOfProducts,totalPrice};
+        // console.log(data);
+
+       // posting cart
+        axios.post(
+            'https://localhost:44374/api/Cart',
+            {numOfProducts: parseInt(this.state.numOfProducts),totalPrice : parseInt(this.state.numOfProducts )* Product.unitPrice}
+            )
+            .then(response=> {
+                //console.log(response.status)
+               // console.log(response)
+                if(response.status === 201){
+                    alert("Data Save Successfully");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
+>>>>>>> Stashed changes
 
     render(){
 
@@ -88,10 +128,28 @@ class SearchResult extends React.Component{
                                         {/*<td>{product.categoryName}</td>*/}
                                         {/*<td>{product.quantity}</td>*/}
                                         <td>{product.addresse}</td>
+<<<<<<< Updated upstream
+=======
+                                        <td>{product.unitPrice}</td>
+                                        <td>{product.unitWeight}</td>
+                                        <td>
+                                            <Input
+                                                type="number"
+                                                required
+                                                name="numOfProducts" onChange={this.handleChange}
+                                                value={this.state.numOfProducts} placeholder="Enter Quantity"/>
+                                        </td>
+>>>>>>> Stashed changes
 
                                         <td>{product.unitPrice}</td>
                                         {/*<td>{product.unitWeight}</td>*/}
 
+<<<<<<< Updated upstream
+=======
+                                        <td><Button style={{backgroundColor: '0000CD', margin: '0px 30px'}}
+                                                    onClick={() => this.AddToCart(product)}>Add to
+                                            cart</Button>
+>>>>>>> Stashed changes
 
                                         <td>
                                             {/*this sends the product detail to the description component once the view button is clicked*/}
