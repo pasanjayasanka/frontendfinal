@@ -26,7 +26,6 @@ class Setting extends Component {
                 "address": '',
                 "phone": ''
 
-
             },
 
         }
@@ -244,6 +243,7 @@ class Setting extends Component {
                                         <table>
                                             <thead>
                                             <tr>
+                                                <th>Product Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
                                                 <th>Option</th>

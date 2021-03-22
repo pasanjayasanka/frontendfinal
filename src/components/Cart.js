@@ -69,7 +69,7 @@ class GetCarts extends React.Component{
                             <thead className="btn-primary">
                             <tr className='carthead'>
                                 <th>Cart Id</th>
-                                <th>Product</th>
+                                <th>Product Name</th>
                                 <th>Num Of Products</th>
                                 <th>Total Price</th>
                                 <th></th>
