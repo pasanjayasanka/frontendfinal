@@ -19,6 +19,7 @@ import Vegetable from './components/Vegetable'
 import Fruit from "./components/Fruit";
 import Dairy from "./components/Dairy";
 import Grain from "./components/Grains";
+<<<<<<< Updated upstream
 
 
 import Description from "./components/Description";
@@ -31,6 +32,14 @@ import Vegitables from './components/Categories/Vegitables'
 import Foodgrains from './components/Categories/Foodgrains'
 import DairyProducts from './components/Categories/DairyProducts'
 
+=======
+import LoginForm from "./components/LoginForm";
+import AddProduct from './components/AddProduct'
+import MyProduct from './components/MyProduct'
+import SearchResult from './components/SearchResult';
+import Checkout from './components/Checkout';
+import Receipt from './components/Receipt';
+>>>>>>> Stashed changes
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -56,6 +65,7 @@ import Receipt from './components/Receipt';
 
 
 import EditCart from "./components/EditCart";
+import Setting from "./components/Setting"
 
 import axios from "axios";
 
@@ -138,6 +148,7 @@ class App extends Component {
           
           <Route path='/SearchResult' component={SearchResult} />
           <Route path='/EditCart' component={EditCart}/>
+<<<<<<< Updated upstream
 
           
           <Route path='/Checkout' component={Checkout}/>
@@ -149,6 +160,11 @@ class App extends Component {
           <Route path='/Checkout' component={Checkout}/>
           <Route path='/Receipt' component={Receipt}/>
 
+=======
+          <Route path='/Setting' component={Setting} />
+          <Route path='/Checkout' component={Checkout}/>
+          <Route path='/Receipt' component={Receipt}/>
+>>>>>>> Stashed changes
           <Footer />
         </div>
        

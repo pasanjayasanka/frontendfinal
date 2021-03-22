@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, {Component} from "react";
 import {Tab,Tabs,Button,Nav,Row,Col,Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -264,3 +265,7 @@ class Setting extends Component {
 }
 
 export default Setting
+=======
+import React from "react";
+
+>>>>>>> Stashed changes

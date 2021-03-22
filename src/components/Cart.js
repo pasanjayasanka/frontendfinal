@@ -105,9 +105,15 @@ class GetCarts extends React.Component{
                         </Table>
 
                         <div className='center'>
+<<<<<<< Updated upstream
                         <Link to= './Checkout'>
                             <button className='cartBuy'>Buy</button>
                          </Link>
+=======
+                        <Link to='./Checkout'>
+                            <button className='cartBuy'>Buy</button>
+                         </Link>                           
+>>>>>>> Stashed changes
                         </div>
 
 
