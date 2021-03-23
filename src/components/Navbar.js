@@ -1,14 +1,14 @@
-<<<<<<< Updated upstream
-=======
-import React from 'react';
+
+
+/*import React from 'react';
 
 
 const Navbar = () => {
   return (
     <nav className="nav-wrapper green darken-3">
-      <div className="container">
-         {/* eslint-disable-next-line */}
-        <a className="brand-logo">Govimithuro</a>
+      <div className="container">*/
+         //{/* eslint-disable-next-line */}
+        /*<a className="brand-logo">Govimithuro</a>
         <ul className="right">
           <li><a href="/">Home</a></li>
           <li><a href='/Login'>Login</a></li>
@@ -24,8 +24,8 @@ const Navbar = () => {
       </div>
     </nav>
   )
-}
->>>>>>> Stashed changes
+}*/
+
 
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";

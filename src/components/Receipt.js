@@ -16,14 +16,14 @@ class Receipt extends React.Component{
             "cardNo":this.props.location.state.cardno,
             "expDate":this.props.location.state.expdate,
             "billDate":this.props.location.state.billdate,
-<<<<<<< Updated upstream
 
-=======
+
+
             //"productID": this.props.location.state.cartid,
             // "productName":this.props.location.state.productname,
 //"numOfProducts":this.props.location.state.quantity,
            // "totalPrice":this.props.location.state.total
->>>>>>> Stashed changes
+
         },
         
         errors:{},

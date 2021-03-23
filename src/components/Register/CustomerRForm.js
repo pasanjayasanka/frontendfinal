@@ -71,7 +71,7 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/Accounts/Administrator',data)
+      axios.post('https://localhost:44374/api/Accounts/Customer',data)
       //Resetting the form
           .then(response => {
               if(response.status === 201) {

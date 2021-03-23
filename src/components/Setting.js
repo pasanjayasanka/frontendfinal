@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 import React, {Component} from "react";
 import {Tab,Tabs,Button,Nav,Row,Col,Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -67,20 +67,7 @@ class Setting extends Component {
         });
     }
 
-    delete(customerID, e){
-        console.log("delete");
-        console.log(customerID);
-        axios.delete(`https://localhost:44374/api/Customer/${customerID}`)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
 
-                //const users = this.state.carts.filter(item => item.customerID !== customerID);
-                //this.setState({ carts });
-            })
-        //window.location.reload(false);
-
-    }
 
     validate = () => {
         const { users } = this.state;
@@ -265,7 +252,5 @@ class Setting extends Component {
 }
 
 export default Setting
-=======
-import React from "react";
 
->>>>>>> Stashed changes
+
