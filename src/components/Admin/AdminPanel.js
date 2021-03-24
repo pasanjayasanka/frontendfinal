@@ -5,7 +5,9 @@ import GetProducts from './GetProducts';
 import GetOrders from './GetOrders'; 
 import GetCarts from './GetCarts';  
 import GetOrderDetails from './GetOrderDetails';   
-import GetCategories from './GetCategories'; 
+import GetCategories from './GetCategories';
+import GetFeedback from "./GetFeedback";
+
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
 import './AdminPanel.css';  
 
@@ -36,7 +38,10 @@ function AdminPanel() {
               </li> 
               <li className="nav-item">  
                 <Link to={'/GetCategories'} className="nav-link">Categories</Link>  
-              </li> 
+              </li>
+              <li className="nav-item">
+                <Link to={'/GetFeedback'} className="nav-link">Feedbacks</Link>
+              </li>
             </ul>  
           </div>  
         </nav> <br />  
@@ -47,7 +52,8 @@ function AdminPanel() {
           <Route path='/GetOrders' component={GetOrders} />  
           <Route path='/GetCarts' component={GetCarts} /> 
           <Route path='/GetOrderDetails' component={GetOrderDetails} /> 
-          <Route path='/GetCategories' component={GetCategories} /> 
+          <Route path='/GetCategories' component={GetCategories} />
+          <Route path='/GetFeedback' component={GetFeedback} />
         </Switch>  
       </div>  
     </Router>  
