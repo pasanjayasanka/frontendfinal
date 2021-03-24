@@ -6,7 +6,8 @@ import './css/Button.css';
 import axios from 'axios';
 import {Input,Table} from "reactstrap";
 
-const customerUrl = 'https://localhost:44374/api/Customer'
+const customerUrl = 'https://localhost:44374/api/Customer';
+const orderUrl = 'https://localhost:44374/api/Order';
 
 class Setting extends Component {
 
@@ -17,6 +18,7 @@ class Setting extends Component {
         this.state = {
             error:null,
             users:[],
+            orders:[],
             data: {
 
                 "firstName": '',
@@ -28,6 +30,7 @@ class Setting extends Component {
                 "phone": ''
 
             },
+            role:'',
 
         }
     }
@@ -36,7 +39,42 @@ class Setting extends Component {
 
         const {id} = 1;
 
-        axios.get(customerUrl).then(response => response.data).then(
+        const role = localStorage.getItem('role');
+        const usermail = localStorage.getItem('userEmail');
+        console.log("customer");
+        console.log(role);
+
+        if(role == "Buyer") {
+            axios.get(orderUrl).then(response => response.data).then(
+                (result) => {
+                    this.setState({
+                        orders: result.filter((result) => result.customerEmail.toLowerCase() === usermail)
+                    });
+                    //console.log(result.customerID);
+                    console.log("in");
+                    console.log(this.state.orders);
+                },
+                (error) => {
+                    this.setState({error});
+                }
+            )
+        }
+        if(role == "Seller") {
+            axios.get(orderUrl).then(response => response.data).then(
+                (result) => {
+                    this.setState({
+                        orders: result.filter((result) => result.email.toLowerCase() === usermail)
+                    });
+                    //console.log(result.customerID);
+                    console.log("in");
+                    console.log(this.state.orders);
+                },
+                (error) => {
+                    this.setState({error});
+                }
+            )
+        }
+        /*axios.get(customerUrl).then(response => response.data).then(
             (result)=>{
                 this.setState({
                     users:result.filter((result)=> result.firstName.toLowerCase() === "nimal")
@@ -47,9 +85,9 @@ class Setting extends Component {
             (error)=>{
                 this.setState({error});
             }
-        )
+        )*/
         console.log("yes");
-        console.log(this.state.users);
+        //console.log(this.state.users);
         console.log("ok");
 
     }
@@ -111,9 +149,21 @@ class Setting extends Component {
 
     }
 
+    deleteRow(orderID,e){
+        axios.delete(`https://localhost:44374/api/Order/${orderID}`)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+
+                const orders = this.state.orders.filter(item => item.orderId !== orderID);
+                this.setState({ orders });
+            })
+        window.location.reload(false);
+    }
+
     render() {
 
-        const{error,users,data}=this.state;
+        const{error,data,orders}=this.state;
 
         data.firstName = localStorage.getItem('userFirstName');
         data.lastName = localStorage.getItem('userLastName');
@@ -130,14 +180,14 @@ class Setting extends Component {
                 <div>
                     <Table>
                         <thead>
-                        {users.map(user => (
+
                             <tr className='carthead'>
                                 <th>Role  :</th>
                                 <th>{useRole}</th>
                                 <th>Name  :</th>
                                 <th>{data.firstName}</th>
                             </tr>
-                        ))}
+
                     </thead>
                 </Table>
                 </div>
@@ -163,7 +213,7 @@ class Setting extends Component {
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
                                     <div>
-                                        {users.map(user => (
+
                                         <Form onSubmit={this.handleSubmit}>
                                             <Form.Group controlId="formBasicFName">
                                                 <Form.Label>First Name</Form.Label>
@@ -190,7 +240,7 @@ class Setting extends Component {
                                                 Save Changes
                                             </Button>
                                         </Form>
-                                        ))}
+
                                     </div>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="second">
@@ -217,11 +267,11 @@ class Setting extends Component {
                                         <h3>Delete The Account</h3>
                                         <p>Are you sure you want to delete this account from Govimithuro Community ??</p>
                                         <p>After you delete your account it will permanetly delete and can not be recovered.</p>
-                                        {users.map(user => (
-                                        <Button variant="danger" type="submit" onClick={(e) => this.delete(user.customerID, e)}>
+
+                                        <Button variant="danger" type="submit" >
                                             Delete Account
                                         </Button>
-                                            ))}
+
                                     </div>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="four">
@@ -233,10 +283,22 @@ class Setting extends Component {
                                             <tr>
                                                 <th>Product Name</th>
                                                 <th>Quantity</th>
-                                                <th>Price</th>
+                                                <th>Unit Price</th>
                                                 <th>Option</th>
                                             </tr>
                                             </thead>
+                                            <tbody>
+                                            {orders.map(order => (
+                                            <tr key={order.orderId}>
+                                                <td>{order.productName}</td>
+                                                <td>{order.quantity}</td>
+                                                <td>{order.unitPrice}</td>
+                                                <td>
+                                                    <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
+                                                </td>
+                                            </tr>
+                                            ))}
+                                            </tbody>
                                         </table>
 
                                     </div>

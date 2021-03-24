@@ -21,14 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Receipt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Receipt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/CustomerRForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Setting.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +122,8 @@
       <workItem from="1616394227132" duration="3112000" />
       <workItem from="1616417304046" duration="5945000" />
       <workItem from="1616472836742" duration="2574000" />
-      <workItem from="1616477238041" duration="6660000" />
+      <workItem from="1616477238041" duration="13440000" />
+      <workItem from="1616560642210" duration="7736000" />
     </task>
     <servers />
   </component>
