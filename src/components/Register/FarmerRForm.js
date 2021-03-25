@@ -49,7 +49,7 @@ validate = () => {
 
   if (data.firstName === '') errors.firstName = 'First Name can not be blank.';
   if (data.lastName === '') errors.lastName = 'Last Name can not be blank.';
-  if (data.email === '') errors.email = 'Address can not be blank.';
+  if (data.email === '' ||data.email ===axios.get('https://localhost:44374/api/User').email) errors.email = 'Email can not be blank.';
   if (data.address === '') errors.address = 'Address can not be blank.';
   if (data.ascrNo === '') errors.ascrNo = 'AscrNo can not be blank.';
   if (data.agriBranch === '') errors.agriBranch = 'AgriBranch can not be blank.';
@@ -80,7 +80,7 @@ handleSubmit = (e) => {
 
               }
               else {
-                  alert(" Error occured! please try again ");
+                  alert(" Error occured! please try again or use another email");
                   console.log(response);
               }
           })

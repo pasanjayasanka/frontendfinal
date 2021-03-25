@@ -13,7 +13,7 @@ export default function Fruitvegitables() {
         const check = cart.every(item =>{
             return item.productId !== id
         })
-        if(check && localStorage.getItem('role')== 'Buyer' && localStorage.getItem('token')!= 'null'){
+        if(check && localStorage.getItem('role')=== 'Buyer' && localStorage.getItem('token')!== 'null'){
             const data = product.filter(product =>{
                 return product.productId=== id
             })
@@ -92,7 +92,7 @@ export default function Fruitvegitables() {
                     <div   className="cart-icon ">      
                     <img src={Cartsvg} alt="" width="40" /> 
                      <span >{cart.length}</span>   
-                     </div></Link>
+                     </div></Link> 
                     </div>
                 </div>
             </div>   
@@ -103,11 +103,11 @@ export default function Fruitvegitables() {
                         {
                            
                             
-                            product.filter((productList)=>((productList.categoryName.toLowerCase()!='fruitvegitables') && (productList.categoryName.toLowerCase()!='fruitvegitable')
-                            &&(productList.categoryName.toLowerCase()!='fruits')&&(productList.categoryName.toLowerCase()!='fruit')
-                            &&(productList.categoryName.toLowerCase()!='vegitables')&&(productList.categoryName.toLowerCase()!='vegitable')
-                            &&(productList.categoryName.toLowerCase()!='foodgrain')&&(productList.categoryName.toLowerCase()!='foodgrains')
-                            &&(productList.categoryName.toLowerCase()!='dairy product')&&(productList.categoryName.toLowerCase()!='dairy products')
+                            product.filter((productList)=>((productList.categoryName.toLowerCase()!=='fruitvegitables') && (productList.categoryName.toLowerCase()!=='fruitvegitable')
+                            &&(productList.categoryName.toLowerCase()!=='fruits')&&(productList.categoryName.toLowerCase()!=='fruit')
+                            &&(productList.categoryName.toLowerCase()!=='vegitables')&&(productList.categoryName.toLowerCase()!=='vegitable')
+                            &&(productList.categoryName.toLowerCase()!=='foodgrain')&&(productList.categoryName.toLowerCase()!=='foodgrains')
+                            &&(productList.categoryName.toLowerCase()!=='dairy product')&&(productList.categoryName.toLowerCase()!=='dairy products')
                             ))
                             .slice(0,visible).map((productList) =>
                                 <tc>
