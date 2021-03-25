@@ -52,10 +52,10 @@ class GetOrderDetails extends React.Component{
                     <thead className="btn-primary">  
                       <tr>  
                         <th>Order Id</th> 
-                        <th>Product Id</th>  
-                        <th>Unit Price</th>    
-                        <th>Quantity</th>   
-                        <th>Order Number</th>  
+                        <th>Email</th>
+                        <th>feedback</th>  
+                            
+                        
                        
                         
                       </tr>  
@@ -64,10 +64,9 @@ class GetOrderDetails extends React.Component{
                       {orderdetails.map(orderdetail => (  
                         <tr key={orderdetail.orderId}>  
                           <td>{orderdetail.orderId}</td>   
-                          <td>{orderdetail.productId}</td>  
-                          <td>{orderdetail.unitPrice}</td>  
-                          <td>{orderdetail.quantity}</td>  
-                          <td>{orderdetail.orderNumber}</td>  
+                          <td>{orderdetail.email}</td>  
+                          <td>{orderdetail.feedback}</td>  
+                         
                           
                               
                            

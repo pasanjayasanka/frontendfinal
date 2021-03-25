@@ -3,7 +3,7 @@ import { Table} from 'react-bootstrap';
 import axios from 'axios';  
 
   
-const apiUrl = 'https://localhost:44374/api/Cart/';  
+const apiUrl = 'https://localhost:44374/api/BillingInfo/';  
   
 class GetCarts extends React.Component{  
     constructor(props){  
@@ -51,21 +51,22 @@ class GetCarts extends React.Component{
                   <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
-                        <th>Cart Id</th> 
-                        <th>Num Of Products</th>  
-                        <th>Total Price</th>    
-                         
+                        <th>Billing Id</th> 
+                        <th>Name</th>  
+                        <th>Bill Date</th>
+                        <th>Email</th>      
+                          
                        
                         
                       </tr>  
                     </thead>  
                     <tbody>  
                       {carts.map(cart => (  
-                        <tr key={cart.productID}>  
-                          <td>{cart.productID}</td>   
-                          <td>{cart.numOfProducts}</td>  
-                          <td>{cart.totalPrice }</td>  
-                          
+                        <tr key={cart.billingId}>  
+                          <td>{cart.billingId}</td>
+                          <td>{cart.cardName}</td> 
+                          <td>{cart.billDate}</td>  
+                          <td>{cart.email }</td>  
                           
                               
                            

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import './../MyProducts/Product.css';    
+import './../MyProducts/Product.css';  
 import Cartsvg from './../../img/shoppingcart.svg'
 import {Link} from 'react-router-dom'
 
-export default function DairyProducts() {
+export default function Fruitvegitables() {
     const [product, setProductList] = useState([])
     const [cart, setCart] = useState([])
     const [visible, setVisible] = useState(6)
-
+  
    const addCart = (id) =>{
         const check = cart.every(item =>{
             return item.productId !== id
@@ -74,13 +74,14 @@ export default function DairyProducts() {
     const showmoreProducts =()=>{
         setVisible ((prevValue)=>prevValue + 6)}
 
+
     return (
-        
+             
             <div className="row">
             <div className="col-md-11">
                 <div >
                     <div className="container ">
-                        <h4 className="title" >DAIRY PRODUCTS</h4>
+                        <h4 className="title" >Other Products</h4>
                     </div>
                 </div>
             </div>
@@ -94,7 +95,7 @@ export default function DairyProducts() {
                      </div></Link>
                     </div>
                 </div>
-            </div>
+            </div>   
             
             <div className="col-md-12" style={{  margin: '0px 30px' }}>
                 <table >
@@ -102,7 +103,12 @@ export default function DairyProducts() {
                         {
                            
                             
-                            product.filter((productList)=>((productList.categoryName.toLowerCase()==='dairy product')||(productList.categoryName.toLowerCase()==='dairy products')))
+                            product.filter((productList)=>((productList.categoryName.toLowerCase()!='fruitvegitables') && (productList.categoryName.toLowerCase()!='fruitvegitable')
+                            &&(productList.categoryName.toLowerCase()!='fruits')&&(productList.categoryName.toLowerCase()!='fruit')
+                            &&(productList.categoryName.toLowerCase()!='vegitables')&&(productList.categoryName.toLowerCase()!='vegitable')
+                            &&(productList.categoryName.toLowerCase()!='foodgrain')&&(productList.categoryName.toLowerCase()!='foodgrains')
+                            &&(productList.categoryName.toLowerCase()!='dairy product')&&(productList.categoryName.toLowerCase()!='dairy products')
+                            ))
                             .slice(0,visible).map((productList) =>
                                 <tc>
                                     <td >{imageCard(productList)}</td>   

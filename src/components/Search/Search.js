@@ -13,14 +13,14 @@ export default function Search() {
         const check = cart.every(item =>{
             return item.productId !== id
         })
-        if(check){
+        if(check && localStorage.getItem('role')== 'Buyer' && localStorage.getItem('token')!= 'null'){
             const data = product.filter(product =>{
                 return product.productId=== id
             })
             setCart([...cart, ...data])
             
         }else{
-            alert("This product has been already added to cart.")
+            alert("This product has been already added to cart,")
             
         }
     } 

@@ -31,7 +31,7 @@ export default function ProductList() {
     }
 
     const addOrEdit = (formData, onSuccess) => {
-        if (formData.get('productId') === "0")
+        if (formData.get('productId') === "0" && localStorage.getItem('role')== 'Seller' && localStorage.getItem('token')!= 'null')
         productAPI().create(formData)
                 .then(res => {
                     onSuccess();

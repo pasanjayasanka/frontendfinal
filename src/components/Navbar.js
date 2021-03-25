@@ -112,6 +112,7 @@ class Navbar extends Component {
         localStorage.setItem('userLastName', "not logged in");
         localStorage.setItem('userAddress', "not logged in");
         localStorage.setItem('userEmail', "not logged in");
+        localStorage.setItem('dataCart', null);
 
     }
 }

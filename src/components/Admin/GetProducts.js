@@ -64,7 +64,7 @@ class GetProducts extends React.Component{
                         <th>Image</th> 
                         <th>Email</th> 
                         <th>Product Name</th>  
-                        <th>Quantity</th>    
+                       
                         <th>Category Name</th>  
                         <th>Address</th>  
                         <th>Unit Price</th>  
@@ -79,7 +79,7 @@ class GetProducts extends React.Component{
                           <td><img src ={product.imageSrc} className="imgcard"/></td>  
                           <td>{product.email}</td>  
                           <td>{product.productName}</td>  
-                          <td>{product.quantity}</td>  
+                          
                           <td>{product.categoryName}</td>  
                           <td>{product.addresse}</td>  
                           <td>{product.unitPrice}</td>  

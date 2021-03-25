@@ -9,7 +9,7 @@ export default function MyCart() {
    
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0)
-
+    const [values, setValues] = useState([])
     const removeProduct = id => {
         if(window.confirm("Do you want to remove this product?")){
             cart.forEach((item, index) => {
@@ -101,11 +101,20 @@ export default function MyCart() {
         },     
     ]
     const Addproduct=(product)=>{  
-        axios.post('https://localhost:44374/api/Order',{productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice ,customerEmail:localStorage.getItem('userEmail'),customerName:localStorage.getItem('userFirstName')})  
+        axios.post('https://localhost:44374/api/Order',{productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice ,customerEmail:localStorage.getItem('userEmail'),customerName:localStorage.getItem('userFirstName'),date: values.date})  
       .then(json => {  
         alert("Product is selected successfully");  
       })  
       } 
+
+
+      const handleInputChange = e => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        })
+    }
 
 
     return (
@@ -129,7 +138,8 @@ export default function MyCart() {
                         <th className="text-center">Product Name</th>  
                         <th className="text-center">Unit Price</th>  
                         <th className="text-center">Unit Weight(kg/l)</th> 
-                        <th className="text-center">Quantity</th> 
+                        <th className="text-center">Quantity</th>
+                        <th className="text-center">Date</th>  
                         <th className="text-center">Remove</th>
                         <th className="text-center">Buy</th>   
                       </tr>  
@@ -140,15 +150,22 @@ export default function MyCart() {
                           <td ><img src ={product.imageSrc} className="imgcard "/></td>     
                           <td className="text-center">{product.productName}</td>    
                           <td className="text-center">Rs.{product.unitPrice}</td>  
-                          <td className="text-center">{product.unitWeight}</td>     
+                          <td className="text-center">{product.unitWeight}</td>
+                              
                           <td className="text-center"><button className="count" onClick={() => reduction(product.productId)}> - </button>
                                <span> {product.quantity} </span>
                                <button className="count" onClick={() => increase(product.productId)}> + </button>  
                             </td>
+                            <td className="text-center"><div className="form-group">
+                            <input className="form-control" placeholder="Fill the Date" name="date"
+                                value={values.date}
+                                onChange={handleInputChange} />
+                        </div></td>  
                           <td className="text-center"><Button style={{ backgroundColor: 'DarkOliveGreen'}} onClick={() => removeProduct(product.productId)}>
                           <i className="far fa-trash-alt"></i></Button></td> 
+                          
                           <td className="text-center "><Button style={{ backgroundColor: 'DarkSlateGray'}} onClick={() => Addproduct(
-                          {productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice })}>Buy</Button></td> 
+                          {productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice,date: values.date})}>Buy</Button></td> 
                         </tr>  
                       ))}  
                     </tbody>  

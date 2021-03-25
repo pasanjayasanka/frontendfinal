@@ -30,7 +30,7 @@ import Fruits from './components/Categories/Fruits'
 import Vegitables from './components/Categories/Vegitables'
 import Foodgrains from './components/Categories/Foodgrains'
 import DairyProducts from './components/Categories/DairyProducts'
-
+import Others from './components/Categories/Others'
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -116,7 +116,8 @@ class App extends Component {
           <Route path='/Categories/Fruits' component={Fruits} /> 
           <Route path='/Categories/Vegitables' component={Vegitables} /> 
           <Route path='/Categories/Foodgrains' component={Foodgrains} /> 
-          <Route path='/Categories/DairyProducts' component={DairyProducts} />  
+          <Route path='/Categories/DairyProducts' component={DairyProducts} /> 
+          <Route path='/Categories/Others' component={Others} />   
 
           <Route path='/Admin/AdminPanel' component={AdminPanel} /> 
           <Route path='/Admin/GetCustomers' component={GetCustomers} /> 
