@@ -16,9 +16,13 @@ class Checkout extends Component  {
         data:{      
         'cardName': '',
         'cardNo': '',
-        'expDate': '',
+        'expMonth': '',
+        'expYear':'',
         'billDate':'',
+        'email':'',
         'cvv': '',
+        'email':'',
+        'totalPrice':'',
         },
 
       errors: {}
@@ -43,7 +47,8 @@ validate = () => {
 
   if (data.cardName === '') errors.cardName = 'Card holder can not be blank.';
   if (data.cardNo === '') errors.cardNo = 'Card no can not be blank.';
-  if (data.expDate === '') errors.expDate = 'Expire date can not be blank.';
+  if (data.expMonth === '') errors.expMonth = 'Expire month can not be blank.';
+  if (data.expYear === '') errors.expYear = 'Expire year can not be blank.';
   if (data.billDate === '') errors.billDate = 'Bill date can not be blank.';
   if (data.cvv === '') errors.cvv = 'CVV can not be blank.';
   
@@ -60,7 +65,9 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/BillingInfo/',{cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expDate:this.state.data.expDate,billDate:this.state.data.billDate,cvv:parseFloat(this.state.data.cvv)})
+      axios.post('https://localhost:44374/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice)})
+      
+      this.props.history.push({pathname:'/Receipt',state:{billingId:data.billingId,cardName:data.cardName,cardNo:data.cardNo,billDate:data.billDate,email:data.email} });
       //Resetting the form
       this.setState(this.getInitialState());
   } else {
@@ -72,45 +79,68 @@ handleSubmit = (e) => {
     const { data, errors } = this.state; 
         return(
           <div className="Container">
-        <h4 className="center">CREDIT CARD CHECKOUT</h4>
-            <div id="Registerbox">
-             <div className="box">
-          <Form onSubmit={this.handleSubmit}>
-          
-          <FormGroup>
-              <Label for="cardName">Card Holder's Name</Label>
-              <Input value={data.cardName} invalid={errors.cardName? true : false} name="cardName" onChange={this.handleChange} />
-              <FormFeedback>{errors.cardName}</FormFeedback>
-          </FormGroup>
-          <FormGroup>
-              <Label for="cardNo">Card Number</Label>
-              <Input value={data.cardNo} invalid={errors.cardNo? true : false} name="cardNo" onChange={this.handleChange} />
-              <FormFeedback>{errors.cardNo}</FormFeedback>
-          </FormGroup>
-          <FormGroup>
-              <Label for="expDate">Expiration Date</Label>
-              <Input  value={data.expDate} invalid={errors.expDate? true : false} name="expDate" onChange={this.handleChange} />
-              <FormFeedback>{errors.expDate}</FormFeedback>
-          </FormGroup>         
-          <FormGroup>
-              <Label for="billDate">Bill Date</Label>
-              <Input value={data.billDate} invalid={errors.billDate? true : false} name="billDate" onChange={this.handleChange} />
-              <FormFeedback>{errors.billDate}</FormFeedback>
-          </FormGroup>
-          <FormGroup>
-              <Label for="cvv">CVV</Label>
-              <Input value={data.cvv} invalid={errors.cvv? true : false} name="cvv" onChange={this.handleChange} />
-              <FormFeedback>{errors.cvv}</FormFeedback>
-          </FormGroup>
-          <Button color="primary" >PAY</Button>
-          <Link to={{pathname:'./Receipt', state:{billingid:data.billingID,cardname:data.cardName,cardno:data.cardNo,expdate:data.expDate,cvv:data.cvv,billdate:data.billDate} }}>
-            <Button color="primary">Bill</Button>
-          </Link>
-          
-      </Form>
-      </div>
-      </div>
-      </div>
+          <h4 className="center">CREDIT CARD CHECKOUT</h4>
+              <div id="Registerbox">
+               <div className="box">
+            <Form onSubmit={this.handleSubmit}>
+            <FormGroup>
+                <Label for="email">Email Address</Label>
+                <Input value={data.email} invalid={errors.email? true : false} name="email" onChange={this.handleChange} />
+                <FormFeedback>{errors.email}</FormFeedback>
+            </FormGroup>
+            <FormGroup>
+                <Label for="billDate">Bill Date</Label>
+                <Input value={data.billDate} invalid={errors.billDate? true : false} name="billDate" onChange={this.handleChange} />
+                <FormFeedback>{errors.billDate}</FormFeedback>
+            </FormGroup>
+  
+            <div><h5>Payment Details</h5></div>
+  
+            <FormGroup>
+                <Label for="cardName">Card Holder's Name</Label>
+                <Input value={data.cardName} invalid={errors.cardName? true : false} name="cardName" onChange={this.handleChange} />
+                <FormFeedback>{errors.cardName}</FormFeedback>
+            </FormGroup>
+            <FormGroup>
+                <Label for="cardNo">Card Number</Label>
+                <Input value={data.cardNo} invalid={errors.cardNo? true : false} name="cardNo" onChange={this.handleChange} placeholder='0000 0000 0000 0000'
+                        pattern='[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}' maxLength='19'/>
+                <FormFeedback>{errors.cardNo}</FormFeedback>
+            </FormGroup>
+            <div className="row">
+            <div className="col">
+            <FormGroup>
+                <Label for="expMonth">Expiration Date</Label>
+                <Input  value={data.expMonth} invalid={errors.expMonth? true : false} name="expMonth" onChange={this.handleChange} placeholder="Month" />
+                <FormFeedback>{errors.expMonth}</FormFeedback>
+            </FormGroup>
+            </div>
+            <div className="col">
+            <FormGroup>
+                <Label for="expYear">&ensp;</Label>
+                <Input  value={data.expYear} invalid={errors.expYear? true : false} name="expYear" onChange={this.handleChange} placeholder="Year" />
+                <FormFeedback>{errors.expYear}</FormFeedback>
+            </FormGroup>
+            </div>
+            </div>
+            <FormGroup>
+                <Label for="cvv">CVV</Label>
+                <Input value={data.cvv} invalid={errors.cvv? true : false} name="cvv" onChange={this.handleChange} maxLength='3'/>
+                <FormFeedback>{errors.cvv}</FormFeedback>
+            </FormGroup>   
+  
+            <FormGroup>
+                <Label for="totalPrice">Total Price</Label>
+                <Input value={data.totalPrice} invalid={errors.totalPrice? true : false} name="totalPrice" onChange={this.handleChange}/>
+                <FormFeedback>{errors.totalPrice}</FormFeedback>
+            </FormGroup>       
+  
+            <Button color="primary" >PAY</Button>          
+        </Form>
+  
+        </div>
+        </div>
+        </div>
         )
        
         }
