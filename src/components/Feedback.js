@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Input, Label, FormGroup, FormFeedback, Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Feedback extends Component  {
   

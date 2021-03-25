@@ -102,7 +102,6 @@ handleSubmit = (e) => {
               <Input value={data.cvv} invalid={errors.cvv? true : false} name="cvv" onChange={this.handleChange} />
               <FormFeedback>{errors.cvv}</FormFeedback>
           </FormGroup>
-               
           <Button color="primary" >PAY</Button>
           <Link to={{pathname:'./Receipt', state:{billingid:data.billingID,cardname:data.cardName,cardno:data.cardNo,expdate:data.expDate,cvv:data.cvv,billdate:data.billDate} }}>
             <Button color="primary">Bill</Button>

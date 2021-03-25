@@ -1,9 +1,9 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
+import {Table,Button} from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import './css/login.css';
-
+import {Input} from "reactstrap";
 const Url = 'https://localhost:44374/api/Product/';
 
 class SearchResult extends React.Component{
@@ -13,6 +13,12 @@ class SearchResult extends React.Component{
             error:null,
             products:[],
             response: {},
+
+
+            //this is for data in the cart
+            numOfProducts:1,
+            totalPrice:220
+
         }
     }
 
@@ -37,6 +43,37 @@ class SearchResult extends React.Component{
     }
 
 
+
+    AddToCart(Product) {
+        console.log("the total price is");
+        console.log(Product.unitPrice * this.state.numOfProducts);
+        console.log( this.state.numOfProducts);
+
+
+        //const Total = Product.productID;
+
+        // const numOfProducts= parseInt(this.state.numOfProducts);
+        // const totalPrice = parseInt(this.state.totalPrice);
+        // const data = {numOfProducts,totalPrice};
+        // console.log(data);
+
+       // posting cart
+        axios.post(
+            'https://localhost:44374/api/Cart',
+            {numOfProducts: parseInt(this.state.numOfProducts),totalPrice : parseInt(this.state.numOfProducts )* Product.unitPrice}
+            )
+            .then(response=> {
+                //console.log(response.status)
+               // console.log(response)
+                if(response.status === 201){
+                    alert("Data Save Successfully");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
 
 
     render(){
@@ -90,7 +127,23 @@ class SearchResult extends React.Component{
                                         <td>{product.addresse}</td>
 
                                         <td>{product.unitPrice}</td>
+                                        <td>{product.unitWeight}</td>
+                                        <td>
+                                            <Input
+                                                type="number"
+                                                required
+                                                name="numOfProducts" onChange={this.handleChange}
+                                                value={this.state.numOfProducts} placeholder="Enter Quantity"/>
+                                        </td>
+
+
+                                        <td>{product.unitPrice}</td>
                                         {/*<td>{product.unitWeight}</td>*/}
+
+
+                                        <td><Button style={{backgroundColor: '0000CD', margin: '0px 30px'}}
+                                                    onClick={() => this.AddToCart(product)}>Add to
+                                            cart</Button>
 
 
                                         <td>
@@ -108,7 +161,7 @@ class SearchResult extends React.Component{
                                                 <button   style={{height:'40px', width:'100px', backgroundColor: "darkgreen",color:'whitesmoke' }}> View </button>
                                             </Link>
                                         </td>
-
+                                        </td>
 
                                     </tr>
                                 ))}

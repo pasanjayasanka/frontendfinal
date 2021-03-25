@@ -17,6 +17,13 @@ class Receipt extends React.Component{
             "expDate":this.props.location.state.expdate,
             "billDate":this.props.location.state.billdate,
 
+
+
+            //"productID": this.props.location.state.cartid,
+            // "productName":this.props.location.state.productname,
+//"numOfProducts":this.props.location.state.quantity,
+           // "totalPrice":this.props.location.state.total
+
         },
         
         errors:{},

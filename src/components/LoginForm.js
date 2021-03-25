@@ -8,7 +8,7 @@ import axios from 'axios';
 const LoginForm = () => {
 
     const [loginData, setLoginData] =useState ({
-        //role:'',
+        role:'',
         email: '',
         password:''
     });
@@ -35,6 +35,7 @@ const LoginForm = () => {
                     localStorage.setItem('userLastName', response.data.userLastName);
                     localStorage.setItem('userEmail', response.data.userEmail);
                     localStorage.setItem('userAddress', response.data.userAddress);
+                    localStorage.setItem('userPhone', response.data.userPhone);
 
                     const token = response.data.token;
                                                            //send token to decode
@@ -42,7 +43,7 @@ const LoginForm = () => {
                                                            // send payload to find role
                     const role = findRole(payload);
                     localStorage.setItem('role', role);
-                   // console.log(role);
+                    console.log(role);
                     if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); window.location.replace('/') }
                     if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   window.location.replace('/')  }
                     if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    window.location.replace('/') }

@@ -21,6 +21,7 @@ import Dairy from "./components/Dairy";
 import Grain from "./components/Grains";
 
 
+
 import Description from "./components/Description";
 
 
@@ -31,6 +32,14 @@ import Vegitables from './components/Categories/Vegitables'
 import Foodgrains from './components/Categories/Foodgrains'
 import DairyProducts from './components/Categories/DairyProducts'
 import Others from './components/Categories/Others'
+
+//import LoginForm from "./components/LoginForm";
+//import AddProduct from './components/AddProduct'
+//import MyProduct from './components/MyProduct'
+//import SearchResult from './components/SearchResult';
+//import Checkout from './components/Checkout';
+//import Receipt from './components/Receipt';
+
 
 import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
@@ -56,6 +65,7 @@ import Receipt from './components/Receipt';
 
 
 import EditCart from "./components/EditCart";
+//import Setting from "./components/Setting"
 
 import axios from "axios";
 
@@ -140,6 +150,7 @@ class App extends Component {
           <Route path='/SearchResult' component={SearchResult} />
           <Route path='/EditCart' component={EditCart}/>
 
+
           
           <Route path='/Checkout' component={Checkout}/>
           <Route path='/Receipt' component={Receipt}/>
@@ -147,8 +158,6 @@ class App extends Component {
           <Route path='/Description' component={Description} />
           <Route path='/Setting' component={Setting}/>
 
-          <Route path='/Checkout' component={Checkout}/>
-          <Route path='/Receipt' component={Receipt}/>
 
           <Footer />
         </div>
