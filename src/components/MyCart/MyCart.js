@@ -189,6 +189,6 @@ export default function MyCart() {
         </div>
      
            </div >
-
     )
 }
+

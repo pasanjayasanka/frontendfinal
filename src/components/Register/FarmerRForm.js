@@ -43,7 +43,7 @@ class FarmerRForm extends Component  {
         }
     });
 }
-validate = () => {
+  validate = () => {
   const { data } = this.state;
   let errors = {};
 
@@ -61,7 +61,7 @@ validate = () => {
   return errors;
 }
 
-handleSubmit = (e) => {
+  handleSubmit = (e) => {
   e.preventDefault();
 
   const { data } = this.state;
@@ -79,13 +79,14 @@ handleSubmit = (e) => {
                   // redirect to homepage
 
               }
-              else {
-                  alert(" Error occured! please try again ");
+              else if(response.status === 409){
+                  alert(" Email Already Exist ! ");
                   console.log(response);
               }
           })
   } else {
       this.setState({ errors });
+      alert(" Error Occurred. please try again");
   }
 }
 

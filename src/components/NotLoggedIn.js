@@ -1,7 +1,8 @@
 import React from 'react'
 import './css/Fontstyle.css'
 import {Link} from "react-router-dom";
-import {Card} from "react-bootstrap";
+import {Card, CardImg} from "react-bootstrap";
+import notLoggedin from './../img/not_logged_in.jpg'
 
 
 
@@ -9,16 +10,12 @@ import {Card} from "react-bootstrap";
 
 const NotLoggedIn = () => {
     return (
-        <div style={{textAlign:'center'}}>
+        <div className="card" style={{textAlign:'center', padding:'20px',backgroundImage:`url(${notLoggedin})`}}>
 
-                <Card style={{ backgroundColor:'lightgrey'}}>
-                    <div >
-                        <Link to={'/'}> <h3 style={{ textAlign:'center'}}> Back to Homepage</h3></Link>
-
-                        <Link to={'/LoginForm'}> <p style={{ textAlign:'center'}}> Login As different user</p></Link>
-                    </div>
-                </Card>
-
+                        <div className="form-group" style={{backgroundColor:'yellow'}} >
+                            <Link> <h3 style={{color:'blue'}} onClick={()=>window.location.replace('/')}> back to home page</h3></Link>
+                            <Link > <p style={{ textAlign:'center'}} onClick={()=>window.location.replace('/Login')}> Login As different user</p></Link>
+                        </div>
 
         </div>
     )
