@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Fontstyle.css'
 import {Link} from "react-router-dom";
-import {Card, CardImg} from "react-bootstrap";
+
 import notLoggedin from './../img/not_logged_in.jpg'
 
 

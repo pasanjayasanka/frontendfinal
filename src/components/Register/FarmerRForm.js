@@ -79,6 +79,7 @@ class FarmerRForm extends Component  {
                   // redirect to homepage
 
               }
+
               else if(response.status === 409){
                   alert(" Email Already Exist ! ");
                   console.log(response);
@@ -103,55 +104,55 @@ class FarmerRForm extends Component  {
           
           <FormGroup>
               <Label for="firstName">First Name</Label>
-              <Input  value={data.firstName} invalid={errors.firstName ? true : false} name="firstName" onChange={this.handleChange} />
+              <Input value={data.firstName} invalid={!!errors.firstName} name="firstName" onChange={this.handleChange} />
               <FormFeedback>{errors.firstName}</FormFeedback>
           </FormGroup>
 
           <FormGroup>
               <Label for="lastName">Last Name</Label>
-              <Input  value={data.lastName} invalid={errors.lastName? true : false} name="lastName" onChange={this.handleChange} />
+              <Input value={data.lastName} invalid={!!errors.lastName} name="lastName" onChange={this.handleChange} />
               <FormFeedback>{errors.lastName}</FormFeedback>
           </FormGroup>
               <FormGroup>
                   <Label for="email">Email</Label>
-                  <Input  value={data.email} invalid={errors.email? true : false} name="email" onChange={this.handleChange} />
+                  <Input value={data.email} invalid={!!errors.email} name="email" onChange={this.handleChange} />
                   <FormFeedback>{errors.email}</FormFeedback>
               </FormGroup>
           <FormGroup>
               <Label for="address">Address</Label>
-              <Input  value={data.address} invalid={errors.address? true : false} name="address" onChange={this.handleChange} />
+              <Input value={data.address} invalid={!!errors.address} name="address" onChange={this.handleChange} />
               <FormFeedback>{errors.address}</FormFeedback>
           </FormGroup>
           <FormGroup>
               <Label for="ascrNo">Agriculture service center registration no</Label>
-              <Input  value={data.ascrNo} invalid={errors.ascrNo? true : false} name="ascrNo" onChange={this.handleChange} />
+              <Input value={data.ascrNo} invalid={!!errors.ascrNo} name="ascrNo" onChange={this.handleChange} />
               <FormFeedback>{errors.ascrNo}</FormFeedback>
           </FormGroup>
           <FormGroup>
               <Label for="agriBranch">Agriculture Branch</Label>
-              <Input  value={data.agriBranch} invalid={errors.agriBranch? true : false} name="agriBranch" onChange={this.handleChange} />
+              <Input value={data.agriBranch} invalid={!!errors.agriBranch} name="agriBranch" onChange={this.handleChange} />
               <FormFeedback>{errors.agriBranch}</FormFeedback>
           </FormGroup>
           <FormGroup>
               <Label for="nic">NIC</Label>
-              <Input  value={data.nic} invalid={errors.nic? true : false} name="nic" onChange={this.handleChange} />
+              <Input value={data.nic} invalid={!!errors.nic} name="nic" onChange={this.handleChange} />
               <FormFeedback>{errors.nic}</FormFeedback>
           </FormGroup>
           <FormGroup>
               <Label for="phone">Phone</Label>
-              <Input  value={data.phone} invalid={errors.phone? true : false} name="phone" onChange={this.handleChange} />
+              <Input value={data.phone} invalid={!!errors.phone} name="phone" onChange={this.handleChange} />
               <FormFeedback>{errors.phone}</FormFeedback>
           </FormGroup>
 
           <FormGroup>
               <Label for="password">Password</Label>
-              <Input value={data.password} type="password" name="password" invalid={errors.password ? true : false} onChange={this.handleChange} />
+              <Input value={data.password} type="password" name="password" invalid={!!errors.password} onChange={this.handleChange} />
               <FormFeedback>{errors.password}</FormFeedback>
           </FormGroup>
 
           <FormGroup>
                     <Label for="confirmPassword">Confirm Password</Label>
-                    <Input  value={data.confirmPassword} type="password" name="confirmPassword" invalid={errors.confirmPassword ? true : false} onChange={this.handleChange} />
+                    <Input value={data.confirmPassword} type="password" name="confirmPassword" invalid={!!errors.confirmPassword} onChange={this.handleChange} />
                     <FormFeedback>{errors.confirmPassword}</FormFeedback>
                 </FormGroup>
                 
