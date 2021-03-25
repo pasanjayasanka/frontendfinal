@@ -33,9 +33,7 @@ function AdminPanel() {
               <li className="nav-item">  
                 <Link to={'/GetCarts'} className="nav-link">Bill Details</Link>  
               </li> 
-              <li className="nav-item">  
-                <Link to={'/GetOrderDetails'} className="nav-link">Feedbacks</Link>  
-              </li> 
+              
               <li className="nav-item">  
                 <Link to={'/GetCategories'} className="nav-link">Categories</Link>  
               </li>

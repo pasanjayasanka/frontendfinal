@@ -13,7 +13,7 @@ export default function Search() {
         const check = cart.every(item =>{
             return item.productId !== id
         })
-        if(check && localStorage.getItem('role')== 'Buyer' && localStorage.getItem('token')!= 'null'){
+        if(check && localStorage.getItem('role')=== 'Buyer' && localStorage.getItem('token')!== 'null'){
             const data = product.filter(product =>{
                 return product.productId=== id
             })
