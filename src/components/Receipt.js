@@ -41,7 +41,6 @@ class Receipt extends React.Component{
 
    generatePDF(){
         html2canvas(document.getElementById('capture')).then(function(canvas){
-         document.body.appendChild(canvas)
          var imgdata = canvas.toDataURL('image/png')
         var doc = new jsPDF('p','px','a4')
 

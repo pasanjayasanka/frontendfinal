@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Label,Input,FormGroup, FormFeedback, Button } from 'reactstrap';
-import {Link} from 'react-router-dom'
 
 class Checkout extends Component  {
   
@@ -22,7 +21,6 @@ class Checkout extends Component  {
         'billDate':'',
         'email':'',
         'cvv': '',
-        'email':'',
         'totalPrice':JSON.parse(localStorage.getItem('tt')),
         },
 
@@ -67,10 +65,21 @@ handleSubmit = (e) => {
       console.log(data);
       //Call an api here
       axios.post('https://localhost:44374/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice)})
-      
-      this.props.history.push({pathname:'/Receipt',state:{billingId:data.billingId,cardName:data.cardName,cardNo:data.cardNo,billDate:data.billDate,email:data.email} });
-      //Resetting the form
+      .then (res => {
+        if(res.data ==="Success")
+        {
+          alert("Payment is successful!")
+          this.props.history.push({pathname:'/Receipt',state:{billingId:data.billingId,cardName:data.cardName,cardNo:data.cardNo,billDate:data.billDate,email:data.email} });
+           //Resetting the form
+          this.setState(this.getInitialState());
+        }
+        
+        else{
+            alert("Payment Failed!")
+        }
       this.setState(this.getInitialState());
+    })
+     
   } else {
       this.setState({ errors });
   }
@@ -86,7 +95,7 @@ handleSubmit = (e) => {
             <Form onSubmit={this.handleSubmit}>
             <FormGroup>
                 <Label for="email">Email Address</Label>
-                <Input value={data.email} invalid={errors.email? true : false} name="email" onChange={this.handleChange} />
+                <Input value={data.email} invalid={errors.email? true : false} name="email" onChange={this.handleChange} placeholder="A Confirmation email will be sent to thi email address" />
                 <FormFeedback>{errors.email}</FormFeedback>
             </FormGroup>
             <FormGroup>
