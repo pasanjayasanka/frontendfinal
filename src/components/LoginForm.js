@@ -53,6 +53,9 @@ const LoginForm = () => {
                         window.location.replace('/')
                     }
                 }
+                else {
+                    alert("Invalid Credentials!")
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -62,6 +65,7 @@ const LoginForm = () => {
                 }
                 else {
                     console.log(" this is loggin error :" + error );
+                    alert("Invalid Credentials!");
                 }
             })
 
