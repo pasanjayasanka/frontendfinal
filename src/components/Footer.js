@@ -11,7 +11,7 @@ function Footer(props) {
             <span> ................................. {""}</span>
             <span> E-mail : Govimithuro@gmail.com {""}</span>
                 <span> ................................. {""}</span>
-                <Link to={'ClientQuery'}> <span> Message Us{""}</span></Link>
+                <Link to={'/ClientQuery'}> <span> Message Us{""}</span></Link>
             <span> ................................. {""}</span>
             {""}Contact : +034 2249401 </p>
             </div>
