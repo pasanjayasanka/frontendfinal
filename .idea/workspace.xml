@@ -20,11 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Admin/GetFeedback.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Admin/GetClientQuery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ClientQuery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Admin/AdminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/AdminPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Feedback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +55,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Desktop/SEMESTER 06 - Shortcut.lnk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -67,6 +71,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-ReactFrontend\src\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-ReactFrontend\src\fruit" />
     </key>
@@ -128,6 +135,8 @@
       <workItem from="1616477238041" duration="13440000" />
       <workItem from="1616560642210" duration="8220000" />
       <workItem from="1616583343880" duration="2780000" />
+      <workItem from="1616679819073" duration="15481000" />
+      <workItem from="1616740024014" duration="19228000" />
     </task>
     <servers />
   </component>
@@ -145,51 +154,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="638" y="304" key="#ESLint" timestamp="1613504401071">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="638" y="304" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1613504401071" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606071656141">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606071656141" />
-    <state x="480" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612359107493">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="480" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1612359107493" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612456106802">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1612456106802" />
-    <state x="522" y="134" key="FileChooserDialogImpl" timestamp="1612359104296">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="522" y="134" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1612359104296" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1607593340454">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607593340454" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1607593340454">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607593340454" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1607593340454">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607593340454" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1607593340454">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607593340454" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1610616842664">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610616842664" />
-    <state x="47" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1612416439574">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="47" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1612416439574" />
   </component>
 </project>

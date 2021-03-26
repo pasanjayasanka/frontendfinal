@@ -30,6 +30,7 @@ const LoginForm = () => {
                 if(response.status === 200){ // check if the response is success
                     console.log("inside redirect")
                                                                       // Store the token and other details in a local storage
+                    localStorage.setItem('role', response.data.userRole);
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem('userFirstName', response.data.userFirstName);
                     localStorage.setItem('userLastName', response.data.userLastName);
@@ -37,17 +38,23 @@ const LoginForm = () => {
                     localStorage.setItem('userAddress', response.data.userAddress);
                     localStorage.setItem('userPhone', response.data.userPhone);
 
-                    const token = response.data.token;
+                   // const token = response.data.token;
                                                            //send token to decode
-                    const payload =  parseJwt(token);
+                    //const payload =  parseJwt(token);
                                                            // send payload to find role
-                    const role = findRole(payload);
-                    localStorage.setItem('role', role);
-                    console.log(role);
+                    //const role = findRole(payload);
+                    //localStorage.setItem('role', role);
+                   // console.log(role);
+                    const role= localStorage.getItem('role');
                     if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); window.location.replace('/') }
                     if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   window.location.replace('/')  }
                     if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    window.location.replace('/') }
-
+                    else{
+                        window.location.replace('/')
+                    }
+                }
+                else {
+                    alert("Invalid Credentials!")
                 }
             })
             .catch(error => {
@@ -58,41 +65,42 @@ const LoginForm = () => {
                 }
                 else {
                     console.log(" this is loggin error :" + error );
+                    alert("Invalid Credentials!");
                 }
             })
 
     }
 
-    // this function decodes the JWT token
-    function parseJwt(token){
-        const base64Url = token.split('.')[1];
-        const base64    = base64Url.replace(/-/g,'+').replace(/_/g,'/');
-        const jsonPayload =decodeURIComponent(atob(base64).split('').map(function (c){
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        return JSON.parse(jsonPayload);
-    }
-
-
-    // this function finds the role from the JWT token
-    function findRole(payload){
-        for(var propName in payload){
-            if(payload.hasOwnProperty(propName)){
-                var propValue = payload[propName];
-                //console.log(propValue);
-                if(propValue === "Buyer"){
-                    return "Buyer"
-                }
-                if(propValue === "Administrator"){
-                    return "Administrator"
-                }
-                if(propValue === "Seller"){
-                    return "Seller"
-                }
-
-            }
-        }
-    }
+    // // this function decodes the JWT token
+    // function parseJwt(token){
+    //     const base64Url = token.split('.')[1];
+    //     const base64    = base64Url.replace(/-/g,'+').replace(/_/g,'/');
+    //     const jsonPayload =decodeURIComponent(atob(base64).split('').map(function (c){
+    //         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    //     }).join(''));
+    //     return JSON.parse(jsonPayload);
+    // }
+    //
+    //
+    // // this function finds the role from the JWT token
+    // function findRole(payload){
+    //     for(var propName in payload){
+    //         if(payload.hasOwnProperty(propName)){
+    //             var propValue = payload[propName];
+    //             //console.log(propValue);
+    //             if(propValue === "Buyer"){
+    //                 return "Buyer"
+    //             }
+    //             if(propValue === "Administrator"){
+    //                 return "Administrator"
+    //             }
+    //             if(propValue === "Seller"){
+    //                 return "Seller"
+    //             }
+    //
+    //         }
+    //     }
+    // }
 
     return(
         <div >
