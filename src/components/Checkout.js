@@ -8,7 +8,8 @@ class Checkout extends Component  {
 
     constructor(props) {
       super(props);
-
+     
+       
       this.state = this.getInitialState();
   }
 
@@ -22,7 +23,7 @@ class Checkout extends Component  {
         'email':'',
         'cvv': '',
         'email':'',
-        'totalPrice':'',
+        'totalPrice':JSON.parse(localStorage.getItem('tt')),
         },
 
       errors: {}
@@ -130,7 +131,7 @@ handleSubmit = (e) => {
             </FormGroup>   
   
             <FormGroup>
-                <Label for="totalPrice">Total Price</Label>
+                <Label for="totalPrice">Total Price(LKR)</Label>
                 <Input value={data.totalPrice} invalid={errors.totalPrice? true : false} name="totalPrice" onChange={this.handleChange}/>
                 <FormFeedback>{errors.totalPrice}</FormFeedback>
             </FormGroup>       

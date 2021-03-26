@@ -11,6 +11,7 @@ class Receipt extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            Cart:JSON.parse(localStorage.getItem('dataCart')),
             error:null,
             billinginfos:
             {
@@ -21,7 +22,7 @@ class Receipt extends React.Component{
                 "billDate":this.props.location.state.billDate
             },
             response:{},
-            orders:[],
+            orders:[], 
         }
     }
     
@@ -62,11 +63,14 @@ class Receipt extends React.Component{
         doc.save("Govimithuro Receipt.pdf")
         }) 
    }
+
+  
+  
     
 
     render(){
-        const{billinginfos,orders,error}=this.state;
-
+        const{billinginfos,Cart,error}=this.state;
+        
         if(error){
             return(
                 <div className="center"><h4>Error : {error.message}!!!</h4></div>
@@ -110,8 +114,8 @@ class Receipt extends React.Component{
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {orders.map(order =>
-                                            <tr className="service" key={order.orderId}>
+                                            {Cart.map(order =>
+                                            <tr className="service" key={order.productId}>
                                                 <td className="tableitem">
                                                     <p className="itemtext">{order.productName}</p>
                                                 </td>

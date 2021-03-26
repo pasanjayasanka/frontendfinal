@@ -50,7 +50,11 @@ export default function MyCart() {
         }
         getTotal()
     },[cart])
-    
+
+
+    useEffect(() =>{
+        localStorage.setItem('tt', total);
+    },[total])
     
 
 
