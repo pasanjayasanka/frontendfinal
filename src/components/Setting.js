@@ -369,6 +369,7 @@ class Setting extends Component {
                                         <table>
                                             <thead>
                                             <tr>
+                                                <th>Date</th>
                                                 <th>Product Name</th>
                                                 <th>Quantity</th>
                                                 <th>Unit Price</th>
@@ -378,6 +379,7 @@ class Setting extends Component {
                                             <tbody>
                                             {orders.map(order => (
                                                 <tr key={order.orderId}>
+                                                    <td>{order.date}</td>
                                                     <td>{order.productName}</td>
                                                     <td>{order.quantity}</td>
                                                     <td>{order.unitPrice}</td>
