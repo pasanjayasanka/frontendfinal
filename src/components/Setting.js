@@ -1,13 +1,14 @@
 
 import React, {Component} from "react";
 import {Tab,Tabs,Button,Nav,Row,Col,Form} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/Button.css';
 import axios from 'axios';
-import {Input,Table} from "reactstrap";
+import {FormFeedback, Input, Table} from "reactstrap";
 
-const customerUrl = 'https://localhost:44374/api/Customer';
-const orderUrl = 'https://localhost:44374/api/Order';
+const userUrl = 'https://localhost:44374/api/User/';
+const orderUrl = 'https://localhost:44374/api/Orders';
+
 
 class Setting extends Component {
 
@@ -20,18 +21,19 @@ class Setting extends Component {
             users:[],
             orders:[],
             data: {
-
-                "firstName": '',
-                "lastName": '',
-                "email": '',
-                "password": '',
-                "confirmPassword": '',
-                "address": '',
-                "phone": ''
-
+                "firstName": localStorage.getItem('userFirstName'),
+                "lastName": localStorage.getItem('userLastName'),
+                "email": localStorage.getItem('userEmail'),
+                "address": localStorage.getItem('userAddress'),
+                "phone": localStorage.getItem('userPhone'),
+                "password":localStorage.getItem('password')
+            },
+            pass:{
+                "old":'',
+                "new":''
             },
             role:'',
-
+            errors: {}
         }
     }
 
@@ -43,6 +45,7 @@ class Setting extends Component {
         const usermail = localStorage.getItem('userEmail');
         console.log("customer");
         console.log(role);
+        console.log(usermail);
 
         if(role == "Buyer") {
             axios.get(orderUrl).then(response => response.data).then(
@@ -74,10 +77,10 @@ class Setting extends Component {
                 }
             )
         }
-        /*axios.get(customerUrl).then(response => response.data).then(
+        axios.get(userUrl).then(response => response.data).then(
             (result)=>{
                 this.setState({
-                    users:result.filter((result)=> result.firstName.toLowerCase() === "nimal")
+                    users:result.filter((result)=> result.userName.toLowerCase() === usermail)
                 });
                 //console.log(result.customerID);
                 console.log(this.state.users);
@@ -85,72 +88,79 @@ class Setting extends Component {
             (error)=>{
                 this.setState({error});
             }
-        )*/
+        )
         console.log("yes");
-        //console.log(this.state.users);
+        console.log(this.state.users);
         console.log("ok");
 
     }
 
     handleChange = (e) => {
         this.setState({
-            users: {
-                ...this.state.users,
+            data: {
+                ...this.state.data,
+                [e.target.name]: e.target.value
+            },
+            pass: {
+                ...this.state.pass,
                 [e.target.name]: e.target.value
             },
             errors: {
                 ...this.state.errors,
                 [e.target.name]: ''
             }
+
         });
+
     }
 
 
 
     validate = () => {
-        const { users } = this.state;
+        const { data } = this.state;
         let errors = {};
 
-        if (users.firstName === '') errors.firstName = 'firstName can not be blank.';
+        if (data.firstName === '') errors.firstName = 'First Name can not be blank.';
+        if (data.lastName === '') errors.lastName = 'Last Name can not be blank.';
+        if (data.email === '') errors.email = 'Email can not be blank.';
+        if (data.address === '') errors.address = 'Address can not be blank.';
+        if (data.phone === '') errors.phone = 'phone can not be blank.';
+
 
         return errors;
     }
 
     handleSubmit = (e) => {
-        console.log("submit work");
         e.preventDefault();
-        const { users } = this.state;
+
+        const { data } = this.state;
+
         const errors = this.validate();
 
         if (Object.keys(errors).length === 0) {
-            //console.log(data);
+            console.log(data);
             //Call an api here
-            //user.numOfProducts = parseInt(user.numOfProducts);
-            //data.totalPrice = data.numOfProducts*this.price;
-            axios.put(`${customerUrl}/${users.customerID}`, users)
-                .then((data) => {
-                    console.log(users);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-            //Resetting the form
-            console.log('complete');
-            console.log(users);
-            console.log(this.price);
-            console.log(this.props.location.state.cartid);
+            /*axios.post('https://localhost:44374/api/Accounts/Customer',data)
+                //Resetting the form
+                .then(response => {
+                    if(response.status === 201) {
+                        alert("You have registered successfully")
+                        this.setState(this.getInitialState());  // clean the form
 
-            //this.setState(this.getInitialState());
+                    }
+                    else {
+                        alert(" Error occured! please try again ");
+                        console.log(response);
+                    }
+                })*/
+
         } else {
             this.setState({ errors });
         }
-
-        //this.props.history.push('/Cart');
-
     }
 
     deleteRow(orderID,e){
-        axios.delete(`https://localhost:44374/api/Order/${orderID}`)
+        axios.delete(`https://localhost:44374/api/Orders/${orderID}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
@@ -161,14 +171,89 @@ class Setting extends Component {
         window.location.reload(false);
     }
 
+    DeleteCustomer(userID) {
+        const { users } = this.state;
+        axios.delete(userUrl   + userID).then(result=>{
+            alert('Account deleted successfully!!!');
+            this.setState({
+                response:result,
+                users:users.filter(user=>user.userID !== userID)
+            });
+        });
+        localStorage.setItem('token', null);
+        localStorage.setItem('userFirstName', "not logged in");
+        localStorage.setItem('userLastName', "not logged in");
+        localStorage.setItem('userAddress', "not logged in");
+        localStorage.setItem('userEmail', "not logged in");
+        this.props.history.push('/NotLoggedIn');
+    }
+
+    EditDetail(){
+        console.log(this.state.data);
+        const { data } = this.state;
+
+        const errors = this.validate();
+
+        if (Object.keys(errors).length === 0) {
+            //console.log(data);
+            //Call an api here
+            axios.post(
+                'https://localhost:44374/api/Accounts/UpdateUser',
+                {Email: data.email, FirstName: data.firstName, LastName: data.lastName, Password: data.password, ConfirmPassword: data.password, Phone: data.phone, Address: data.address}
+            )
+                //Resetting the form
+                .then(response => {
+                    // if(response.status === 201) {
+                    alert("Your profile updated successfully")
+                    //this.setState(this.getInitialState());  // clean the form
+
+                    //}
+                    //else {
+                    // alert(" Error occured! please try again ");
+                    //console.log(response);
+                    console.log(data);
+                    localStorage.setItem('userFirstName', data.firstName);
+                    localStorage.setItem('userLastName', data.lastName);
+                    localStorage.setItem('userAddress', data.address);
+                    localStorage.setItem('userPhone', data.phone);
+                    //}
+                })
+
+        } else {
+            this.setState({ errors });
+        }
+    }
+
+    EditPass(){
+        const { pass,data } = this.state;
+        console.log(localStorage.getItem('password'));
+        if(pass.old == data.password ){
+            data.password = pass.new;
+            axios.post(
+                'https://localhost:44374/api/Accounts/UpdateUser',
+                {Email: data.email, FirstName: data.firstName, LastName: data.lastName, Password: data.password, ConfirmPassword: data.password, Phone: data.phone, Address: data.address}
+            )
+                .then(response => {
+                    alert("Password Change Successfully")
+                })
+            localStorage.setItem('password', data.password);
+
+        }
+        console.log("new");
+        console.log(localStorage.getItem('password'));
+        console.log("over");
+
+    }
+
     render() {
 
-        const{error,data,orders}=this.state;
+        const{errors,data,orders,users,pass}=this.state;
 
-        data.firstName = localStorage.getItem('userFirstName');
-        data.lastName = localStorage.getItem('userLastName');
-        data.address = localStorage.getItem('userAddress');
-        data.phone = localStorage.getItem('userPhone');
+        //data.firstName = localStorage.getItem('userFirstName');
+        //data.lastName = localStorage.getItem('userLastName');
+        //data.email = localStorage.getItem('userEmail');
+        //data.address = localStorage.getItem('userAddress');
+        //data.phone = localStorage.getItem('userPhone');
 
         const isAuth = this.props.isAuth;
         const useRole = localStorage.getItem('role');
@@ -181,15 +266,15 @@ class Setting extends Component {
                     <Table>
                         <thead>
 
-                            <tr className='carthead'>
-                                <th>Role  :</th>
-                                <th>{useRole}</th>
-                                <th>Name  :</th>
-                                <th>{data.firstName}</th>
-                            </tr>
+                        <tr className='carthead'>
+                            <th>Role  :</th>
+                            <th>{useRole}</th>
+                            <th>Name  :</th>
+                            <th>{data.firstName}</th>
+                        </tr>
 
-                    </thead>
-                </Table>
+                        </thead>
+                    </Table>
                 </div>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
@@ -214,29 +299,32 @@ class Setting extends Component {
                                 <Tab.Pane eventKey="first">
                                     <div>
 
-                                        <Form onSubmit={this.handleSubmit}>
-                                            <Form.Group controlId="formBasicFName">
+                                        <Form >
+                                            <Form.Group>
                                                 <Form.Label>First Name</Form.Label>
-                                                <Input value={data.firstName} name="genfname" onChange={this.handleChange}/>
-
+                                                <Input value={data.firstName} invalid={errors.firstName ? true : false} name="firstName" onChange={this.handleChange}/>
+                                                <FormFeedback>{errors.firstName}</FormFeedback>
                                             </Form.Group>
 
-                                            <Form.Group controlId="formBasicLName">
+                                            <Form.Group>
                                                 <Form.Label>Last Name</Form.Label>
-                                                <Input value={data.lastName} name="genlname" onChange={this.handleChange}/>
+                                                <Input value={data.lastName} invalid={errors.lastName ? true : false} name="lastName" onChange={this.handleChange}/>
+                                                <FormFeedback>{errors.lastName}</FormFeedback>
                                             </Form.Group>
 
                                             <Form.Group controlId="formBasicAddress">
                                                 <Form.Label>Address</Form.Label>
-                                                <Input value={data.address} name="genaddress" onChange={this.handleChange}/>
+                                                <Input value={data.address} invalid={errors.address ? true : false} name="address" onChange={this.handleChange}/>
+                                                <FormFeedback>{errors.address}</FormFeedback>
                                             </Form.Group>
 
                                             <Form.Group controlId="formBasicPhone">
                                                 <Form.Label>Telephone Number</Form.Label>
-                                                <Input value={data.phone} name="genphone" onChange={this.handleChange}/>
+                                                <Input value={data.phone} invalid={errors.phone ? true : false} name="phone" onChange={this.handleChange}/>
+                                                <FormFeedback>{errors.phone}</FormFeedback>
                                             </Form.Group>
 
-                                            <Button variant="primary" type="submit">
+                                            <Button variant="primary" onClick={() => this.EditDetail()}>
                                                 Save Changes
                                             </Button>
                                         </Form>
@@ -249,14 +337,14 @@ class Setting extends Component {
                                         <Form>
                                             <Form.Group controlId="formBasicPassword2">
                                                 <Form.Label>Current Password</Form.Label>
-                                                <Input type="password" placeholder="Current Password"/>
+                                                <Input value={pass.old} type="password" name="old" placeholder="Current Password" onChange={this.handleChange}/>
                                             </Form.Group>
                                             <Form.Group controlId="formBasicPassword3">
                                                 <Form.Label>New Password</Form.Label>
-                                                <Input type="password" placeholder="New Password"/>
+                                                <Input value={pass.new} type="password" name="new" placeholder="New Password" onChange={this.handleChange}/>
                                             </Form.Group>
-                                            <Button variant="primary" type="submit">
-                                                Save Chyanges
+                                            <Button variant="primary" onClick={() => this.EditPass()}>
+                                                Save Changes
                                             </Button>
                                         </Form>
                                     </div>
@@ -267,11 +355,11 @@ class Setting extends Component {
                                         <h3>Delete The Account</h3>
                                         <p>Are you sure you want to delete this account from Govimithuro Community ??</p>
                                         <p>After you delete your account it will permanetly delete and can not be recovered.</p>
-
-                                        <Button variant="danger" type="submit" >
-                                            Delete Account
-                                        </Button>
-
+                                        {users.map(user => (
+                                            <Button variant="danger"  onClick={() => this.DeleteCustomer(user.id)}>
+                                                Delete Account
+                                            </Button>
+                                        ))}
                                     </div>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="four">
@@ -281,6 +369,7 @@ class Setting extends Component {
                                         <table>
                                             <thead>
                                             <tr>
+                                                <th>Date</th>
                                                 <th>Product Name</th>
                                                 <th>Quantity</th>
                                                 <th>Unit Price</th>
@@ -289,14 +378,15 @@ class Setting extends Component {
                                             </thead>
                                             <tbody>
                                             {orders.map(order => (
-                                            <tr key={order.orderId}>
-                                                <td>{order.productName}</td>
-                                                <td>{order.quantity}</td>
-                                                <td>{order.unitPrice}</td>
-                                                <td>
-                                                    <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
-                                                </td>
-                                            </tr>
+                                                <tr key={order.orderId}>
+                                                    <td>{order.date}</td>
+                                                    <td>{order.productName}</td>
+                                                    <td>{order.quantity}</td>
+                                                    <td>{order.unitPrice}</td>
+                                                    <td>
+                                                        <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
+                                                    </td>
+                                                </tr>
                                             ))}
                                             </tbody>
                                         </table>

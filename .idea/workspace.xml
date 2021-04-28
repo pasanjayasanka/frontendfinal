@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Delivery/Courier.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Delivery/DeliveryInformation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyCart/MyCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyCart/MyCart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Setting.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +49,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -137,16 +131,14 @@
       <workItem from="1616583343880" duration="2780000" />
       <workItem from="1616679819073" duration="15481000" />
       <workItem from="1616740024014" duration="19228000" />
-      <workItem from="1616820665220" duration="95000" />
-      <workItem from="1616823825553" duration="4055000" />
-      <workItem from="1616840430995" duration="5977000" />
-      <workItem from="1617938988362" duration="1312000" />
-      <workItem from="1617944215097" duration="192000" />
-      <workItem from="1617953141703" duration="16337000" />
-      <workItem from="1617984250962" duration="12492000" />
-      <workItem from="1618501618475" duration="4440000" />
-      <workItem from="1618564757328" duration="16089000" />
-      <workItem from="1619103061823" duration="14257000" />
+      <workItem from="1618816256912" duration="2734000" />
+      <workItem from="1618896087706" duration="2812000" />
+      <workItem from="1618904248822" duration="661000" />
+      <workItem from="1618911535279" duration="1283000" />
+      <workItem from="1618989437549" duration="1829000" />
+      <workItem from="1619168677409" duration="319000" />
+      <workItem from="1619169083822" duration="1635000" />
+      <workItem from="1619412625229" duration="3945000" />
     </task>
     <servers />
   </component>
