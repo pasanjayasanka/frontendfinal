@@ -17,18 +17,18 @@ const LoginForm = () => {
     const onChange = e => setLoginData({...loginData,[e.target.name]:e.target.value})
     const onSubmit =async e=> {
         e.preventDefault();
-        //console.log("this is login data");
-       // console.log(loginData);
+        console.log("this is login data");
+        console.log(loginData);
 
         axios.post(
             'https://localhost:44374/api/Accounts/Login',
             {Email: loginData.email, Password: loginData.password}
         )
             .then(response=> {
-                console.log("this is user details from login page");
-                console.log(response.data);
+               // console.log("this is user details from login page");
+                //console.log(response.data);
                 if(response.status === 200){ // check if the response is success
-                    console.log("inside redirect")
+                    console.log("inside redirect" + response.data.userRole);
                                                                       // Store the token and other details in a local storage
                     localStorage.setItem('role', response.data.userRole);
                     localStorage.setItem('token', response.data.token);
@@ -50,7 +50,7 @@ const LoginForm = () => {
                     if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   window.location.replace('/')  }
                     if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    window.location.replace('/') }
                     else{
-                        window.location.replace('/')
+                        alert("Invalid Credentials!")
                     }
                 }
                 else {

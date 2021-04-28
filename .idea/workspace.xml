@@ -20,13 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849db324-d520-4899-87ae-b6b3bd736828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Admin/GetClientQuery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ClientQuery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Delivery/Courier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Delivery/DeliveryInformation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/AdminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/AdminPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Admin/GetOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Admin/GetOrders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
     </list>
@@ -137,6 +137,16 @@
       <workItem from="1616583343880" duration="2780000" />
       <workItem from="1616679819073" duration="15481000" />
       <workItem from="1616740024014" duration="19228000" />
+      <workItem from="1616820665220" duration="95000" />
+      <workItem from="1616823825553" duration="4055000" />
+      <workItem from="1616840430995" duration="5977000" />
+      <workItem from="1617938988362" duration="1312000" />
+      <workItem from="1617944215097" duration="192000" />
+      <workItem from="1617953141703" duration="16337000" />
+      <workItem from="1617984250962" duration="12492000" />
+      <workItem from="1618501618475" duration="4440000" />
+      <workItem from="1618564757328" duration="16089000" />
+      <workItem from="1619103061823" duration="14257000" />
     </task>
     <servers />
   </component>

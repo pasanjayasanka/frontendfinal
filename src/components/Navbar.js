@@ -16,7 +16,7 @@ class Navbar extends Component {
 
         if (isAuth === "Authorized") {
 
-            console.log("the user role in the navebar is " + useRole);
+            //console.log("the user role in the navebar is " + useRole);
             if (useRole === 'Buyer') {
                 return (
                     <nav className="nav-wrapper green darken-3">

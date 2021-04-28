@@ -1,23 +1,25 @@
 import React from 'react';  
-import { Table,Button } from 'react-bootstrap';  
-import axios from 'axios';  
+import { Table,Button } from 'react-bootstrap';
+import axios from 'axios';
 //import './AdminPanel.css';  
   
-const apiUrl = 'https://localhost:44374/api/Order/';  
-  
+const apiUrl1 = 'https://localhost:44374/api/Order/';
+const apiUrl2 = 'https://localhost:44374/api/DeliveryInfo/';
 class Orders extends React.Component{  
     constructor(props){  
         super(props);  
         this.state = {  
            error:null,  
-           products:[],  
+           products:[],
+
            response: {},  
            
         }  
     }  
 
-    componentDidMount(){  
-       axios.get(apiUrl ).then(response => response.data).then(  
+    componentDidMount(){
+        localStorage.setItem("DeliveryItem" , null);
+       axios.get(apiUrl1 ).then(response => response.data).then(
             (result)=>{  
                 this.setState({  
                     products:result  
@@ -32,19 +34,61 @@ class Orders extends React.Component{
       
     DeleteProduct(productId) {  
       const { products } = this.state;     
-     axios.delete(apiUrl   + productId).then(result=>{  
+     axios.delete(apiUrl1   + productId).then(result=>{
        alert('Product deleted successfully!!!');   
         this.setState({  
           response:result,  
           products:products.filter(product=>product.productId !== productId)  
         });  
       });  
-    }  
-   
- 
+    }
 
-      
-    render(){         
+
+    CheckingDelivery(product) {
+       const delData ={
+           orderId : product.orderId,
+           productName:product.productName,
+           quantity: product.quantity,
+           boughtDate:product.date,
+           farmerEmail:product.email,
+           customerEmail:product.customerEmail,
+           accepted: '',
+           transit: '',
+           delivered: '',
+           expectedDelivery: '',
+           notReceived: '',
+           disputeMessage:  '',
+
+       }
+      // console.log(delData);
+       axios.post(apiUrl2, delData)
+           .then(res=> {
+               //console.log( "this is status " + res.status);
+               if(res.data !== null){
+                  // console.log("this is success data" + res.data);
+                   localStorage.setItem("DeliveryItem" , delData.orderId); // this is used in courier.js
+                   console.log("this is the deliver item order id" + delData.orderId);
+                   alert("data sent to deliver");
+                   window.location.replace('/courier')
+               }
+
+               else {
+                   console.log("from getorder," + res.data);
+               }
+           })
+           .catch(err=>{
+               console.log( "this is status " + err);
+               localStorage.setItem("DeliveryItem" , delData.orderId);
+               console.log("this is the deliver item order id" + delData.orderId);
+               alert("Data already sent to deliver !");
+               window.location.replace('/courier');
+           })
+    }
+
+
+
+
+    render(){
         const{error,products}=this.state;  
         if(error){  
             return(  
@@ -67,8 +111,11 @@ class Orders extends React.Component{
                         <th>Unit Price</th> 
                         <th>Customer Name</th>  
                         <th>Customer Email</th> 
-                        <th>Action</th>
-                        
+                        {/*<th>Delivered</th>*/}
+                          <th>Send to Deliver</th>
+
+                          <th>Action</th>
+
                       </tr>  
                     </thead>  
                     <tbody >  
@@ -80,11 +127,16 @@ class Orders extends React.Component{
                           <td>{product.quantity}</td>  
                           <td>{product.unitPrice}</td> 
                           <td>{product.customerName}</td>
-                          <td>{product.customerEmail}</td> 
-                              
-                          <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
+                          <td>{product.customerEmail}</td>
+
+                            <td><Button style={{ backgroundColor: 'blueviolet',border: '2px solid DimGrey',borderRadius: '5px'}}
+                                        onClick={() => this.CheckingDelivery(product)}> Send </Button>
+                            </td>
+
+                                <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
                            onClick={() => this.DeleteProduct(product.orderId)}>Delete</Button>  
-                          
+
+
                           </td>  
                         </tr>  
                       ))}  
@@ -94,7 +146,9 @@ class Orders extends React.Component{
                 </div>  
               )  
         }  
-    }  
-}  
+    }
+
+
+}
   
 export default Orders;  

@@ -23,8 +23,8 @@ import Grain from "./components/Grains";
 
 
 import Description from "./components/Description";
-
-
+import DeliveryInformation from "./components/Delivery/DeliveryInformation";
+import Courier from "./components/Delivery/Courier";
 
 import Fruitvegitables from './components/Categories/Fruitvegitables'
 import Fruits from './components/Categories/Fruits'
@@ -154,8 +154,9 @@ class App extends Component {
           <Route path='/EditCart' component={EditCart}/>
           <Route path='/ClientQuery' component={ClientQuery}/>
 
+          <Route path='/DeliveryInfo' component={DeliveryInformation}/>
+          <Route path='/Courier' component={Courier}/>
 
-          
           <Route path='/Checkout' component={Checkout}/>
           <Route path='/Receipt' component={Receipt}/>
 
