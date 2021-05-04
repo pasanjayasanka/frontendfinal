@@ -384,9 +384,9 @@ class Setting extends Component {
                                                     <td>{order.quantity}</td>
                                                     <td>{order.unitPrice}</td>
                                                     <td>
-                                                        <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
                                                         <button className='trackingbutton'>Tracking</button>
                                                         <button className='feedbackbutton'>Review</button>
+                                                        <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
                                                     </td>
                                                 </tr>
                                             ))}
