@@ -5,6 +5,7 @@
     border: 2px solid #cb0c1c;
     padding: 3px 15px;
     color: #cb0c1c;
+    margin: 0px 10px;
 }
 
 .cartdeletebutton:hover
@@ -71,4 +72,35 @@
     align-items: center;
 
 }
+.trackingbutton
+{
+    border-radius: 4px;
+    background-color: white;
+    border: 2px solid #ca9808;
+    padding: 3px 15px;
+    color: #ca9808;
+    margin: 0px 10px;
+}
 
+.trackingbutton:hover
+{
+    background-color: #ca9808;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.feedbackbutton
+{
+    border-radius: 4px;
+    background-color: white;
+    border: 2px solid #43c304;
+    padding: 3px 15px;
+    color: #43c304;
+    margin: 0px 10px;
+}
+
+.feedbackbutton:hover
+{
+    background-color: #43c304;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
