@@ -74,6 +74,8 @@ import axios from "axios";
 
 import Setting from "./components/Setting"
 
+import NewReview from "./components/Review/NewReview";
+
 
 
 
@@ -162,7 +164,7 @@ class App extends Component {
 
           <Route path='/Description' component={Description} />
           <Route path='/Setting' component={Setting}/>
-
+          <Route path='/NewReview' component={NewReview}/>
 
           <Footer />
         </div>

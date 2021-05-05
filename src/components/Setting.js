@@ -5,6 +5,7 @@ import {Tab,Tabs,Button,Nav,Row,Col,Form} from 'react-bootstrap';
 import './css/Button.css';
 import axios from 'axios';
 import {FormFeedback, Input, Table} from "reactstrap";
+import {Link} from "react-router-dom";
 
 const userUrl = 'https://localhost:44374/api/User/';
 const orderUrl = 'https://localhost:44374/api/Orders';
@@ -385,7 +386,9 @@ class Setting extends Component {
                                                     <td>{order.unitPrice}</td>
                                                     <td>
                                                         <button className='trackingbutton'>Tracking</button>
-                                                        <button className='feedbackbutton'>Review</button>
+                                                        <Link to={'/NewReview'}>
+                                                            <button className='feedbackbutton'>Review</button>
+                                                        </Link>
                                                         <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
                                                     </td>
                                                 </tr>
