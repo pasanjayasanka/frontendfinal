@@ -105,7 +105,7 @@ export default function MyCart() {
         },     
     ]
     const Addproduct=(product)=>{  
-        axios.post('https://localhost:44374/api/Order',{productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice ,customerEmail:localStorage.getItem('userEmail'),customerName:localStorage.getItem('userFirstName'),date: values.date})  
+        axios.post('https://localhost:44374/api/Order',{productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice ,customerEmail:localStorage.getItem('userEmail'),customerName:localStorage.getItem('userFirstName'),date: values.date})
       .then(json => {  
         alert("Product is selected successfully");  
       })  

@@ -1,10 +1,25 @@
 import {Component} from "react";
 import {Form,Button} from "react-bootstrap";
 import {Input} from "reactstrap";
+import axios from 'axios';
 
 class NewReview extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            error:null,
+            data: {
+                "firstName": localStorage.getItem('userFirstName'),
+            },
+            errors: {}
+        }
+    }
+
     render() {
+
+        const {error,data} = this.state;
+
         return(
             <div className="tab">
                 <div>
@@ -16,7 +31,7 @@ class NewReview extends Component{
                         </tr>
                         <tr>
                             <th>Feedback Send as:</th>
-                            <th>Manusha</th>
+                            <th>{data.firstName}</th>
                         </tr>
                         </thead>
                     </table>
