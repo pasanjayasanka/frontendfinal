@@ -386,7 +386,7 @@ class Setting extends Component {
                                                     <td>{order.unitPrice}</td>
                                                     <td>
                                                         <button className='trackingbutton'>Tracking</button>
-                                                        <Link to={'/NewReview'}>
+                                                        <Link to={{pathname:'./NewReview',state:{product:order.productName,farmermail:order.email}}}>
                                                             <button className='feedbackbutton'>Review</button>
                                                         </Link>
                                                         <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
