@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import {Form,Button} from "react-bootstrap";
-import {Input} from "reactstrap";
+import {FormFeedback, Input} from "reactstrap";
 
 import axios from 'axios';
 
@@ -16,22 +16,64 @@ class NewReview extends Component{
             "product": this.props.location.state.product,
             "email": this.props.location.state.farmermail,
             "firstName": localStorage.getItem('userFirstName'),
-            "count":3
+            "review": '',
+            "count":'',
+            "date": ''
         },
         errors:{},
     });
 
-    reduction=() => {
-        this.data.count -=1;
+    handleChange = (e) => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                [e.target.name]: e.target.value
+            },
+            errors: {
+                ...this.state.errors,
+                [e.target.name]: ''
+            }
+        });
     }
 
-    increase=() => {
+    validate = () => {
+        const { data } = this.state;
+        let errors = {};
 
+        if (data.review === '') errors.review = 'First Name can not be blank.';
+        if (data.count === '') errors.count = 'Last Name can not be blank.';
+        if (data.date === '') errors.date = 'Address can not be blank.';
+
+        return errors;
     }
+
+    handleSubmit = (e) => {
+        console.log('inside');
+        e.preventDefault();
+
+        const { data } = this.state;
+
+        const errors = this.validate();
+        console.log('inside');
+
+        if (Object.keys(errors).length === 0) {
+            console.log(data);
+            //Call an api here
+            console.log("ok");
+
+        } else {
+            this.setState({ errors });
+        }
+    }
+
+    Savedata(){
+        console.log("enter");
+    }
+
 
     render() {
 
-        const {error,data} = this.state;
+        const {errors,data} = this.state;
 
         return(
             <div className="tab">
@@ -57,17 +99,20 @@ class NewReview extends Component{
                     <Form>
                         <Form.Group>
                             <Form.Label>Enter your feedback about this product</Form.Label>
-                            <Input name="newreview"/>
+                            <Input value={data.review} invalid={errors.review ? true : false} name="review" onChange={this.handleChange}/>
+                            <FormFeedback>{errors.review}</FormFeedback>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Give a rating to the product</Form.Label>
+                            <Input value={data.count} invalid={errors.count ? true : false} name="count" onChange={this.handleChange}/>
+                            <FormFeedback>{errors.count}</FormFeedback>
                         </Form.Group>
                         <Form.Group>
-                            <Button onClick={() => this.reduction()}>-</Button>
-                            <span>{data.count}</span>
-                            <Button onClick={() => this.increase()}>+</Button>
+                            <Form.Label>Date</Form.Label>
+                            <Input value={data.date} invalid={errors.date ? true : false} name="date" onChange={this.handleChange}/>
+                            <FormFeedback>{errors.date}</FormFeedback>
                         </Form.Group>
-                        <Button variant="primary">Send</Button>
+                        <Button variant="primary" onClick={() => this.Savedata()}>Send</Button>
                     </Form>
                 </div>
 
