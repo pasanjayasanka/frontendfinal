@@ -15,7 +15,8 @@ class NewReview extends Component{
         data:{
             "farmerEmail": this.props.location.state.farmermail,
             "customerName": localStorage.getItem('userFirstName'),
-            "review": '',
+            "reviews": '',
+            "product":this.props.location.state.product,
             "rank":'',
             "date": ''
         },
@@ -39,7 +40,7 @@ class NewReview extends Component{
         const { data } = this.state;
         let errors = {};
 
-        if (data.review === '') errors.review = 'First Name can not be blank.';
+        if (data.reviews === '') errors.reviews = 'First Name can not be blank.';
         if (data.rank === '') errors.rank = 'Count can not be empty';
         if (data.date === '') errors.date = 'Date can not be blank.';
 
@@ -55,7 +56,7 @@ class NewReview extends Component{
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post('https://localhost:44374/api/Reviews',data)
+            axios.post('https://localhost:44374/api/Reviews', {farmerEmail:data.farmerEmail,customerName:data.customerName,reviews:data.reviews,product:data.product,rank:data.rank,date:data.date})
                 //Resetting the form
                 .then(response => {
                     if(response.status === 201) {
@@ -87,6 +88,10 @@ class NewReview extends Component{
                     <table>
                         <thead>
                         <tr>
+                            <th>Product Name</th>
+                            <th>{data.product}</th>
+                        </tr>
+                        <tr>
                             <th>Feedback Send as:</th>
                             <th>{data.customerName}</th>
                         </tr>
@@ -101,8 +106,8 @@ class NewReview extends Component{
                     <Form>
                         <Form.Group>
                             <Form.Label>Enter your feedback about this product</Form.Label>
-                            <Input value={data.review} invalid={errors.review ? true : false} name="review" onChange={this.handleChange}/>
-                            <FormFeedback>{errors.review}</FormFeedback>
+                            <Input value={data.reviews} invalid={errors.reviews ? true : false} name="reviews" onChange={this.handleChange}/>
+                            <FormFeedback>{errors.reviews}</FormFeedback>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Give a rating to the product</Form.Label>
