@@ -13,11 +13,10 @@ class NewReview extends Component{
 
     getInitialState = () => ({
         data:{
-            "product": this.props.location.state.product,
-            "email": this.props.location.state.farmermail,
-            "firstName": localStorage.getItem('userFirstName'),
+            "farmerEmail": this.props.location.state.farmermail,
+            "customerName": localStorage.getItem('userFirstName'),
             "review": '',
-            "count":'',
+            "rank":'',
             "date": ''
         },
         errors:{},
@@ -41,33 +40,40 @@ class NewReview extends Component{
         let errors = {};
 
         if (data.review === '') errors.review = 'First Name can not be blank.';
-        if (data.count === '') errors.count = 'Last Name can not be blank.';
-        if (data.date === '') errors.date = 'Address can not be blank.';
+        if (data.rank === '') errors.rank = 'Count can not be empty';
+        if (data.date === '') errors.date = 'Date can not be blank.';
 
         return errors;
     }
 
-    handleSubmit = (e) => {
-        console.log('inside');
-        e.preventDefault();
 
+
+    Savedata =()=>{
+        console.log("enter start");
         const { data } = this.state;
-
         const errors = this.validate();
-        console.log('inside');
-
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
+            axios.post('https://localhost:44374/api/Reviews',data)
+                //Resetting the form
+                .then(response => {
+                    if(response.status === 201) {
+                        alert("You have Send Your review Successfully")
+                        this.setState(this.getInitialState());  // clean the form
+
+                    }
+                    else {
+                        alert(" Error occured! please try again");
+                        console.log(response);
+                    }
+                })
             console.log("ok");
 
         } else {
             this.setState({ errors });
         }
-    }
-
-    Savedata(){
-        console.log("enter");
+        console.log("enter finish");
     }
 
 
@@ -81,16 +87,12 @@ class NewReview extends Component{
                     <table>
                         <thead>
                         <tr>
-                            <th>Product :</th>
-                            <th>{data.product}</th>
-                        </tr>
-                        <tr>
                             <th>Feedback Send as:</th>
-                            <th>{data.firstName}</th>
+                            <th>{data.customerName}</th>
                         </tr>
                         <tr>
                             <th>Farmer Email:</th>
-                            <th>{data.email}</th>
+                            <th>{data.farmerEmail}</th>
                         </tr>
                         </thead>
                     </table>
@@ -104,8 +106,8 @@ class NewReview extends Component{
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Give a rating to the product</Form.Label>
-                            <Input value={data.count} invalid={errors.count ? true : false} name="count" onChange={this.handleChange}/>
-                            <FormFeedback>{errors.count}</FormFeedback>
+                            <Input value={data.rank} invalid={errors.rank ? true : false} name="rank" onChange={this.handleChange}/>
+                            <FormFeedback>{errors.rank}</FormFeedback>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Date</Form.Label>
