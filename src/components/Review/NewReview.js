@@ -17,7 +17,7 @@ class NewReview extends Component{
             "customerName": localStorage.getItem('userFirstName'),
             "reviews": '',
             "product":this.props.location.state.product,
-            "rank":'',
+            "rank":5,
             "date": ''
         },
         errors:{},
@@ -61,7 +61,7 @@ class NewReview extends Component{
                 .then(response => {
                     if(response.status === 201) {
                         alert("You have Send Your review Successfully")
-                        this.setState(this.getInitialState());  // clean the form
+                        //this.setState(this.getInitialState());  // clean the form
 
                     }
                     else {
