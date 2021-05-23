@@ -34,6 +34,7 @@ class Setting extends Component {
                 "new":''
             },
             role:'',
+            isDisabled:false,
             errors: {}
         }
     }
@@ -62,6 +63,7 @@ class Setting extends Component {
                     this.setState({error});
                 }
             )
+            this.setState({isDisabled:false});
         }
         if(role == "Seller") {
             axios.get(orderUrl).then(response => response.data).then(
@@ -77,6 +79,7 @@ class Setting extends Component {
                     this.setState({error});
                 }
             )
+            this.setState({isDisabled:true});
         }
         axios.get(userUrl).then(response => response.data).then(
             (result)=>{
@@ -387,9 +390,10 @@ class Setting extends Component {
                                                     <td>
                                                         <button className='trackingbutton'>Tracking</button>
                                                         <Link to={{pathname:'./NewReview',state:{product:order.productName,farmermail:order.email}}}>
-                                                            <button className='feedbackbutton'>Review</button>
+                                                            <button disabled={this.state.isDisabled} className='feedbackbutton'>Review</button>
                                                         </Link>
                                                         <button className='cartdeletebutton' onClick={(e) => this.deleteRow(order.orderId, e)}>Delete</button>
+
                                                     </td>
                                                 </tr>
                                             ))}
