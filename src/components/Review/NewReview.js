@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import {Form,Button} from "react-bootstrap";
 import {FormFeedback, Input} from "reactstrap";
+import {Link} from "react-router-dom"
 
 import axios from 'axios';
 
@@ -120,6 +121,9 @@ class NewReview extends Component{
                             <FormFeedback>{errors.date}</FormFeedback>
                         </Form.Group>
                         <Button variant="primary" onClick={() => this.Savedata()}>Send</Button>
+                        <Link to={{pathname:'./ShowReview'}}>
+                            <Button>Test</Button>
+                        </Link>
                     </Form>
                 </div>
 
