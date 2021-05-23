@@ -145,7 +145,8 @@ export default function MyCart() {
                         <th className="text-center">Quantity</th>
                         <th className="text-center">Date</th>  
                         <th className="text-center">Remove</th>
-                        <th className="text-center">Buy</th>   
+                        <th className="text-center">Buy</th>
+                          <th className="text-center">Review</th>
                       </tr>  
                     </thead>  
                     <tbody >  
@@ -169,7 +170,12 @@ export default function MyCart() {
                           <i className="far fa-trash-alt"></i></Button></td> 
                           
                           <td className="text-center "><Button style={{ backgroundColor: 'DarkSlateGray'}} onClick={() => Addproduct(
-                          {productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice,date: values.date})}>Buy</Button></td> 
+                          {productName:product.productName,email:product.email ,quantity:product.quantity,unitPrice:product.unitPrice,date: values.date})}>Buy</Button></td>
+                            <td className="text-center">
+                                <Link to={{pathname:'./ShowReview', state:{email:product.email,product:product.productName}}}>
+                                    <Button>Review</Button>
+                                </Link>
+                            </td>
                         </tr>  
                       ))}  
                     </tbody>  

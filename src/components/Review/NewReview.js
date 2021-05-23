@@ -121,9 +121,7 @@ class NewReview extends Component{
                             <FormFeedback>{errors.date}</FormFeedback>
                         </Form.Group>
                         <Button variant="primary" onClick={() => this.Savedata()}>Send</Button>
-                        <Link to={{pathname:'./ShowReview'}}>
-                            <Button>Test</Button>
-                        </Link>
+
                     </Form>
                 </div>
 
