@@ -29,6 +29,7 @@ class Navbar extends Component {
                                 <li><Link to={'/MyCart/MyCart'}> Cart</Link></li>
                                 <li><Link to={'/About'}> About</Link></li>  
                                 <li><Link to={'/Setting'}> Setting</Link></li>
+                                <li><Link to={'/Price'}> Prices</Link></li>
                                 <li><Link to={'/NotLoggedIn'} onClick={() => this.ClearAll()}> Logout </Link></li>
                                 <li style={{color: "yellow"}}> {currentUser}</li>
 
@@ -48,6 +49,7 @@ class Navbar extends Component {
                                 <li><Link to={'/MyProducts/ProductList'}> My Products</Link></li>
                                 <li><Link to={'/About'}> About</Link></li>
                                 <li><Link to={'/Setting'}> Setting</Link></li>
+                                <li><Link to={'/Price'}> Prices</Link></li>
                                 <li><Link to={'/NotLoggedIn'} onClick={() => this.ClearAll()}> Logout </Link></li>
                                 <li style={{color: "yellow"}}> {currentUser}</li>
 
@@ -67,6 +69,7 @@ class Navbar extends Component {
                                 <li><Link to={'/Admin/AdminPanel'}> AdminPanel</Link></li>
                                 <li><Link to={'/About'}> About</Link></li>
                                 <li><Link to={'/Setting'}> Setting</Link></li>
+                                <li><Link to={'/Price'}> Prices</Link></li>
                                 <li><Link to={'/NotLoggedIn'} onClick={() => this.ClearAll()}> Logout </Link></li>
                                 <li style={{color: "orange"}}> Admin Name: {currentUser}</li>
                             </ul>
@@ -89,7 +92,7 @@ class Navbar extends Component {
                                 <li><Link to={'/Register/Register'}> Register</Link></li>
                                 <li><Link to={'/Search/Search'}> Search</Link></li>
                                 <li><Link to={'/About'}> About</Link></li>
-                                
+                                <li><Link to={'/Price'}> Prices</Link></li>
 
                                 {/*<li><a href='/MyProducts/ProductList'>My Products</a></li>*/}
                                 {/*<li><a href='/Admin/AdminPanel'>AdminPanel</a></li>*/}
