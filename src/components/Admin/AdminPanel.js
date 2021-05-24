@@ -8,6 +8,7 @@ import GetOrderDetails from './GetOrderDetails';
 import GetCategories from './GetCategories';
 import GetFeedback from "./GetFeedback";
 import GetClientQuery from "./GetClientQuery";
+import EditCategory from "./EditCategory";
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
 import './AdminPanel.css';  
@@ -57,6 +58,7 @@ function AdminPanel() {
           <Route path='/GetCategories' component={GetCategories} />
           <Route path='/GetFeedback' component={GetFeedback} />
           <Route path='/GetClientQuery' component ={GetClientQuery}/>
+          <Route path='/EditCategory' component={EditCategory}/>
         </Switch>  
       </div>  
     </Router>  

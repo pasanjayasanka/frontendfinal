@@ -1,9 +1,10 @@
 import React from 'react';  
-import { Table} from 'react-bootstrap';  
-import axios from 'axios';  
+import {Button, Table} from 'react-bootstrap';
+import axios from 'axios';
+import {Link} from "react-router-dom";
 
   
-const apiUrl = 'https://localhost:44374/api/Category/';  
+const apiUrl = 'https://localhost:44374/api/Categories/';
   
 class GetCategories extends React.Component{  
     constructor(props){  
@@ -27,10 +28,22 @@ class GetCategories extends React.Component{
                 this.setState({error});  
             }  
         )  
-    }  
-  
-      
-     
+    }
+
+
+    deleteRow(productID, e){
+        axios.delete(`https://localhost:44374/api/Categories/${productID}`)
+            .then(res => {
+                alert("You have deleted successfully")
+                console.log(res);
+                console.log(res.data);
+                console.log('delete complete');
+                const carts = this.state.carts.filter(item => item.productID !== productID);
+                this.setState({ carts });
+            })
+        window.location.reload(false);
+
+    }
    
  
       
@@ -53,9 +66,9 @@ class GetCategories extends React.Component{
                       <tr>  
                         <th>Category ID</th> 
                         <th>Category Name</th>  
-                        <th>Description</th>    
-                         
-                       
+                        <th>Quantity</th>
+                          <th>Price</th>
+                          <th>Option</th>
                         
                       </tr>  
                     </thead>  
@@ -64,11 +77,19 @@ class GetCategories extends React.Component{
                         <tr key={category.categoryID}>  
                           <td>{category.categoryID}</td>   
                           <td>{category.categoryName}</td>  
-                          <td>{category.description}</td>  
-                          
-                          
-                              
-                           
+                          <td>{category.quantity}</td>
+                            <td>{category.price}</td>
+                            <td>
+                                <Link to={{pathname:'./EditCategory', state:{categoryid:category.categoryID,categoryname:category.categoryName,quantity:category.quantity,price:category.price} }}>
+                                <Button style={{ backgroundColor: 'Green',border: '2px solid DimGrey',borderRadius: '5px',margin:'0px 15px'}}>
+                                    Edit
+                                </Button>
+                                </Link>
+
+                                <Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}} onClick={(e) => this.deleteRow(category.categoryID, e)}>
+                                    Delete
+                                </Button>
+                            </td>
                         </tr>  
                       ))}  
                     </tbody>  

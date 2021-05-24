@@ -50,7 +50,7 @@ import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
 import GetCategories from './components/Admin/GetCategories'
 import GetClientQuery from './components/Admin/GetClientQuery'
-
+import EditCategory from "./components/Admin/EditCategory";
 
 import MyCart from './components/MyCart/MyCart'
 
@@ -141,6 +141,7 @@ class App extends Component {
           <Route path='/Admin/GetCarts' component={GetCarts} /> 
           <Route path='/Admin/GetOrderDetails' component={GetOrderDetails} /> 
           <Route path='/Admin/GetCategories' component={GetCategories} />
+          <Route path='/Admin/EditCategory' component={EditCategory}/>
           {/*<Route path='/Admin/GetClientQuery' component={GetClientQuery}/>*/}
 
           <Route path='/NotLoggedIn' component={NotLoggedIn}/>
