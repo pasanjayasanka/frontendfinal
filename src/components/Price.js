@@ -70,7 +70,7 @@ class Price extends React.Component{
                                 <th>Category ID</th>
                                 <th>Category Name</th>
                                 <th>Quantity</th>
-                                <th>Max Price</th>
+                                <th>Max Price (Rs)</th>
                             </tr>
                             </thead>
                             <tbody>

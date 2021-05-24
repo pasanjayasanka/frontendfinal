@@ -57,10 +57,15 @@ class GetCategories extends React.Component{
         else  
         {  
             return(  
-         <div >  
+         <div >
+             <div >
+                 <Link to={{pathname:'/NewCategory'}}>
+                     <Button style={{ backgroundColor: 'Red', margin: '5px 5px',padding:'5px 40px'}}>New Item</Button>
+                 </Link>
+             </div>
            
-                <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
-                
+                <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >
+
                   <Table striped bordered hover variant="dark">  
                     <thead className="btn-primary">  
                       <tr>  
