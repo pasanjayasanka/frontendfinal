@@ -2,6 +2,7 @@ import React from 'react';
 import GetCustomers from './GetCustomers';  
 import GetFarmers from './GetFarmers';  
 import GetProducts from './GetProducts';
+import ProductCheck from './ProductCheck';
 import GetOrders from './GetOrders'; 
 import GetCarts from './GetCarts';  
 import GetOrderDetails from './GetOrderDetails';   
@@ -30,6 +31,9 @@ function AdminPanel() {
               <li className="nav-item">  
                 <Link to={'/GetProducts'} className="nav-link">Products</Link>  
               </li> 
+              <li className="nav-item">
+                <Link to={'/ProductCheck'} className="nav-link">ProductCheck</Link>
+              </li>
               <li className="nav-item">  
                 <Link to={'/GetOrders'} className="nav-link">Orders</Link>  
               </li>  
@@ -53,6 +57,7 @@ function AdminPanel() {
           <Route exact path='/GetCustomers' component={GetCustomers} />  
           <Route path='/GetFarmers' component={GetFarmers} />  
           <Route path='/GetProducts' component={GetProducts} />  
+          <Route path='/ProductCheck' component={ProductCheck} /> 
           <Route path='/GetOrders' component={GetOrders} />  
           <Route path='/GetCarts' component={GetCarts} /> 
           <Route path='/GetOrderDetails' component={GetOrderDetails} /> 

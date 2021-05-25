@@ -45,6 +45,7 @@ import AdminPanel from './components/Admin/AdminPanel'
 import GetCustomers from './components/Admin/GetCustomers'
 import GetFarmers from './components/Admin/GetFarmers'
 import GetProducts from './components/Admin/GetProducts'
+import ProductCheck from './components/Admin/ProductCheck'
 import GetOrders from './components/Admin/GetOrders'
 import GetCarts from './components/Admin/GetCarts'
 import GetOrderDetails from './components/Admin/GetOrderDetails'
@@ -137,7 +138,8 @@ class App extends Component {
           <Route path='/Admin/AdminPanel' component={AdminPanel} /> 
           <Route path='/Admin/GetCustomers' component={GetCustomers} /> 
           <Route path='/Admin/GetFarmers' component={GetFarmers} /> 
-          <Route path='/Admin/GetProducts' component={GetProducts} /> 
+          <Route path='/Admin/GetProducts' component={GetProducts} />
+          <Route path='/Admin/ProductCheck' component={ProductCheck} />  
           <Route path='/Admin/GetOrders' component={GetOrders} /> 
           <Route path='/Admin/GetCarts' component={GetCarts} /> 
           <Route path='/Admin/GetOrderDetails' component={GetOrderDetails} /> 

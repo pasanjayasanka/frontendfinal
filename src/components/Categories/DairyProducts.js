@@ -62,7 +62,7 @@ export default function DairyProducts() {
                 <span> Rs.{data.unitPrice}</span> <br />
                 <span>Weight(kg)-{data.unitWeight}</span> <br />
                 <span>Address - {data.addresse}</span> <br />
-                <span>Quantity - {data.quantity}</span> <br />
+                <span>Quantity - {data.availableQuantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br /> 
                 <button className="btn btn-light delete-button" onClick={() => addCart(data.productId)}>
                 <i class="fas fa-cart-arrow-down"></i>
