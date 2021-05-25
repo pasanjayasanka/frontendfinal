@@ -66,7 +66,7 @@ export default function Search() {
                 <span>Weight(kg/l)-{data.unitWeight}</span> <br />
                 <span>Category - {data.categoryName}</span> <br />
                 <span>Address - {data.addresse}</span> <br />
-                <span>Quantity - {data.quantity}</span> <br />
+                <span>Quantity - {data.availableQuantity}</span> <br />
                 <span>Description - {data.productDescription}</span> <br />
                 <button className="btn btn-light delete-button" onClick={() => addCart(data.productId)}>
                 <i class="fas fa-cart-arrow-down"></i>

@@ -3,7 +3,7 @@ import { Table,Button } from 'react-bootstrap';
 import axios from 'axios';  
 import './AdminPanel.css';  
   
-const apiUrl = 'https://localhost:44374/api/Product/';  
+const apiUrl = 'https://localhost:44374/api/ProductChecks/';  
   
 class GetProducts extends React.Component{  
     constructor(props){  
@@ -42,7 +42,13 @@ class GetProducts extends React.Component{
     }  
    
  
-
+   Addproduct=(product)=>{  
+      axios.post('https://localhost:44374/api/Product',{imageSrc:product.imageSrc,imageName:product.imageName,imageFile: product.imageFile, email:product.email,productName:product.productName ,categoryName:product.categoryName,
+                            unitPrice:product.unitPrice,availableQuantity:product.availableQuantity,productDescription:product.productDescription,addresse:product.addresse,unitWeight:product.unitWeight})  
+    .then(json => {  
+      alert("Product is selected successfully");  
+    })  
+    } 
       
     render(){         
         const{error,products}=this.state;  
@@ -67,11 +73,11 @@ class GetProducts extends React.Component{
                        
                         <th>Category Name</th>  
                         <th>Address</th> 
-                        <th>Quantity</th> 
+                        <th>Quantity</th>  
                         <th>Unit Price</th>  
                         <th>Unit Weight</th> 
-                        <th>Action</th>
-                        
+                        <th>Remove</th>
+                        <th>Approve</th>
                       </tr>  
                     </thead>  
                     <tbody >  
@@ -83,14 +89,18 @@ class GetProducts extends React.Component{
                           
                           <td>{product.categoryName}</td>  
                           <td>{product.addresse}</td> 
-                          <td>{product.availableQuantity}</td>   
+                          <td>{product.availableQuantity}</td>  
                           <td>{product.unitPrice}</td>  
                           <td>{product.unitWeight}</td>  
                               
-                          <td><Button style={{ backgroundColor: 'Brown',border: '2px solid DimGrey',borderRadius: '5px'}}
+                          <td><Button style={{ backgroundColor: 'DarkSlateGray',border: '2px solid DimGrey',borderRadius: '5px'}}
                            onClick={() => this.DeleteProduct(product.productId)}>Delete</Button>  
-                          
                           </td>  
+                          <td><Button style={{ backgroundColor: 'Gray',border: '2px solid DimGrey',borderRadius: '5px'}}
+                           onClick={() => this.Addproduct(
+                            {imageSrc:product.imageSrc,imageName:product.imageName, imageFile: product.imageFile,email:product.email,productName:product.productName ,categoryName:product.categoryName,
+                            unitPrice:product.unitPrice,availableQuantity:product.availableQuantity,productDescription:product.productDescription,addresse:product.addresse,unitWeight:product.unitWeight})}>Confirm</Button>  
+                          </td> 
                         </tr>  
                       ))}  
                     </tbody>  

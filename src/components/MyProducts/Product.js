@@ -6,8 +6,10 @@ const defaultImageSrc = '/img/image_placeholder.png'
 const initialFieldValues = {
     productId: 0,
     productName: '',  
-    quantity: 1,  
+    quantity: 1, 
+    availableQuantity:'', 
     email:'',
+    reorderLevel:0,
     categoryName: '',  
     addresse: '',
     productDescription:null,
@@ -84,7 +86,9 @@ export default function Product(props) {
             formData.append('productId', values.productId)
             formData.append('productName', values.productName)
             formData.append('email', localStorage.getItem('userEmail'))
+            formData.append('reorderLevel', values.reorderLevel)
             formData.append('quantity', values.quantity)
+            formData.append('availableQuantity', values.availableQuantity)
             formData.append('categoryName', values.categoryName)
             formData.append('addresse', values.addresse)
             formData.append('productDescription', values.productDescription)
@@ -123,6 +127,11 @@ export default function Product(props) {
                         <div className="form-group">
                             <input className={"form-control"+applyErrorClass('addresse')} placeholder="Address" name="addresse"
                                 value={values.addresse}
+                                onChange={handleInputChange} />
+                        </div>
+                        <div className="form-group">
+                            <input className="form-control" placeholder="Available Quantity" name="availableQuantity"
+                                value={values.availableQuantity}
                                 onChange={handleInputChange} />
                         </div>
                         <div className="form-group">
