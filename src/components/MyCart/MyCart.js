@@ -193,6 +193,10 @@ export default function MyCart() {
                   <div className="searchcard col-md-4 "  >               
                <h6>Total : Rs.{total}</h6>
            </div>
+           <div><p></p></div>
+           <div className="searchcard col-md-4 "  >               
+               <h6>Courier Service : Rs.300</h6>
+           </div>
            </div>      
             </div>
                

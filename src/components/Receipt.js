@@ -116,10 +116,10 @@ class Receipt extends React.Component{
                                             {Cart.map(order =>
                                             <tr className="service" key={order.productId}>
                                                 <td className="tableitem">
-                                                    <p className="itemtext">{order.productName}</p>
+                                                    <span className="itemtext">{order.productName}</span>
                                                 </td>
                                                 <td className="tableitem">
-                                                    <p className="itemtext">{order.quantity}</p>
+                                                    <span className="itemtext">{order.quantity}</span>
                                                 </td>
                                                 <td className="tableitem">
                                                     <span className="itemtext">{price=order.quantity*order.unitPrice}</span>
@@ -127,13 +127,26 @@ class Receipt extends React.Component{
                                                 </td>
                                             </tr>
                                              )}
-                                        
+
+                                            <tr className="service">
+                                                <td className="tableitem">
+                                                    <span className="itemtext">Courier Service</span>
+                                                </td>
+                                                <td className="tableitem">
+                                                    <span className="itemtext"></span>
+                                                </td>
+                                                <td className="tableitem">
+                                                    <span className="itemtext">300</span>
+                                                    <span hidden>{total=total+300}</span>
+                                                </td>
+                                            </tr>
+
                                             <tr className="service">
                                             <td className="tableitem">
-                                                <p className="itemtext"></p>
+                                                <span className="itemtext"></span>
                                             </td>
                                             <td className="tableitem">
-                                                <p className="itemtext"><strong>TOTAL</strong></p>
+                                                <span className="itemtext"><strong>TOTAL</strong></span>
                                             </td>
                                             <td className="tableitem">
                                                 <span className="itemtext"><strong>{total}</strong></span>

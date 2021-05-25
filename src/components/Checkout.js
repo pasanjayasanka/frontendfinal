@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Form, Label,Input,FormGroup, FormFeedback, Button } from 'reactstrap';
 
+var courier = 300;
 class Checkout extends Component  {
   
 
@@ -21,7 +22,7 @@ class Checkout extends Component  {
         'billDate':'',
         'email':'',
         'cvv': '',
-        'totalPrice':JSON.parse(localStorage.getItem('tt')),
+        'totalPrice':JSON.parse(localStorage.getItem('tt'))+courier,
         },
 
       errors: {}
