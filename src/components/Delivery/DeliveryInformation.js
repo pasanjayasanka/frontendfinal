@@ -14,6 +14,7 @@ class DeliveryInformation extends React.Component{
 
         super(props);
         this.state = {
+            ClickedOderId:this.props.location.state.orderId,
             error:null,
             deliveries:[],
             dispute:{
@@ -26,7 +27,8 @@ class DeliveryInformation extends React.Component{
 
     componentDidMount(){
         //////////////////////////////////////////////////////////////////////////////////////////
-        localStorage.setItem("ClickedItem",2); //<============================== to check only. remove later
+        console.log("came from setting" + this.state.ClickedOderId);
+        localStorage.setItem("ClickedItem",this.state.ClickedOderId); //<============================== to check only. remove later
 /////////////////////////////////////////////////////////////////////////////////////////////////////
         axios.get(apiUrl ).then(response => response.data).then(
             (result)=>{
@@ -134,7 +136,7 @@ class DeliveryInformation extends React.Component{
             // console.log("filtered data");
             // console.log(delivery);
             return(
-                <div className="container" >
+                <div className="container" style={{backgroundImage:`url(${delivery})`,backgroundPosition:'50%',verticalAlign:"middle",backgroundSize:'110%'}}>
                 <Card style={{width:'30rem', }}>
                     {deliveries.filter((delivery)=> (delivery.orderId === parseInt(orderID))).map(delivery => (
                         <CardBody key = {delivery.id} >

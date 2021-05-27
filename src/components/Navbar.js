@@ -8,7 +8,7 @@ class Navbar extends Component {
 
     render() {
         const isAuth = this.props.isAuth;
-        console.log("inside Navbar" + isAuth);
+        //console.log("inside Navbar" + isAuth);
         const useRole = localStorage.getItem('role');
         const currentUser = localStorage.getItem('userFirstName');
 

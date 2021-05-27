@@ -8,7 +8,7 @@ import {FormFeedback, Input, Table} from "reactstrap";
 import {Link} from "react-router-dom";
 
 const userUrl = 'https://localhost:44374/api/User/';
-const orderUrl = 'https://localhost:44374/api/Orders';
+const orderUrl = 'https://localhost:44374/api/Order';
 
 
 class Setting extends Component {
@@ -388,7 +388,9 @@ class Setting extends Component {
                                                     <td>{order.quantity}</td>
                                                     <td>{order.unitPrice}</td>
                                                     <td>
-                                                        <button className='trackingbutton'>Tracking</button>
+                                                        <Link to={{pathname:'./DeliveryInfo',state:{orderId:order.orderId }}}>
+                                                            <button className='trackingbutton' >Tracking</button>
+                                                        </Link>
                                                         <Link to={{pathname:'./NewReview',state:{product:order.productName,farmermail:order.email}}}>
                                                             <button disabled={this.state.isDisabled} className='feedbackbutton'>Review</button>
                                                         </Link>

@@ -49,9 +49,7 @@ const LoginForm = () => {
                     if( role ==="Buyer"){            alert("YOU ARE WELCOME TO GOVIMITHURO ! Customer login"); window.location.replace('/') }
                     if( role ==="Seller"){           alert("YOU ARE WELCOME TO GOVIMITHURO ! Seller login");   window.location.replace('/')  }
                     if( role ==="Administrator"){    alert("YOU ARE WELCOME TO GOVIMITHURO ! Admin login");    window.location.replace('/') }
-                    else{
-                        alert("Invalid Credentials!")
-                    }
+
                 }
                 else {
                     alert("Invalid Credentials!")
