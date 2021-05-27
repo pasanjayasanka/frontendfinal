@@ -2,7 +2,9 @@ import React from 'react';
 import { Button, Card} from 'react-bootstrap';
 
 import axios from 'axios';
-import {CardBody, CardText, CardTitle, Form, FormFeedback, FormGroup, Input} from "reactstrap";
+import {CardBody, CardText, CardTitle,  Input} from "reactstrap";
+import delivery from './../../img/delivery.jpg'
+
 
 
 const apiUrl = 'https://localhost:44374/api/DeliveryInfo/';
@@ -24,7 +26,7 @@ class DeliveryInformation extends React.Component{
 
     componentDidMount(){
         //////////////////////////////////////////////////////////////////////////////////////////
-        localStorage.setItem("ClickedItem",2); //<============================== to check only
+        localStorage.setItem("ClickedItem",2); //<============================== to check only. remove later
 /////////////////////////////////////////////////////////////////////////////////////////////////////
         axios.get(apiUrl ).then(response => response.data).then(
             (result)=>{
@@ -104,6 +106,22 @@ class DeliveryInformation extends React.Component{
         const{errors,error,deliveries}=this.state;
         const orderID = localStorage.getItem("ClickedItem");
 
+        if(orderID=== null)
+        {
+            return (<div className="centre"><h2> Error Occurred !</h2>  </div>)
+        }
+        if( !(deliveries.some(function (el){ return el.orderId === parseInt(orderID)})))
+        {
+            return (<div className="center" >
+                <Card style={{alignItems:'center'  }}>
+                    <h3 > Item will be accepted by Courier Service soon!</h3>
+                    <Button variant="primary" onClick={ ()=>this.goback()} style={{width:'300px', }}> Go back </Button>
+
+                </Card>
+            </div>)
+
+        }
+
         if(error){
 
             return(
@@ -116,13 +134,14 @@ class DeliveryInformation extends React.Component{
             // console.log("filtered data");
             // console.log(delivery);
             return(
-                <div className="container">
-                <Card style={{width:'30rem'}}>
+                <div className="container" >
+                <Card style={{width:'30rem', }}>
                     {deliveries.filter((delivery)=> (delivery.orderId === parseInt(orderID))).map(delivery => (
                         <CardBody key = {delivery.id} >
 
                             <CardTitle> Govimithuro Delivery</CardTitle>
                             <CardText >
+                                <hr className="solid"/>
                                 Delivery Id : {delivery.deliveryId}
                             </CardText>
                             <CardText >
@@ -143,16 +162,18 @@ class DeliveryInformation extends React.Component{
                             <CardText >
                                 Delivered : {delivery.delivered}
                             </CardText>
+                            {!(delivery.delivered === "yes") &&
                             <CardText>
                                 <b> Wait for estimated time before submit dispute !</b> <br/>
                                 Not Received :
                                 <Input Value={delivery.notReceived} name="notReceived" onChange={this.handleChange}/>
                             </CardText>
+                            }
                             <CardText>
                                 Dispute Message :
                                 <Input   Value={delivery.disputeMessage}  name="disputeMessage" onChange={this.handleChange} />
                             </CardText>
-                        <Button variant="primary"> Go back </Button>
+                        <Button variant="primary" onClick={ ()=>this.goback()}> Go back </Button>
                             <Button variant="primary" onClick={()=> this.submitDispute(delivery)}> Submit dispute </Button>
 
                         </CardBody>
@@ -165,8 +186,10 @@ class DeliveryInformation extends React.Component{
     }
 
 
+    goback() {
+        localStorage.setItem("ClickedItem", null);
+        window.location.replace('/setting');
+    }
 }
-
-
 
 export default DeliveryInformation
