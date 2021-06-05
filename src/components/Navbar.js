@@ -118,7 +118,7 @@ class Navbar extends Component {
         localStorage.setItem('userAddress', "not logged in");
         localStorage.setItem('userEmail', "not logged in");
         localStorage.setItem('dataCart', null);
-
+        localStorage.setItem('password',null);
     }
 }
 export default Navbar

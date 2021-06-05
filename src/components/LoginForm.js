@@ -37,6 +37,7 @@ const LoginForm = () => {
                     localStorage.setItem('userEmail', response.data.userEmail);
                     localStorage.setItem('userAddress', response.data.userAddress);
                     localStorage.setItem('userPhone', response.data.userPhone);
+                    localStorage.setItem('password',loginData.password);
 
                    // const token = response.data.token;
                                                            //send token to decode
