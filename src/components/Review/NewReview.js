@@ -111,7 +111,7 @@ class NewReview extends Component{
                             <FormFeedback>{errors.reviews}</FormFeedback>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Give a rating to the product</Form.Label>
+                            <Form.Label>Give a rating to the product(Enter number between 10 - 0, 10-Very Good, 0-Very Bad)</Form.Label>
                             <Input value={data.rank} invalid={errors.rank ? true : false} name="rank" onChange={this.handleChange}/>
                             <FormFeedback>{errors.rank}</FormFeedback>
                         </Form.Group>
