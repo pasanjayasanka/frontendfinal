@@ -164,7 +164,7 @@ class Setting extends Component {
     }
 
     deleteRow(orderID,e){
-        axios.delete(`https://localhost:44374/api/Orders/${orderID}`)
+        axios.delete(`https://localhost:44374/api/Order/${orderID}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
